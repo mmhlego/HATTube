@@ -1,0 +1,43 @@
+.root{
+    -fx-background-color: black;
+}
+.poster{
+    -fx-background-image: url(../../../resource/images/posters/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_QL75_UX280_CR0,0,280,414_.jpg);
+
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover;
+/*    -fx-background-color: linear-gradient(to bottom, rgba(43, 48, 57, 0.9),rgba(43, 48, 57, 0.8),rgba(43, 48, 57, 0.5),rgba(43, 48, 57, 0.3));*/
+}
+.top_anc{
+    -fx-background-color: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5),rgba(0,0,0,0.3));
+}
+.sep_V{
+    -fx-background-color: linear-gradient(transparent,white,transparent);
+}
+.sep_H{
+    -fx-background-color: linear-gradient(to left,transparent,white,transparent);
+}
+.sep{
+    -fx-background-color: #dddddd50;
+}
+.btns{
+    -fx-background-color: rgba(255,255,255,0.3);
+}
+.btns:hover{
+    -fx-background-color: rgba(255,255,255,0.5);
+}
+.area{
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+
+}
+
+.download_area{
+    -fx-background-color: #1d1d1e;
+    -fx-border-width: 2 0 0 0;
+    -fx-border-color: rgba(255, 255, 255, 0.58);
+}
+.dL{
+    -fx-background-color: #2d2d35;
+    -fx-background-radius: 20 20 0 0;
+}
