@@ -11,21 +11,24 @@ public class DataBase {
     private static Connection Con;
     private static Stage LoadingScreen;
 
+    public static void LoadScreen() {
+
+    }
+
     public static boolean Connect() throws SQLException {
-        Con = DriverManager.getConnection("jdbc:mysql://freedb.tech/freedbtech_hatbanksystem", "freedbtech_hatuser",
-                "hatpassword");
+        Con = DriverManager.getConnection("jdbc:mysql://sql4.freesqldatabase.com", "sql4418978", "IFsr6JbPnp");
 
         // TODO
 
         return Con != null;
     }
 
-    public static ResultSet RunCommand(String command) {
+    private static ResultSet RunCommand(String command) {
         // TODO
         return null;
     }
 
-    public static void ShowLoading(Runnable runnable) {
+    private static void ShowLoading(Runnable runnable) {
         LoadingScreen.show();
         new Thread(runnable).start();
         LoadingScreen.hide();

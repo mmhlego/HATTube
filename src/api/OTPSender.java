@@ -11,7 +11,7 @@ public class OTPSender {
     public static void SendOTP(String Phone) {
         try {
             URL url = new URL(
-                    "http://89.165.64.251:1000/api/MMHSmsSender?username=MMHSMSSenderApi80Username&password=MMHSMSSenderApi80Password&phone="
+                    "http://89.165.64.251:1500/api/MMHSmsSender?username=MMHSMSSenderApi80Username&password=MMHSMSSenderApi80Password&phone="
                             + Phone);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

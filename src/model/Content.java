@@ -1,10 +1,11 @@
 package model;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import javafx.scene.image.Image;
+import tools.IDGenerator;
 
 public class Content extends ContentInheritance {
     String Name, Description;
@@ -13,7 +14,7 @@ public class Content extends ContentInheritance {
     double Score;
     Gson Info;
     boolean Visibility;
-    Image Poster;
+    URL Poster;
     ArrayList<Link> Resources;
     ArrayList<Comment> Comments;
 
@@ -24,6 +25,7 @@ public class Content extends ContentInheritance {
 
     @Override
     public void GenerateID() {
+        String ID = IDGenerator.RandomID("HCNT", 10);
         // TODO
     }
 
@@ -34,6 +36,10 @@ public class Content extends ContentInheritance {
 
     @Override
     public void View() {
+        // TODO
+    }
+
+    public static void CheckImages() {
         // TODO
     }
 }

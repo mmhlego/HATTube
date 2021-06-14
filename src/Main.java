@@ -1,7 +1,7 @@
-import api.OTPSender;
+import tools.Validator;
 
 public class Main {
     public static void main(String[] args) {
-        OTPSender.SendOTP("09146501380");
+        System.out.println(Validator.CheckEmailValidaty("ige@gmail.com"));
     }
 }

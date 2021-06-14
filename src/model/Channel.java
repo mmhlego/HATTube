@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import tools.IDGenerator;
+
 public class Channel extends Unique {
     private String OwnerID, ChannelName;
     private ArrayList<Content> Contents;
@@ -27,6 +29,7 @@ public class Channel extends Unique {
 
     @Override
     public void GenerateID() {
+        String ID = IDGenerator.RandomID("HCNL", 8);
         // TODO 
     }
 }
