@@ -1,0 +1,15 @@
+.root{
+    -fx-background-color: #1a1a1a;
+
+}
+
+ .root:hover .img{
+    -fx-opacity: 0.5;
+}
+ .root:hover .overlays{
+     -fx-opacity: 1;
+ }
+.overlays{
+    -fx-background-color: rgba(255,255,255,0.6);
+    -fx-background-radius: 50px;
+}

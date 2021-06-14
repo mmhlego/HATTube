@@ -1,0 +1,41 @@
+.root{
+    -fx-background-color: #1a1a1a;
+}
+.lines{
+   /* -fx-background-color: #919191;*/
+    -fx-background-color: linear-gradient(to left,#00000000,white,#00000000);
+}
+.area_side{
+    -fx-background-color: #ff00c7;
+    -fx-background-radius: 3 3 0 0;
+}
+
+.area{
+    -fx-background-color: #6b6b6b;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+.area .scroll-pane .viewport{
+    -fx-background-color: #6b6b6b;
+}
+.area .scroll-pane .viewport .content{
+    -fx-background-color: #6b6b6b;
+}
+.button {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+
+}
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+
+}
+#first{
+    -fx-background-radius: 0 25 25 0;
+    -fx-border-width: 0 0 0 1;
+    -fx-border-color: #1a1a1a;
+}
+#second{
+    -fx-background-radius: 25 0 0 25;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #1a1a1a;
+}

@@ -1,0 +1,46 @@
+.root{
+    -fx-background-color: black;
+}
+.exitMenu{
+    -fx-background-color: #212121;
+}
+.topMenu{
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+}
+.scroll-pane{
+    -fx-background-color: transaparent;
+    -fx-background:transparent;
+}
+.scroll-pane .scroll-bar {
+    -fx-background-color: transparent;
+
+
+}
+.scroll-pane .scroll-bar .thumb{
+    -fx-background-color: #67C4C6;
+}
+.scroll-pane .scroll-bar .increment-button{
+    -fx-background-color: transparent;
+}
+.scroll-pane .scroll-bar .decrement-button{
+    -fx-background-color: transparent;
+}
+.scroll-pane .scroll-bar .increment-button .increment-arrow{
+    -fx-background-color: transparent;
+}
+.scroll-pane .scroll-bar .decrement-button .decrement-arrow{
+    -fx-background-color: transparent;
+}
+.searchBar{
+    -fx-background-radius: 50px;
+    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255,255,255,0.9);
+}
+.searchBar:focused{
+    -fx-background-color: rgba(255,255,255,0.5);
+}
+.iBack:hover{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 5px;
+}
