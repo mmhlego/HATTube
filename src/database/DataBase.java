@@ -1,31 +1,36 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import javafx.stage.Stage;
 
 public class DataBase {
-    private static Connection Con;
-    private static Stage LoadingScreen;
+    protected static Connection Con;
+    protected static Stage LoadingScreen;
+    protected static ResultSet Results;
 
-    public static boolean Connect() throws SQLException {
-        Con = DriverManager.getConnection("jdbc:mysql://freedb.tech/freedbtech_hatbanksystem", "freedbtech_hatuser",
-                "hatpassword");
+    public static void LoadScreen() {
 
-        // TODO
-
-        return Con != null;
     }
 
-    public static ResultSet RunCommand(String command) {
-        // TODO
-        return null;
+    public static boolean Connect() {
+        try {
+            Con = DriverManager.getConnection("jdbc:mysql://sql4.freesqldatabase.com", "sql4418978", "IFsr6JbPnp");
+
+            return Con != null;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public static void ShowLoading(Runnable runnable) {
+    public static ResultSet RunCommand(String Command) throws SQLException {
+        Results = Con.createStatement().executeQuery(Command);
+        return Results;
+    }
+
+    private static void ShowLoading(Runnable runnable) {
         LoadingScreen.show();
         new Thread(runnable).start();
         LoadingScreen.hide();

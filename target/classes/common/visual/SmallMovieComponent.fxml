@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="441.0" prefWidth="521.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SmallMovieComponent">
+   <children>
+      <AnchorPane fx:id="MovieAnc" layoutX="161.0" layoutY="53.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="200.0" styleClass="root" stylesheets="@SmallMovieComponent.css">
+         <children>
+            <Label fx:id="LikeLBL" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="25.0" layoutY="58.0" prefHeight="35.0" prefWidth="150.0" styleClass="overlays" text="99%" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_facebook_like_480px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="ViewLBL" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="25.0" layoutY="113.0" prefHeight="35.0" prefWidth="150.0" styleClass="overlays" text="8374823" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_eye_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="ImdbLBL" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="25.0" layoutY="168.0" prefHeight="35.0" prefWidth="150.0" styleClass="overlays" text="9.9" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_imdb_208px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <ImageView fx:id="MovieIMG" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="img">
+               <image>
+                  <Image url="@../../../resource/images/posters/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_QL75_UX280_CR0,0,280,414_.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="MovieNameLBL" alignment="CENTER" layoutX="86.0" layoutY="304.0" text="Loki" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="300.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="15.0" offsetX="1.0" offsetY="2.0" radius="7.0" width="15.0">
+               <color>
+                  <Color red="0.4300000071525574" green="0.4300000071525574" blue="0.4300000071525574" opacity="0.604347825050354" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+   </children>
+</AnchorPane>

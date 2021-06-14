@@ -1,12 +1,16 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import tools.IDGenerator;
 
 public class User extends Unique {
     String FirstName, LastName, Phone, Email, Username, Password;
     LocalDate BirthDate;
     int Age, AccessID = 0;
     Channel channel;
+    ArrayList<String> Subcriptions;
 
     public void CalculateAge() {
         Age = CalculateAge(BirthDate);
@@ -31,6 +35,7 @@ public class User extends Unique {
 
     @Override
     public void GenerateID() {
+        String ID = IDGenerator.RandomID("HUSR", 8);
         // TODO
     }
 }

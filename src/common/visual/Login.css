@@ -1,0 +1,26 @@
+.root{
+    -fx-background-color: #2d2d35;
+}
+.field{
+
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 50px;
+    -fx-text-fill: white;
+
+}
+.field:focused{
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 2 2 2 2;
+    -fx-border-radius: 50px;
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+.tL{
+
+}
+.sep{
+    -fx-background-color: linear-gradient(to left,#00000000,rgba(255,255,255,0.5), rgba(0, 0, 0, 0));
+}
+.lBTN{
+    -fx-background-color: #5ca0a4;
+    -fx-background-radius: 50px;
+}

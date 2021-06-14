@@ -1,0 +1,9 @@
+.root{
+    -fx-background-color: #000000;
+}
+.box{
+   /* -fx-background-color: #EB240A;*/
+    -fx-background-color: none;
+    -fx-background-radius: 50;
+}
+

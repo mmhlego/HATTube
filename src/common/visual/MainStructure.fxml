@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0" spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_delete_480px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="141.0" layoutY="192.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <content>
+            <AnchorPane prefHeight="619.0" prefWidth="1080.0">
+               <effect>
+                  <GaussianBlur />
+               </effect>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <AnchorPane layoutX="398.0" layoutY="-26.0" prefHeight="60.0" prefWidth="200.0" styleClass="topMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Separator layoutX="1001.0" layoutY="10.0" orientation="VERTICAL" prefHeight="40.0" />
+            <Label alignment="CENTER" layoutX="461.0" layoutY="4.0" prefHeight="60.0" prefWidth="158.0" text="HAT Tube">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" blue="0.7803921699523926" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="45.0" fitWidth="60.0" layoutX="1020.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resource/images/icons/icons8_menu_240px.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Group layoutX="15.0" layoutY="10.0">
+               <children>
+                  <AnchorPane prefHeight="40.0" prefWidth="124.0" styleClass="iBack">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resource/images/icons/icons8_bookmark_512px.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="40.0" layoutY="7.0" text="Watchlist" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+               </children>
+            </Group>
+            <Separator layoutX="145.0" layoutY="10.0" orientation="VERTICAL" prefHeight="40.0" />
+            <Group layoutX="157.0" layoutY="10.0">
+               <children>
+                  <AnchorPane prefHeight="40.0" prefWidth="115.0" styleClass="iBack">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resource/images/icons/user.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="40.0" layoutY="7.0" text="Account" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Group>
+            <AnchorPane layoutX="911.0" layoutY="11.0" prefHeight="40.0" prefWidth="58.0">
+               <children>
+                  <TextField focusTraversable="false" prefHeight="40.0" prefWidth="63.0" promptText="Search here ..." styleClass="searchBar" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets left="15.0" right="48.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <AnchorPane layoutX="43.0" prefHeight="40.0" prefWidth="40.0" styleClass="iBack">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="200.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resource/images/icons/icons8_search_144px.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
