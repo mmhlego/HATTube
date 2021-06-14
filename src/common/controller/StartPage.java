@@ -102,7 +102,8 @@ public class StartPage implements Initializable {
                         @Override
                         public void run() {
                             try {
-                                FXMLLoader loader = new FXMLLoader(new File("src/main/java/view/MainStructure.fxml").toURI().toURL());
+                                FXMLLoader loader = new FXMLLoader(
+                                        new File("src/common/visual/MainStructure.fxml").toURI().toURL());
                                 ((Stage) anchor.getParent().getScene().getWindow()).hide();
                                 Stage stage = new Stage(StageStyle.TRANSPARENT);
                                 Scene s = new Scene(loader.load());
