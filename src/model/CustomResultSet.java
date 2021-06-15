@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import database.DataSelector.Table;
 
-public class CustomResultSet {
+public class CustomResultSet<T> {
     Table DataMode;
     ResultSet Results;
 
@@ -17,21 +17,9 @@ public class CustomResultSet {
 
     public ArrayList<?> ToArrayList() {
         ResultSet temp = Results;
-        ArrayList<?> ans = null;
+        ArrayList<T> ans = new ArrayList<T>();
 
         try {
-            if (DataMode.equals(Table.Users)) {
-                ans = new ArrayList<User>();
-            } else if (DataMode.equals(Table.Channels)) {
-                ans = new ArrayList<Channel>();
-            } else if (DataMode.equals(Table.Contents)) {
-                ans = new ArrayList<Content>();
-            } else if (DataMode.equals(Table.Links)) {
-                ans = new ArrayList<Link>();
-            } else if (DataMode.equals(Table.Comments)) {
-                ans = new ArrayList<Comment>();
-            }
-
             while (temp.next()) {
                 temp.next();
                 if (DataMode.equals(Table.Users)) {
@@ -46,7 +34,7 @@ public class CustomResultSet {
 
                 }
             }
-            // TODO
+            // TODO (need Constructors)
         } catch (SQLException e) {
             e.printStackTrace();
         }
