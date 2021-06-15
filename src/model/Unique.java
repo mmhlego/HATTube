@@ -3,5 +3,5 @@ package model;
 public abstract class Unique {
     String ID;
 
-    public abstract void GenerateID();
+    // public abstract String GenerateID();
 }
