@@ -18,6 +18,8 @@ public class Content extends ContentInheritance {
     ArrayList<Link> Resources;
     ArrayList<Comment> Comments;
 
+    //TODO Constructor
+
     public String GenerateLink() {
         // TODO "hey watch this : #...{ID}"
         return "";

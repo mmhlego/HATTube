@@ -1,0 +1,6 @@
+Create a Token.api.txt file and place your token inside of its
+
+e.g.
+
+Token.api.txt
+    ╘═ e93e6343ffd04d0886c16c9d46458655

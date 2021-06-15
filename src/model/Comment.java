@@ -8,6 +8,8 @@ public class Comment extends CommentInheritance {
     String WriterID, ContentID, Text;
     LocalDate Date;
 
+    //TODO Constructor
+
     @Override
     public void Like() {
         // TODO   

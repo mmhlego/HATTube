@@ -8,6 +8,8 @@ public class Channel extends Unique {
     private String OwnerID, ChannelName;
     private ArrayList<Content> Contents;
 
+    //TODO Constructor
+
     public String getOwnerID() {
         return OwnerID;
     }

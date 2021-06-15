@@ -1,5 +1,4 @@
 import java.io.File;
-
 import database.DataBase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
