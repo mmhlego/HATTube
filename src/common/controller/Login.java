@@ -1,20 +1,14 @@
 package common.controller;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
 
@@ -44,10 +38,6 @@ public class Login implements Initializable {
 
     @FXML
     private ImageView PasswordIMG;
-
-
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
