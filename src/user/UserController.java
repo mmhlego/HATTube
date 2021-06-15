@@ -3,5 +3,13 @@ package user;
 import model.User;
 
 public class UserController {
-    User CurrentUser;
+    private static User CurrentUser = null;
+
+    public User GetCurrentUser() {
+        return CurrentUser;
+    }
+
+    public static boolean LoggedIn() {
+        return CurrentUser != null;
+    }
 }

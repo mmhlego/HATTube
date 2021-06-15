@@ -6,9 +6,11 @@ import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
@@ -17,7 +19,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import user.UserController;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -70,14 +74,14 @@ public class MainStructure implements Initializable {
         WatchlistIMG.setOnMouseEntered(e -> {
             TranslateToFront(Sep);
             TranslateToFront(AccountANC);
-
-
         });
+
         AccountIMG.setOnMouseEntered(e -> AccountLBL.setVisible(true));
         WatchlistIMG.setOnMouseExited(e -> {
             TranslateToBack(Sep, -85);
             TranslateToBack(AccountANC, -85);
         });
+
         AccountIMG.setOnMouseExited(e -> AccountLBL.setVisible(false));
         SearchIMG.setOnMouseClicked(e -> {
             if (!isSearchOpen) {
@@ -88,7 +92,22 @@ public class MainStructure implements Initializable {
             }
         });
 
+        AccountANC.setOnMouseClicked(e -> {
+            if (UserController.LoggedIn())
+                OpenPage("src/common/visual/Login.fxml");
+            else
+                OpenPage("src/common/visual/Signup.fxml");
+        });
+    }
 
+    private void OpenPage(String path) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
+            Parent root = loader.load();
+            ((AnchorPane) EndArea.getParent()).getChildren().add(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void TranslateToBack(Node node, double dis) {
