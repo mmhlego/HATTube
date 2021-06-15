@@ -1,9 +1,10 @@
-.root{
-    -fx-background-color: #2d2d35;
+.root {
+    -fx-background-color: #535359;
 }
-.field{
 
-    -fx-background-color: rgba(255, 255, 255, 0.2);
+.field {
+
+    -fx-background-color: #2d2d35;
     -fx-background-radius: 50px;
     -fx-text-fill: white;
 
@@ -27,22 +28,4 @@
 .lBTN {
     -fx-background-color: #5ca0a4;
     -fx-background-radius: 50px;
-}
-
-.field .input-line {
-    -fx-background-color: transparent;
-}
-
-.field .date-picker-display-node {
-    -fx-background-radius: 50px;
-    -fx-text-fill: white;
-}
-
-.field .date-picker-display-node:focused {
-
-    -fx-background-color: rgba(255, 255, 255, 0);
-}
-
-.field .input-focused-line {
-    -fx-background-color: transparent;
 }

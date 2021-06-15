@@ -8,19 +8,41 @@
     -fx-text-fill: white;
 
 }
-.field:focused{
+
+.field:focused {
     -fx-border-color: rgba(255, 255, 255, 0.2);
     -fx-border-width: 2 2 2 2;
     -fx-border-radius: 50px;
     -fx-background-color: rgba(255, 255, 255, 0);
 }
-.tL{
+
+.tL {
 
 }
-.sep{
-    -fx-background-color: linear-gradient(to left,#00000000,rgba(255,255,255,0.5), rgba(0, 0, 0, 0));
+
+.sep {
+    -fx-background-color: linear-gradient(to left, #00000000, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0));
 }
-.lBTN{
+
+.lBTN {
     -fx-background-color: #5ca0a4;
     -fx-background-radius: 50px;
+}
+
+.field .input-line {
+    -fx-background-color: transparent;
+}
+
+.field .date-picker-display-node {
+    -fx-background-radius: 50px;
+    -fx-text-fill: white;
+}
+
+.field .date-picker-display-node:focused {
+
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+
+.field .input-focused-line {
+    -fx-background-color: transparent;
 }
