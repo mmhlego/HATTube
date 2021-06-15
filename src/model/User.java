@@ -85,12 +85,12 @@ public class User extends Unique {
         AccessID = accessID;
     }
 
-    public Channel getChannel() {
-        return channel;
+    public String getChannelID() {
+        return ChannelID;
     }
 
-    public void setChannel(Channel channel) {
-        this.channel = channel;
+    public void setChannelID(String channelID) {
+        ChannelID = channelID;
     }
 
     public ArrayList<String> getSubcriptions() {
@@ -102,11 +102,11 @@ public class User extends Unique {
     }
 
     int Age, AccessID = 0;
-    Channel channel;
+    String ChannelID;
     ArrayList<String> Subcriptions;
 
-    public User(String id , String firstName, String lastName, String phone, String email, String username, String password,
-            LocalDate birthDate, int accessID, Channel channel, ArrayList<String> subcriptions) {
+    public User(String id, String firstName, String lastName, String phone, String email, String username,
+            String password, LocalDate birthDate, int accessID, String channelID, ArrayList<String> subcriptions) {
         ID = id;
         FirstName = firstName;
         LastName = lastName;
@@ -117,13 +117,14 @@ public class User extends Unique {
         BirthDate = birthDate;
         CalculateAge(BirthDate);
         AccessID = accessID;
-        this.channel = channel;
+        ChannelID = channelID;
         Subcriptions = subcriptions;
     }
 
     public User(String firstName, String lastName, String phone, String email, String username, String password,
             LocalDate birthDate) {
-        this(GenerateID() ,firstName, lastName, phone, email, username, password, birthDate, 0, null, new ArrayList<String>());
+        this(GenerateID(), firstName, lastName, phone, email, username, password, birthDate, 0, "",
+                new ArrayList<String>());
     }
 
     public void CalculateAge() {

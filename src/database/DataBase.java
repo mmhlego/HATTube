@@ -15,7 +15,7 @@ public class DataBase {
 
     public static boolean Connect() {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://sql4.freesqldatabase.com", "sql4418978", "IFsr6JbPnp");
+            Con = DriverManager.getConnection("jdbc:mysql://sql4.freesqldatabase.com/sql4418978", "sql4418978", "IFsr6JbPnp");
 
             return Con != null;
 
