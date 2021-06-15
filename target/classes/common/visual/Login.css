@@ -46,3 +46,6 @@
 .field .input-focused-line {
     -fx-background-color: transparent;
 }
+.glass{
+    -fx-background-color: rgba(136, 136, 136, 0.51);
+}

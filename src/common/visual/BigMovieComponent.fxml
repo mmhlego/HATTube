@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.effect.GaussianBlur?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Polygon?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1741.0" prefWidth="1080.0" stylesheets="@BigMovieComponent.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1741.0"
+            prefWidth="1080.0" stylesheets="@BigMovieComponent.css" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="420.0" layoutY="168.0" prefHeight="400.0" prefWidth="200.0" styleClass="poster" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="420.0" layoutY="168.0" prefHeight="400.0" prefWidth="200.0" styleClass="poster"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <effect>
-            <GaussianBlur radius="43.1" />
+            <GaussianBlur radius="43.1"/>
          </effect>
       </AnchorPane>
-      <AnchorPane prefHeight="414.0" prefWidth="200.0" styleClass="top_anc" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="414.0" prefWidth="200.0" styleClass="top_anc" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="300.0" fitWidth="228.0" layoutX="808.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
+            <ImageView fitHeight="300.0" fitWidth="228.0" layoutX="808.0" layoutY="57.0" pickOnBounds="true"
+                       preserveRatio="true" AnchorPane.rightAnchor="100.0">
                <image>
                   <Image url="@../../../resource/images/posters/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_QL75_UX280_CR0,0,280,414_.jpg" />
                </image>

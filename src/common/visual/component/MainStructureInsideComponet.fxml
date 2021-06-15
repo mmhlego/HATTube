@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="450.0" prefWidth="1078.0" stylesheets="@MaisnStrucureInsideComponent.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="common.controller.component.MainStructureInsideComponent">
+    <children>
+        <Label fx:id="Title" graphicTextGap="10.0" layoutX="203.0" layoutY="143.0" text="Title:Top Picks:"
+               AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+            <font>
+                <Font name="System Bold" size="17.0"/>
+            </font>
+            <graphic>
+                <AnchorPane prefHeight="35.0" prefWidth="7.0" styleClass="BL"/>
+            </graphic>
+        </Label>
+        <ImageView fx:id="MoreBTN" fitHeight="35.0" fitWidth="167.0" layoutX="163.0" layoutY="25.0" pickOnBounds="true"
+                   preserveRatio="true" rotate="180.0">
+            <image>
+                <Image url="@../../../../resource/images/icons/icons8_back_480px.png"/>
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="25.0" layoutY="71.0" prefHeight="2.0" prefWidth="2.0" styleClass="sep"
+                    AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"/>
+        <HBox fx:id="MoviesPlace" alignment="CENTER_LEFT" layoutX="98.0" layoutY="86.0" prefHeight="347.0"
+              prefWidth="1030.0" spacing="20.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"/>
+    </children>
+</AnchorPane>
