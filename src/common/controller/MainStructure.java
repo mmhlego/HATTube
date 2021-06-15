@@ -96,7 +96,7 @@ public class MainStructure implements Initializable {
             if (UserController.LoggedIn())
                 OpenPage("src/common/visual/Login.fxml");
             else
-                OpenPage("src/common/visual/Signup.fxml");
+                OpenPage("src/common/visual/SignUp1.fxml");
         });
     }
 
