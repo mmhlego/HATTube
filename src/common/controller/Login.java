@@ -7,10 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
 

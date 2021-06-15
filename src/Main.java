@@ -1,5 +1,7 @@
 import java.io.File;
 import database.DataBase;
+import database.DataSelector;
+import database.DataSelector.Table;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +14,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         DataBase.LoadScreen();
         launch(args);
+        DataSelector.Select(Table.Users).ToArrayList();
     }
 
     @Override
