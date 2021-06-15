@@ -8,6 +8,8 @@ public class Link extends Unique {
     String ContentID, Name, Description;
     URL Url;
 
+    //TODO Constructor
+
     @Override
     public void GenerateID() {
         String ID = IDGenerator.RandomID("HLNK", 16);

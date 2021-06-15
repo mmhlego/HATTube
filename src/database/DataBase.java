@@ -25,9 +25,13 @@ public class DataBase {
         }
     }
 
-    public static ResultSet RunCommand(String Command) throws SQLException {
-        Results = Con.createStatement().executeQuery(Command);
-        return Results;
+    public static ResultSet RunCommand(String Command) {
+        try {
+            return Con.createStatement().executeQuery(Command);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private static void ShowLoading(Runnable runnable) {

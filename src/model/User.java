@@ -12,6 +12,8 @@ public class User extends Unique {
     Channel channel;
     ArrayList<String> Subcriptions;
 
+    //TODO Constructor
+
     public void CalculateAge() {
         Age = CalculateAge(BirthDate);
     }
@@ -29,7 +31,7 @@ public class User extends Unique {
     }
 
     public static boolean Approve(User user) {
-        //TODO check with db
+        //TODO check with db / with User or Username and password
         return false;
     }
 
