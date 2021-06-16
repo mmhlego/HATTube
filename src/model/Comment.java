@@ -49,16 +49,17 @@ public class Comment extends CommentInheritance {
 
     LocalDate Date;
 
-    public Comment(String id, String writerid, String contentid, String text, LocalDate date) {
+    public Comment(String id, String writerid, String contentid, String text, LocalDate date, long likes) {
         ID = id;
         WriterID = writerid;
         ContentID = contentid;
         Text = text;
         Date = date;
+        Likes = likes;
     }
 
     public Comment(String writerid, String contentid, String text) {
-        this(GenerateID() , writerid, contentid, text , LocalDate.now());
+        this(GenerateID() , writerid, contentid, text , LocalDate.now() , 0);
     }
 
     @Override

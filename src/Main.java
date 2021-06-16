@@ -3,9 +3,7 @@ import java.time.LocalDate;
 
 import database.DataAdder;
 import database.DataBase;
-import database.DataSelector;
 import database.DataUpdator;
-import database.DataSelector.Table;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,11 +19,11 @@ public class Main extends Application {
         // launch(args);
         DataBase.Connect();
         // DataSelector.Select(Table.Users).ToArrayList();
-        User u = new User("Arya", "Tabani", "09394397528", "k.tabani82@gmail.com", "CyberGhost", "HAT_Cyber",
+        User u = new User("Godrat", "Tanha", "09394397528", "k.tabani82@gmail.com", "Godratjoooooooooooooon", "HAT_Cyber",
                 LocalDate.now());
-        // DataAdder.AddData(u);
+        DataAdder.AddData(u);
 
-        DataUpdator.UpadateData(u);
+        // DataUpdator.UpadateData(u);
         System.out.println("Done");
     }
 

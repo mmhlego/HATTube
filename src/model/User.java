@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import tools.Encoder;
 import tools.IDGenerator;
 
 public class User extends Unique {
@@ -123,7 +124,7 @@ public class User extends Unique {
 
     public User(String firstName, String lastName, String phone, String email, String username, String password,
             LocalDate birthDate) {
-        this(GenerateID(), firstName, lastName, phone, email, username, password, birthDate, 0, "",
+        this(GenerateID(), firstName, lastName, phone, email, username, Encoder.EncodePassword(password), birthDate, 0, "",
                 new ArrayList<String>());
     }
 

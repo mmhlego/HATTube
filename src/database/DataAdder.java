@@ -3,11 +3,8 @@ package database;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import com.google.gson.Gson;
-
 import model.*;
-import tools.Encoder;
 
 public class DataAdder {
 
@@ -24,7 +21,7 @@ public class DataAdder {
                 ps.setString(5, ((User) obj).getPhone());
                 ps.setString(6, ((User) obj).getEmail());
                 ps.setString(7, ((User) obj).getUsername());
-                ps.setString(8, Encoder.EncodePassword(((User) obj).getPassword()));
+                ps.setString(8, ((User) obj).getPassword());
                 ps.setString(9, ((User) obj).getChannelID());
                 ps.setInt(10, ((User) obj).getAccessID());
                 ps.setString(11, new Gson().toJson(((User) obj).getSubcriptions()));
