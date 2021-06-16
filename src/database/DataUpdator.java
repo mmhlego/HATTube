@@ -105,4 +105,20 @@ public class DataUpdator {
         }
     }
 
+    public static void View(String ID) {
+        long Views;
+        PreparedStatement ps;
+        try {
+            ResultSet r = DataBase.RunCommand("SELECT Views FROM Contents WHERE ID =" + "\'" + ID + "\'");
+            r.next();
+            Views = r.getLong(1);
+            ps = DataBase.Con.prepareStatement(
+                    "UPDATE `Contents` SET `Views`=" + (Views + 1) + " WHERE ID =" + "\'" + ID + "\'");
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
