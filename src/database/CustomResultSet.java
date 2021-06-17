@@ -48,6 +48,36 @@ public class CustomResultSet<Type> {
         return null;
     }
 
+    public ArrayList<String> GetColumn(int index) {
+        ArrayList<String> ans = new ArrayList<>();
+        ResultSet temp = Results;
+
+        try {
+            while (temp.next()) {
+                ans.add(temp.getString(index));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ans;
+    }
+
+    public ArrayList<String> GetColumn(String columnName) {
+        ArrayList<String> ans = new ArrayList<>();
+        ResultSet temp = Results;
+
+        try {
+            while (temp.next()) {
+                ans.add(temp.getString(columnName));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ans;
+    }
+
     private Object ConvertToCurrectForm(ResultSet temp) throws SQLException {
         if (DataMode.equals(Table.Users)) {
             return (new User(temp.getString(1), temp.getString(2), temp.getString(3), temp.getString(5),

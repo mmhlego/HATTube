@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import model.Content;
 
 import java.io.File;
 import java.net.URL;
@@ -47,17 +48,13 @@ public class StartPage implements Initializable {
         Thread DBConnection = new Thread(new Runnable() {
             @Override
             public void run() {
-
-                try {
-                    Thread.sleep(2500);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
                 while (!DataBase.Connect()) {
                     System.out.println("Connection Failed. Retrying ...");
                 }
                 System.out.println("Connected");
+
+                Content.CheckImages();
+                System.out.println("Loaded Images");
 
                 Platform.runLater(new Runnable() {
                     @Override
@@ -90,58 +87,6 @@ public class StartPage implements Initializable {
                         ShowText(Text.substring(0, i));
                         Thread.sleep(millis);
                     }
-
-                    //Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("H");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HA");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT ");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT T");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT Tu");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT Tub");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT Tube");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

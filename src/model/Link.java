@@ -6,6 +6,7 @@ import tools.IDGenerator;
 
 public class Link extends Unique {
     String ContentID, Name, Description;
+    URL Url;
 
     public String getID() {
         return ID;
@@ -43,8 +44,6 @@ public class Link extends Unique {
         Url = url;
     }
 
-    URL Url;
-
     public Link(String id, String contentID, String name, String description, URL url) {
         ID = id;
         ContentID = contentID;
@@ -54,7 +53,7 @@ public class Link extends Unique {
     }
 
     public Link(String contentID, String name, String description, URL url) {
-        this(GenerateID(), contentID , name , description , url);
+        this(GenerateID(), contentID, name, description, url);
     }
 
     public static String GenerateID() {

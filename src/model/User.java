@@ -139,8 +139,10 @@ public class User extends Unique {
     }
 
     public boolean HasAccess(Access access) {
-        // TODO check access index
-        return false;
+        int temp = AccessID;
+        for (int i = 0; i < access.Location; i++)
+            temp /= 2;
+        return temp == 1;
     }
 
     public static boolean Approve(User user) {

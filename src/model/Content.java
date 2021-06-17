@@ -1,11 +1,15 @@
 package model;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import database.DataSelector;
 import database.DataUpdator;
 import database.DataSelector.Table;
 import tools.IDGenerator;
+import tools.ImageDownloader;
 
 public class Content extends ContentInheritance {
     String Name, Description;
@@ -138,7 +142,7 @@ public class Content extends ContentInheritance {
 
     @Override
     public void Like() {
-        DataUpdator.Like(Table.Contents , ID);
+        DataUpdator.Like(Table.Contents, ID);
     }
 
     @Override
@@ -147,7 +151,40 @@ public class Content extends ContentInheritance {
     }
 
     public static void CheckImages() {
-        // TODO
+        ArrayList<String> Images = DataSelector.Select(Table.Contents).GetColumn("Poster");
+        ArrayList<String> Names = DataSelector.Select(Table.Contents).GetColumn("Name");
+
+        System.out.println(Arrays.toString(Images.toArray()));
+        System.out.println(Arrays.toString(Names.toArray()));
+
+        int index = 0;
+        while (index < Images.size()) {
+            //System.out.println("Index : " + index);
+            if (new File("resource/images/posters/" + Names.get(index) + ".png").exists()
+                    || new File("resource/images/posters/" + Names.get(index) + ".jpg").exists()
+                    || new File("resource/images/posters/" + Names.get(index) + ".jpeg").exists()) {
+                //System.out.println("removed : " + Images.get(index));
+                Images.remove(index);
+                Names.remove(index);
+            } else {
+                index++;
+            }
+        }
+
+        System.out.println(Arrays.toString(Images.toArray()));
+        System.out.println(Arrays.toString(Names.toArray()));
+
+        for (int i = 0; i < Images.size(); i++) {
+            final String ImageUrl = Images.get(i);
+            final String ImageName = Names.get(i);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ImageDownloader.DownloadImage(ImageUrl, ImageName);
+                }
+            }).start();
+        }
     }
 }
 
