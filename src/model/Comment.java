@@ -2,6 +2,8 @@ package model;
 
 import java.time.LocalDate;
 
+import database.DataUpdator;
+import database.DataSelector.Table;
 import tools.IDGenerator;
 
 public class Comment extends CommentInheritance {
@@ -63,7 +65,7 @@ public class Comment extends CommentInheritance {
 
     @Override
     public void Like() {
-        // TODO
+        DataUpdator.Like(Table.Comments, ID);
     }
 
     public static String GenerateID() {

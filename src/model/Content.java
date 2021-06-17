@@ -3,6 +3,8 @@ package model;
 import java.net.URL;
 import java.util.ArrayList;
 
+import database.DataUpdator;
+import database.DataSelector.Table;
 import tools.IDGenerator;
 
 public class Content extends ContentInheritance {
@@ -136,12 +138,12 @@ public class Content extends ContentInheritance {
 
     @Override
     public void Like() {
-        // TODO
+        DataUpdator.Like(Table.Contents , ID);
     }
 
     @Override
     public void View() {
-        // TODO
+        DataUpdator.View(ID);
     }
 
     public static void CheckImages() {

@@ -37,6 +37,7 @@ public class DataAdder {
                 ps.setString(2, ((Channel) obj).getOwnerID());
                 ps.setString(3, ((Channel) obj).getChannelName());
                 ps.setString(4, new Gson().toJson(((Channel) obj).getContents()));
+                ps.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -55,7 +56,7 @@ public class DataAdder {
                 ps.setString(9, new Gson().toJson(((Content) obj).getInfo()));
                 ps.setBoolean(10, ((Content) obj).isVisibility());
                 ps.setString(11, ((Content) obj).getPoster().toString());
-
+                ps.executeUpdate();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -68,6 +69,7 @@ public class DataAdder {
                 ps.setString(3, ((Link) obj).getUrl().toString());
                 ps.setString(4, ((Link) obj).getName());
                 ps.setString(5, ((Link) obj).getDescription());
+                ps.executeUpdate();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -81,6 +83,7 @@ public class DataAdder {
                 ps.setString(4, ((Comment) obj).getText());
                 ps.setDate(5, Date.valueOf(((Comment) obj).getDate()));
                 ps.setLong(6, ((Comment) obj).getLikes());
+                ps.executeUpdate();
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -5,13 +5,12 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.File;
 
 public class Main extends Application {
     public static void main(String[] args) {
         //DataBase.LoadScreen();
-        launch(args);
+        // launch(args);
 
         //System.out.println(DataBase.Connect());
         //System.out.println(DataSelector.Select(Table.Users).GetFirstResult());
