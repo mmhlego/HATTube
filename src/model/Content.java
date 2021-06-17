@@ -131,9 +131,26 @@ public class Content extends ContentInheritance {
         return ID;
     }
 
-    public String GenerateLink() {
-        // TODO "hey watch this : #...{ID}"
-        return "";
+    public String GenerateInvitationLink() {
+        String Stars = "╔";
+        String InvitaionText = "║\tHey Lets Watch " + getName() + " On HATTube !\n║\tID = " + getID();
+        for (int i = 0; i < InvitaionText.length(); i++) {
+            Stars += "═";
+        }
+        Stars += "╗\n║";
+        for (int i = 0; i < InvitaionText.length() - 2; i++) {
+            Stars += " ";
+        }
+        Stars += "\n" + InvitaionText + "\n║";
+        for (int i = 0; i < InvitaionText.length(); i++) {
+            Stars += " ";
+        }
+        Stars += "║\n╚";
+        for (int i = 0; i < InvitaionText.length(); i++) {
+            Stars += "═";
+        }
+        Stars += "╝";
+        return Stars;
     }
 
     public static String GenerateID() {

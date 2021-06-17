@@ -6,6 +6,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import javafx.scene.control.Alert.AlertType;
+import tools.Dialog;
+
 public class OTPSender {
     private static String CurrentOTP = "";
 
@@ -27,11 +30,8 @@ public class OTPSender {
 
             Scanner scanner = new Scanner(Url.openStream());
             CurrentOTP = scanner.next();
-
-            System.out.println(CurrentOTP);
-
         } catch (IOException e) {
-            // TODO link not found ...
+            Dialog.Alert(AlertType.ERROR, "Error", "Check Your Internet Connection !");
             e.printStackTrace();
         }
     }
