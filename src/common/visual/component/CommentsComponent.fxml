@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="200.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.CommentsComponent">
+   <children>
+      <ImageView fx:id="CommentsOwnerIMG" fitHeight="80.0" fitWidth="200.0" layoutX="21.0" layoutY="25.0"
+                 pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../resource/images/avataaars.png"/>
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="111.0" layoutY="15.0" prefHeight="185.0" prefWidth="680.0" styleClass="component"
+                  stylesheets="@CommentsComponent.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="111.0"
+                  AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Polygon fill="#3b3b3b" layoutY="53.0"
+                     points="-26.100006103515625, -21.0999755859375, -3.0517578125E-5, -3.0999755859375, -3.0517578125E-5, -38.0999755859375"
+                     stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0"/>
+            <Label fx:id="CommentsOwnerLBL" layoutX="21.0" layoutY="14.0" text="Pouya:" textFill="WHITE"
+                   AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="System Bold Italic" size="17.0"/>
+               </font>
+            </Label>
+            <JFXTextArea fx:id="CommentTextArea" focusColor="#292929" layoutX="12.0" layoutY="48.0" prefHeight="139.0"
+                         prefWidth="709.0" unFocusColor="#292929" AnchorPane.bottomAnchor="0.0"
+                         AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"/>
+            <HBox layoutX="642.0" layoutY="13.0" spacing="10.0" AnchorPane.rightAnchor="15.0">
+               <children>
+                  <Group>
+                     <children>
+                        <Label fx:id="DislikeLBL" text="234234" textFill="WHITE">
+                           <font>
+                              <Font name="System Italic" size="12.0"/>
+                           </font>
+                        </Label>
+                        <ImageView fx:id="DislikeBTN" fitHeight="20.0" fitWidth="200.0" layoutX="49.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resource/images/icons/icons8_thumbs_down_96px.png"/>
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+                  <Group>
+                     <children>
+                        <Label fx:id="LikeLBL" text="234234" textFill="WHITE">
+                           <font>
+                              <Font name="System Italic" size="12.0"/>
+                           </font>
+                        </Label>
+                        <ImageView fx:id="LikeBTN" fitHeight="20.0" fitWidth="200.0" layoutX="49.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../resource/images/icons/icons8_facebook_like_500px.png"/>
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
