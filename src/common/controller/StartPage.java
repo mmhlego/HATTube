@@ -19,6 +19,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import database.DataBase;
+
 public class StartPage implements Initializable {
 
     @FXML
@@ -42,84 +44,120 @@ public class StartPage implements Initializable {
         transition.setInterpolator(Interpolator.EASE_BOTH);
         transition.play();
 
+        Thread DBConnection = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    Thread.sleep(2500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                while (!DataBase.Connect()) {
+                    System.out.println("Connection Failed. Retrying ...");
+                }
+                System.out.println("Connected");
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            FXMLLoader loader = new FXMLLoader(
+                                    new File("src/common/visual/MainStructure.fxml").toURI().toURL());
+                            ((Stage) anchor.getParent().getScene().getWindow()).hide();
+                            Stage stage = new Stage(StageStyle.TRANSPARENT);
+                            Scene s = new Scene(loader.load());
+                            s.setFill(Color.TRANSPARENT);
+                            stage.setScene(s);
+                            stage.show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
+                int millis = 400;
                 try {
-                    Thread.sleep(500);
 
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("H");
-                        }
-                    });
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("HA");
-                        }
-                    });
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("HAT ");
-                        }
-                    });
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("HAT T");
-                        }
-                    });
-                    Thread.sleep(500);
+                    String Text = "HAT TUBE";
+                    for (int i = 1; i <= Text.length(); i++) {
+                        ShowText(Text.substring(0, i));
+                        Thread.sleep(millis);
+                    }
 
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("HAT Tu");
-                        }
-                    });
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("HAT Tub");
-                        }
-                    });
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LBL.setText("HAT Tube");
-                        }
-                    });
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                FXMLLoader loader = new FXMLLoader(
-                                        new File("src/common/visual/MainStructure.fxml").toURI().toURL());
-                                ((Stage) anchor.getParent().getScene().getWindow()).hide();
-                                Stage stage = new Stage(StageStyle.TRANSPARENT);
-                                Scene s = new Scene(loader.load());
-                                s.setFill(Color.TRANSPARENT);
-                                stage.setScene(s);
-                                stage.show();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
+                    //Thread.sleep(millis);
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("H");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("HA");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("HAT ");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("HAT T");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
+                    //
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("HAT Tu");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("HAT Tub");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
+                    //                    Platform.runLater(new Runnable() {
+                    //                        @Override
+                    //                        public void run() {
+                    //                            LBL.setText("HAT Tube");
+                    //                        }
+                    //                    });
+                    //                    Thread.sleep(millis);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+
+            private void ShowText(String substring) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        LBL.setText(substring);
+                    }
+                });
+            }
         });
+
+        DBConnection.start();
         thread.start();
     }
 }

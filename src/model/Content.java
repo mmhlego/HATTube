@@ -3,8 +3,6 @@ package model;
 import java.net.URL;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-
 import tools.IDGenerator;
 
 public class Content extends ContentInheritance {
@@ -12,10 +10,9 @@ public class Content extends ContentInheritance {
     Rate ContentRate;
     ArrayList<Genre> Genres;
     double Score;
-    Gson Info;
+    String[][] Info;
     boolean Visibility;
     URL Poster;
-    ArrayList<Link> Resources;
 
     public String getID() {
         return ID;
@@ -28,7 +25,7 @@ public class Content extends ContentInheritance {
     public Long getLikes() {
         return Likes;
     }
-    
+
     public String getName() {
         return Name;
     }
@@ -69,11 +66,11 @@ public class Content extends ContentInheritance {
         Score = score;
     }
 
-    public Gson getInfo() {
+    public String[][] getInfo() {
         return Info;
     }
 
-    public void setInfo(Gson info) {
+    public void setInfo(String[][] info) {
         Info = info;
     }
 
@@ -93,14 +90,6 @@ public class Content extends ContentInheritance {
         Poster = poster;
     }
 
-    public ArrayList<Link> getResources() {
-        return Resources;
-    }
-
-    public void setResources(ArrayList<Link> resources) {
-        Resources = resources;
-    }
-
     public ArrayList<Comment> getComments() {
         return Comments;
     }
@@ -112,7 +101,7 @@ public class Content extends ContentInheritance {
     ArrayList<Comment> Comments;
 
     public Content(String id, String name, String description, Rate contentRate, ArrayList<Genre> genres, double score,
-            long views, long likes, Gson info, boolean visibility, URL poster) {
+            long views, long likes, String[][] info, boolean visibility, URL poster) {
         ID = id;
         Name = name;
         Description = description;
@@ -126,8 +115,8 @@ public class Content extends ContentInheritance {
         Poster = poster;
     }
 
-    public Content(String name, String description, Rate contentRate, ArrayList<Genre> genres, double score, Gson info,
-            boolean visibility, URL poster) {
+    public Content(String name, String description, Rate contentRate, ArrayList<Genre> genres, double score,
+            String[][] info, boolean visibility, URL poster) {
         this(GenerateID(), name, description, contentRate, genres, score, 0, 0, info, visibility, poster);
     }
 

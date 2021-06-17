@@ -1,4 +1,6 @@
 import java.io.File;
+import java.util.Arrays;
+
 import database.DataBase;
 import database.DataSelector;
 import database.DataSelector.Table;
@@ -12,9 +14,11 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
     public static void main(String[] args) {
-        DataBase.LoadScreen();
-        launch(args);
-        DataSelector.Select(Table.Users).ToArrayList();
+        //DataBase.LoadScreen();
+        //launch(args);
+
+        System.out.println(DataBase.Connect());
+        System.out.println(Arrays.toString(DataSelector.Select(Table.Users).ToArrayList().toArray()));
     }
 
     @Override

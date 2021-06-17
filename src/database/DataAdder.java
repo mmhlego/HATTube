@@ -24,7 +24,7 @@ public class DataAdder {
                 ps.setString(6, ((User) obj).getEmail());
                 ps.setString(7, ((User) obj).getUsername());
                 ps.setString(8, ((User) obj).getPassword());
-                ps.setString(9, ((User) obj).getChannel().GetID());
+                ps.setString(9, ((User) obj).getChannelID());
                 ps.setInt(10, ((User) obj).getAccessID());
                 ps.setString(11, new Gson().toJson(((User) obj).getSubcriptions()));
                 ps.executeUpdate();
@@ -38,7 +38,7 @@ public class DataAdder {
                 ps.setString(1, ((Channel) obj).GetID());
                 ps.setString(2, ((Channel) obj).getOwnerID());
                 ps.setString(3, ((Channel) obj).getChannelName());
-                ps.setString(4, ((Channel) obj).getContentsString());
+                ps.setString(4, new Gson().toJson(((Channel) obj).getContents()));
             } catch (SQLException e) {
                 e.printStackTrace();
             }

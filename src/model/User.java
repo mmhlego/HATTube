@@ -8,6 +8,17 @@ import tools.IDGenerator;
 public class User extends Unique {
     String FirstName, LastName, Phone, Email, Username, Password;
     LocalDate BirthDate;
+    int Age, AccessID = 0;
+    String ChannelID;
+    ArrayList<String> Subcriptions;
+
+    public String getChannelID() {
+        return ChannelID;
+    }
+
+    public void setChannelID(String channelID) {
+        ChannelID = channelID;
+    }
 
     public String getID() {
         return ID;
@@ -85,14 +96,6 @@ public class User extends Unique {
         AccessID = accessID;
     }
 
-    public Channel getChannel() {
-        return channel;
-    }
-
-    public void setChannel(Channel channel) {
-        this.channel = channel;
-    }
-
     public ArrayList<String> getSubcriptions() {
         return Subcriptions;
     }
@@ -101,12 +104,8 @@ public class User extends Unique {
         Subcriptions = subcriptions;
     }
 
-    int Age, AccessID = 0;
-    Channel channel;
-    ArrayList<String> Subcriptions;
-
-    public User(String id , String firstName, String lastName, String phone, String email, String username, String password,
-            LocalDate birthDate, int accessID, Channel channel, ArrayList<String> subcriptions) {
+    public User(String id, String firstName, String lastName, String phone, String email, String username,
+            String password, LocalDate birthDate, int accessID, String channelID, ArrayList<String> subcriptions) {
         ID = id;
         FirstName = firstName;
         LastName = lastName;
@@ -117,13 +116,14 @@ public class User extends Unique {
         BirthDate = birthDate;
         CalculateAge(BirthDate);
         AccessID = accessID;
-        this.channel = channel;
+        ChannelID = channelID;
         Subcriptions = subcriptions;
     }
 
     public User(String firstName, String lastName, String phone, String email, String username, String password,
             LocalDate birthDate) {
-        this(GenerateID() ,firstName, lastName, phone, email, username, password, birthDate, 0, null, new ArrayList<String>());
+        this(GenerateID(), firstName, lastName, phone, email, username, password, birthDate, 0, "",
+                new ArrayList<String>());
     }
 
     public void CalculateAge() {
