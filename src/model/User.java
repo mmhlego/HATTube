@@ -3,8 +3,11 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import database.DataSelector;
+import database.DataSelector.Table;
 import tools.Encoder;
 import tools.IDGenerator;
+import user.UserController;
 
 public class User extends Unique {
     String FirstName, LastName, Phone, Email, Username, Password;
@@ -144,8 +147,11 @@ public class User extends Unique {
     }
 
     public static boolean Approve(User user) {
-        //TODO check with db / with User or Username and password
-        return false;
+        User temp = (User) DataSelector.Select(Table.Users,
+                new String[] { "Username='" + user.getUsername() + "'", "Password='" + user.getPassword() + "'" })
+                .GetFirstResult();
+        UserController.setCurrentUser(temp);
+        return temp != null;
     }
 
     public static String GenerateID() {
