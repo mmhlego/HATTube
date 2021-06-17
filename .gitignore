@@ -3,3 +3,8 @@ src/api/Token.api.txt
 target/api/Token.api.txt
 
 target/*
+
+.classpath
+.project
+pom.xml
+HAT-Tuube.iml

@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -58,9 +59,27 @@ public class MainStructure implements Initializable {
     private TextField SearchBar;
     @FXML
     private AnchorPane SearchIMG;
+    @FXML
+    private AnchorPane Root;
+    private static AnchorPane root;
+
+    public static void rootBlur() {
+        GaussianBlur gaussianBlur = new GaussianBlur();
+        gaussianBlur.setRadius(10);
+        root.setEffect(gaussianBlur);
+        AnchorPane pane = new AnchorPane();
+        pane.setStyle("-fx-background-color: rgba(255,255,255,0.2)");
+        AnchorPane.setBottomAnchor(pane, 0.0);
+        AnchorPane.setLeftAnchor(pane, 0.0);
+        AnchorPane.setTopAnchor(pane, 0.0);
+        AnchorPane.setRightAnchor(pane, 0.0);
+        root.getChildren().add(pane);
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        root = Root;
         ExitIIMG.setOnMouseClicked(e -> Platform.exit());
         MiniIMG.setOnMouseClicked(e -> ((Stage) EndArea.getParent().getScene().getWindow()).setIconified(true));
         EndArea.setOnMouseEntered(e -> EndArea.setCursor(Cursor.OPEN_HAND));
@@ -98,6 +117,11 @@ public class MainStructure implements Initializable {
             else
                 OpenPage("src/common/visual/SignUp1.fxml");
         });
+      /*  try {
+            new LoadingStage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
 
     private void OpenPage(String path) {

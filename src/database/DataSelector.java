@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import javax.swing.text.AbstractDocument.Content;
 
 import model.Comment;
-import model.CustomResultSet;
 import model.Link;
 import model.User;
 

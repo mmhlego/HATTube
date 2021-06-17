@@ -2,30 +2,44 @@ package model;
 
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-
 import tools.IDGenerator;
 
 public class Channel extends Unique {
     private String OwnerID, ChannelName;
-    private ArrayList<Content> Contents;
+    private ArrayList<String> Contents;
 
-    public Channel(String id, String ownerID, String channelName, ArrayList<Content> contents) {
+    public void setOwnerID(String ownerID) {
+        OwnerID = ownerID;
+    }
+
+    public void setChannelName(String channelName) {
+        ChannelName = channelName;
+    }
+
+    public ArrayList<String> getContents() {
+        return Contents;
+    }
+
+    public void setContents(ArrayList<String> contents) {
+        Contents = contents;
+    }
+
+    public Channel(String id, String ownerID, String channelName, ArrayList<String> contents) {
         ID = id;
         OwnerID = ownerID;
         ChannelName = channelName;
         Contents = contents;
     }
 
-    public Channel(String id,String ownerID, String channelName) {
-        this(id, ownerID, channelName, new ArrayList<Content>());
+    public Channel(String id, String ownerID, String channelName) {
+        this(id, ownerID, channelName, new ArrayList<String>());
     }
 
     public Channel(String ownerID, String channelName) {
-        this(GenerateID(), ownerID, channelName, new ArrayList<Content>());
+        this(GenerateID(), ownerID, channelName, new ArrayList<String>());
     }
 
-    public String GetID(){
+    public String GetID() {
         return ID;
     }
 
@@ -35,19 +49,6 @@ public class Channel extends Unique {
 
     public String getChannelName() {
         return ChannelName;
-    }
-
-    public ArrayList<Content> getContents() {
-        return Contents;
-    }
-
-    public String getContentsString() {
-        ArrayList<String> ans=new ArrayList<>();
-        for (Content cont : Contents) {
-            ans.add(cont.GetID());
-        }
-
-        return new Gson().toJson(ans);
     }
 
     public static String GenerateID() {

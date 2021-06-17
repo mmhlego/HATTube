@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.GaussianBlur?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.MainStructure">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="Root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="common.controller.MainStructure">
    <children>
-      <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0" spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0"
+            spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+            AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="MiniIMG">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png" />
+                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png"/>
                      </image>
                   </ImageView>
                </graphic>
@@ -50,13 +45,39 @@
             <Insets right="10.0" />
          </padding>
       </HBox>
-      <ScrollPane hbarPolicy="NEVER" layoutX="141.0" layoutY="192.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="141.0" layoutY="192.0" prefHeight="200.0" prefWidth="200.0"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="100.0">
          <content>
-            <AnchorPane prefHeight="619.0" prefWidth="1080.0">
-               <effect>
-                  <GaussianBlur />
-               </effect>
-            </AnchorPane>
+            <VBox alignment="TOP_CENTER" prefHeight="617.0" prefWidth="1080.0">
+               <children>
+                  <AnchorPane prefHeight="450.0" prefWidth="200.0"
+                              stylesheets="@component/MaisnStrucureInsideComponent.css">
+                     <children>
+                        <Label graphicTextGap="10.0" layoutX="203.0" layoutY="143.0" text="Title:Top Picks:"
+                               AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                           <font>
+                              <Font name="System Bold" size="17.0"/>
+                           </font>
+                           <graphic>
+                              <AnchorPane prefHeight="35.0" prefWidth="7.0" styleClass="BL"/>
+                           </graphic>
+                        </Label>
+                        <ImageView fitHeight="35.0" fitWidth="167.0" layoutX="163.0" layoutY="25.0" pickOnBounds="true"
+                                   preserveRatio="true" rotate="180.0">
+                           <image>
+                              <Image url="@../../../resource/images/icons/icons8_back_480px.png"/>
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="25.0" layoutY="71.0" prefHeight="2.0" prefWidth="2.0" styleClass="sep"
+                                    AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"/>
+                        <HBox alignment="CENTER_LEFT" layoutX="98.0" layoutY="86.0" prefHeight="347.0"
+                              prefWidth="1030.0" spacing="20.0" AnchorPane.leftAnchor="25.0"
+                              AnchorPane.rightAnchor="25.0"/>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
          </content>
       </ScrollPane>
       <AnchorPane layoutX="398.0" layoutY="-26.0" prefHeight="60.0" prefWidth="200.0" styleClass="topMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
@@ -71,12 +92,12 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="1.0" blue="0.23529411852359772" />
+                              <Color blue="0.23529411852359772" red="1.0"/>
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="1.0" blue="0.7803921699523926" />
+                              <Color blue="0.7803921699523926" red="1.0"/>
                            </color>
                         </Stop>
                      </stops>
