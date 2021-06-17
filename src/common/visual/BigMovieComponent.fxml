@@ -11,7 +11,7 @@
 <?import javafx.scene.text.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1741.0"
             prefWidth="1080.0" stylesheets="@BigMovieComponent.css" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.BigMovieComponent">
    <children>
       <AnchorPane layoutX="420.0" layoutY="168.0" prefHeight="400.0" prefWidth="200.0" styleClass="poster"
                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -25,37 +25,43 @@
             <ImageView fitHeight="300.0" fitWidth="228.0" layoutX="808.0" layoutY="57.0" pickOnBounds="true"
                        preserveRatio="true" AnchorPane.rightAnchor="100.0">
                <image>
-                  <Image url="@../../../resource/images/posters/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_QL75_UX280_CR0,0,280,414_.jpg" />
+                  <Image url="@../../../resource/images/posters/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_QL75_UX280_CR0,0,280,414_.jpg"/>
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="81.0" layoutY="57.0" prefHeight="47.0" prefWidth="550.0" text="Movie Name : Loki" textFill="WHITE" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="319.0">
+            <Label fx:id="NameLBL" alignment="CENTER" layoutX="81.0" layoutY="57.0" prefHeight="47.0" prefWidth="550.0"
+                   text="Movie Name : Loki" textFill="WHITE" AnchorPane.leftAnchor="100.0"
+                   AnchorPane.rightAnchor="319.0">
                <font>
-                  <Font name="System Bold Italic" size="17.0" />
+                  <Font name="System Bold Italic" size="17.0"/>
                </font>
             </Label>
             <HBox alignment="CENTER" layoutX="81.0" layoutY="104.0" prefHeight="47.0" prefWidth="661.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="319.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="150.0" text="Action,Fantasy" textFill="WHITE">
+                  <Label fx:id="GenresLBL" alignment="CENTER" prefHeight="47.0" prefWidth="150.0" text="Action,Fantasy"
+                         textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                   </Label>
                   <AnchorPane prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="2021" textFill="WHITE">
+                  <Label fx:id="YearLBL" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="47.0"
+                         prefWidth="150.0" text="2021" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                   </Label>
                   <AnchorPane layoutX="160.0" layoutY="10.0" prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                  <Label alignment="CENTER" layoutX="162.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="PG-13" textFill="WHITE">
+                  <Label fx:id="RateLBL" alignment="CENTER" layoutX="162.0" layoutY="10.0" prefHeight="47.0"
+                         prefWidth="150.0" text="PG-13" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                   </Label>
                   <AnchorPane layoutX="312.0" layoutY="10.0" prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                  <Label alignment="CENTER" layoutX="314.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="129M" textFill="WHITE">
+                  <Label fx:id="TimeLBL" alignment="CENTER" layoutX="314.0" layoutY="10.0" prefHeight="47.0"
+                         prefWidth="150.0" text="129M" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                   </Label>
                </children>
@@ -63,38 +69,41 @@
             <AnchorPane layoutX="283.0" layoutY="172.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep_H" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="364.0" />
             <HBox alignment="CENTER" layoutX="100.0" layoutY="184.0" prefHeight="47.0" prefWidth="661.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="319.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="47.0" prefWidth="150.0" text="3424234" textFill="WHITE">
+                  <Label fx:id="LikeLBL" alignment="CENTER" contentDisplay="RIGHT" prefHeight="47.0" prefWidth="150.0"
+                         text="3424234" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resource/images/icons/icons8_facebook_like_480px.png" />
+                              <Image url="@../../../resource/images/icons/icons8_facebook_like_480px.png"/>
                            </image>
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="162.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="43534534" textFill="WHITE">
+                  <Label fx:id="ViewLBL" alignment="CENTER" contentDisplay="RIGHT" layoutX="162.0" layoutY="10.0"
+                         prefHeight="47.0" prefWidth="150.0" text="43534534" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resource/images/icons/icons8_eye_96px.png" />
+                              <Image url="@../../../resource/images/icons/icons8_eye_96px.png"/>
                            </image>
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="314.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="9.9" textFill="WHITE">
+                  <Label fx:id="RatingLBL" alignment="CENTER" contentDisplay="RIGHT" layoutX="314.0" layoutY="10.0"
+                         prefHeight="47.0" prefWidth="150.0" text="9.9" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="12.0" />
+                        <Font name="System Bold Italic" size="12.0"/>
                      </font>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resource/images/icons/icons8_imdb_208px.png" />
+                              <Image url="@../../../resource/images/icons/icons8_imdb_208px.png"/>
                            </image>
                         </ImageView>
                      </graphic>
@@ -104,16 +113,17 @@
             <AnchorPane layoutX="110.0" layoutY="182.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="295.0" />
             <HBox alignment="CENTER" layoutX="197.0" layoutY="317.0" prefHeight="40.0" prefWidth="455.0" spacing="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="319.0">
                <children>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" prefWidth="200.0" ripplerFill="WHITE" styleClass="btns" text="Add To Watchlist" textFill="WHITE">
+                  <JFXButton fx:id="AddToWatchListBTN" alignment="CENTER" buttonType="RAISED" prefWidth="200.0"
+                             ripplerFill="WHITE" styleClass="btns" text="Add To Watchlist" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resource/images/icons/icons8_bookmark_512px.png" />
+                              <Image url="@../../../resource/images/icons/icons8_bookmark_512px.png"/>
                            </image>
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font name="System Bold Italic" size="15.0" />
+                        <Font name="System Bold Italic" size="15.0"/>
                      </font>
                      <HBox.margin>
                         <Insets right="25.0" />
@@ -123,16 +133,17 @@
                      </cursor>
                   </JFXButton>
                   <AnchorPane prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="10.0" prefWidth="131.0" ripplerFill="WHITE" styleClass="btns" text="Dislike" textFill="WHITE">
+                  <JFXButton fx:id="DislikeBTN" alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="10.0"
+                             prefWidth="131.0" ripplerFill="WHITE" styleClass="btns" text="Dislike" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resource/images/icons/icons8_thumbs_down_512px.png" />
+                              <Image url="@../../../resource/images/icons/icons8_thumbs_down_512px.png"/>
                            </image>
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font name="System Bold Italic" size="15.0" />
+                        <Font name="System Bold Italic" size="15.0"/>
                      </font>
                      <HBox.margin>
                         <Insets left="25.0" />
@@ -141,16 +152,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="93.0" layoutY="10.0" prefWidth="131.0" ripplerFill="WHITE" styleClass="btns" text="Like" textFill="WHITE">
+                  <JFXButton fx:id="LikeBTN" alignment="CENTER" buttonType="RAISED" layoutX="93.0" layoutY="10.0"
+                             prefWidth="131.0" ripplerFill="WHITE" styleClass="btns" text="Like" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resource/images/icons/icons8_facebook_like_512px.png" />
+                              <Image url="@../../../resource/images/icons/icons8_facebook_like_512px.png"/>
                            </image>
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font name="System Bold Italic" size="15.0" />
+                        <Font name="System Bold Italic" size="15.0"/>
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -169,26 +181,33 @@
             <Insets left="15.0" />
          </padding>
       </Label>
-      <JFXTextArea focusColor="BLACK" layoutX="308.0" layoutY="494.0" prefHeight="96.0" prefWidth="880.0" styleClass="area" text="sdsdsdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" unFocusColor="BLACK" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="494.0">
+      <JFXTextArea fx:id="DescriptionAea" focusColor="BLACK" layoutX="308.0" layoutY="494.0" prefHeight="96.0"
+                   prefWidth="880.0" styleClass="area"
+                   text="sdsdsdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+                   unFocusColor="BLACK" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0"
+                   AnchorPane.topAnchor="494.0">
          <padding>
-            <Insets left="15.0" right="15.0" />
-         </padding></JFXTextArea>
+            <Insets left="15.0" right="15.0"/>
+         </padding>
+      </JFXTextArea>
       <VBox layoutX="100.0" layoutY="595.0" spacing="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="595.0">
          <children>
             <Group>
                <children>
-                  <VBox alignment="TOP_CENTER" layoutY="38.0" prefHeight="200.0" prefWidth="880.0" spacing="10.0" styleClass="download_area">
+                  <VBox fx:id="LinksPlace" alignment="TOP_CENTER" layoutY="38.0" prefHeight="200.0" prefWidth="880.0"
+                        spacing="10.0" styleClass="download_area">
                      <children>
-                        <AnchorPane prefHeight="50.0" prefWidth="200.0" styleClass="component" stylesheets="@component/DownloadLinkComponent.css">
+                        <AnchorPane prefHeight="50.0" prefWidth="200.0" styleClass="component"
+                                    stylesheets="@component/DownloadLinkComponent.css">
                            <children>
-                              <Label layoutX="24.0" layoutY="17.0" text="Description: 720p , mkv" textFill="WHITE">
+                              <Label layoutX="227.0" layoutY="17.0" text="Description: 720p , mkv" textFill="WHITE">
                                  <font>
-                                    <Font name="System Italic" size="12.0" />
+                                    <Font name="System Italic" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label layoutX="197.0" layoutY="13.0" text="Season 01 ,Episode 01" textFill="WHITE">
+                              <Label layoutX="14.0" layoutY="13.0" text="Season 01 ,Episode 01" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="17.0" />
+                                    <Font name="System Bold" size="17.0"/>
                                  </font>
                               </Label>
                               <HBox layoutX="714.0" layoutY="11.0" spacing="20.0" AnchorPane.leftAnchor="695.0" AnchorPane.rightAnchor="25.0">
@@ -225,7 +244,8 @@
             </Group>
             <Group>
                <children>
-                  <VBox layoutY="38.0" prefHeight="350.0" prefWidth="880.0" styleClass="download_area" />
+                  <VBox fx:id="SimilarsPlaces" layoutY="38.0" prefHeight="350.0" prefWidth="880.0"
+                        styleClass="download_area"/>
                   <Label alignment="CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="dL" text="Similars" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="17.0" />
@@ -235,16 +255,22 @@
             </Group>
             <Group layoutX="10.0" layoutY="298.0">
                <children>
-                  <VBox layoutY="38.0" prefHeight="350.0" prefWidth="880.0" spacing="10.0" styleClass="download_area">
+                  <VBox fx:id="CommentsPlace" layoutY="38.0" prefHeight="350.0" prefWidth="880.0" spacing="10.0"
+                        styleClass="download_area">
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="80.0" fitWidth="200.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <ImageView fitHeight="80.0" fitWidth="200.0" layoutX="21.0" layoutY="25.0"
+                                         pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0"
+                                         AnchorPane.topAnchor="0.0">
                                  <image>
-                                    <Image url="@../../../resource/images/avataaars.png" />
+                                    <Image url="@../../../resource/images/avataaars.png"/>
                                  </image>
                               </ImageView>
-                              <AnchorPane layoutX="111.0" layoutY="15.0" prefHeight="185.0" prefWidth="680.0" styleClass="component" stylesheets="@component/CommentsComponent.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+                              <AnchorPane layoutX="111.0" layoutY="15.0" prefHeight="185.0" prefWidth="680.0"
+                                          styleClass="component" stylesheets="@component/CommentsComponent.css"
+                                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="111.0"
+                                          AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                                  <children>
                                     <Polygon fill="#3b3b3b" layoutY="53.0" points="-26.100006103515625, -21.0999755859375, -3.0517578125E-5, -3.0999755859375, -3.0517578125E-5, -38.0999755859375" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
                                     <Label layoutX="21.0" layoutY="14.0" text="Pouya:" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">

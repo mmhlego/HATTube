@@ -7,9 +7,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
-            prefWidth="1080.0" stylesheets="@MainStructure.css" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.MainStructure">
+<AnchorPane fx:id="Root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="common.controller.MainStructure">
    <children>
       <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0"
             spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"

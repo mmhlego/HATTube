@@ -67,6 +67,14 @@ public class MainStructure implements Initializable {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(10);
         root.setEffect(gaussianBlur);
+        AnchorPane pane = new AnchorPane();
+        pane.setStyle("-fx-background-color: rgba(255,255,255,0.2)");
+        AnchorPane.setBottomAnchor(pane, 0.0);
+        AnchorPane.setLeftAnchor(pane, 0.0);
+        AnchorPane.setTopAnchor(pane, 0.0);
+        AnchorPane.setRightAnchor(pane, 0.0);
+        root.getChildren().add(pane);
+
     }
 
     @Override
