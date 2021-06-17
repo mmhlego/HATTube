@@ -44,39 +44,33 @@ public class StartPage implements Initializable {
         transition.setInterpolator(Interpolator.EASE_BOTH);
         transition.play();
 
-        Thread DBConnection = new Thread(new Runnable() {
-            @Override
-            public void run() {
+        Thread DBConnection = new Thread(() -> {
 
+            try {
+                Thread.sleep(2500);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            while (!DataBase.Connect()) {
+                System.out.println("Connection Failed. Retrying ...");
+            }
+            System.out.println("Connected");
+
+            Platform.runLater(() -> {
                 try {
-                    Thread.sleep(2500);
+                    FXMLLoader loader = new FXMLLoader(
+                            new File("src/common/visual/MainStructure.fxml").toURI().toURL());
+                    anchor.getParent().getScene().getWindow().hide();
+                    Stage stage = new Stage(StageStyle.TRANSPARENT);
+                    Scene s = new Scene(loader.load());
+                    s.setFill(Color.TRANSPARENT);
+                    stage.setScene(s);
+                    stage.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                while (!DataBase.Connect()) {
-                    System.out.println("Connection Failed. Retrying ...");
-                }
-                System.out.println("Connected");
-
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            FXMLLoader loader = new FXMLLoader(
-                                    new File("src/common/visual/MainStructure.fxml").toURI().toURL());
-                            ((Stage) anchor.getParent().getScene().getWindow()).hide();
-                            Stage stage = new Stage(StageStyle.TRANSPARENT);
-                            Scene s = new Scene(loader.load());
-                            s.setFill(Color.TRANSPARENT);
-                            stage.setScene(s);
-                            stage.show();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
+            });
         });
 
         Thread thread = new Thread(new Runnable() {
@@ -148,12 +142,7 @@ public class StartPage implements Initializable {
             }
 
             private void ShowText(String substring) {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        LBL.setText(substring);
-                    }
-                });
+                Platform.runLater(() -> LBL.setText(substring));
             }
         });
 
