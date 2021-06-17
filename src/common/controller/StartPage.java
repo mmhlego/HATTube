@@ -81,7 +81,6 @@ public class StartPage implements Initializable {
             public void run() {
                 int millis = 400;
                 try {
-
                     String Text = "HAT TUBE";
                     for (int i = 1; i <= Text.length(); i++) {
                         ShowText(Text.substring(0, i));
@@ -101,6 +100,8 @@ public class StartPage implements Initializable {
                 });
             }
         });
+
+        DataBase.LoadScreen();
 
         DBConnection.start();
         thread.start();
