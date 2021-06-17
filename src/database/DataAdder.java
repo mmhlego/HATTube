@@ -3,9 +3,7 @@ package database;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import com.google.gson.Gson;
-
 import model.*;
 
 public class DataAdder {

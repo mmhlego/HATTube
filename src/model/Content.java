@@ -108,6 +108,7 @@ public class Content extends ContentInheritance {
         ContentRate = contentRate;
         Genres = genres;
         Score = score;
+
         Views = views;
         Likes = likes;
         Info = info;
