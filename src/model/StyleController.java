@@ -1,9 +1,9 @@
 package model;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.animation.*;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -32,7 +32,7 @@ public class StyleController {
 
                 transition.play();
                 transition.setOnFinished(e -> l.setStyle("-fx-background-color: #2d2d35;-fx-text-fill: #4B8B90;"));
-                ChangeTextField(t, t.getWidth() * 1.2);
+                ChangeTextField(t, 300);
 
             } else {
                 i.setVisible(true);
@@ -52,7 +52,7 @@ public class StyleController {
                     transition.setOnFinished(
                             e -> l.setStyle("-fx-background-color: transparent;-fx-text-fill: #b9b9b9;"));
                 }
-                ChangeTextField(t, t.getWidth() * 10 / 12);
+                ChangeTextField(t, 250);
             }
         });
     }
@@ -65,7 +65,7 @@ public class StyleController {
         timeline.play();
     }
 
-    public static void ChangeTextField(JFXButton tf, double NewWidth) {
+    public static void ChangeTextField(Button tf, double NewWidth) {
         KeyValue value1 = new KeyValue(tf.layoutXProperty(), (tf.getLayoutX() - (NewWidth - tf.getWidth()) / 2));
         KeyValue value2 = new KeyValue(tf.prefWidthProperty(), NewWidth);
         KeyFrame frame = new KeyFrame(Duration.seconds(0.3), value1, value2);

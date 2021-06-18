@@ -1,64 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="380.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/16"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SignUP3">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SignUP3">
    <children>
-      <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0"
-                    AnchorPane.topAnchor="0.0"/>
-      <TextField fx:id="CodeTXF" layoutX="65.0" layoutY="180.0" prefHeight="40.0" prefWidth="250.0" styleClass="field"
-                 AnchorPane.topAnchor="180.0">
+      <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField fx:id="CodeTXF" layoutX="65.0" layoutY="180.0" prefHeight="40.0" prefWidth="250.0" styleClass="field" AnchorPane.topAnchor="180.0">
          <font>
-            <Font name="System Bold" size="13.0"/>
+            <Font name="System Bold" size="13.0" />
          </font>
          <padding>
-            <Insets left="50.0" right="15.0"/>
+            <Insets left="50.0" right="15.0" />
          </padding>
       </TextField>
-      <Label fx:id="CodeLBL" alignment="CENTER" layoutX="106.0" layoutY="192.0" prefHeight="19.0" prefWidth="76.0"
-             styleClass="tL" text="Code:" textFill="#b9b9b9">
+      <Label fx:id="CodeLBL" alignment="CENTER" layoutX="106.0" layoutY="192.0" prefHeight="19.0" prefWidth="76.0" styleClass="tL" text="Code:" textFill="#b9b9b9">
          <font>
-            <Font name="System Bold Italic" size="13.0"/>
+            <Font name="System Bold Italic" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="183.0" layoutY="25.0" text="Verification" textFill="WHITE"
-             AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="25.0">
+      <Label alignment="CENTER" layoutX="183.0" layoutY="25.0" text="Verification" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="25.0">
          <font>
-            <Font name="System Bold Italic" size="20.0"/>
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="75.0" layoutY="86.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep"
-                  AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="85.0"/>
-      <JFXButton fx:id="NextBTN" buttonType="RAISED" layoutX="65.0" layoutY="297.0" prefHeight="40.0" prefWidth="250.0"
-                 ripplerFill="WHITE" styleClass="lBTN" text="Next Step" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="15.0"/>
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND"/>
-         </cursor>
-      </JFXButton>
-      <ImageView fx:id="CodeIMG" fitHeight="25.0" fitWidth="200.0" layoutX="79.0" layoutY="189.0" pickOnBounds="true"
-                 preserveRatio="true">
+      <AnchorPane layoutX="75.0" layoutY="86.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="85.0" />
+      <ImageView fx:id="CodeIMG" fitHeight="25.0" fitWidth="200.0" layoutX="79.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../resource/images/icons/icons8_protect_480px.png"/>
+            <Image url="@../../../resource/images/icons/icons8_protect_480px.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="57.0" layoutY="117.0" prefHeight="30.0" prefWidth="250.0"
-             text="Enter The SMS Code That Sent To Your Number:" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="57.0" layoutY="117.0" prefHeight="30.0" prefWidth="250.0" text="Enter The SMS Code That Sent To Your Number:" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="11.0"/>
+            <Font name="System Bold Italic" size="11.0" />
          </font>
       </Label>
+      <Button fx:id="NextBTN" layoutX="65.0" layoutY="276.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="lBTN" text="Next Step" textFill="WHITE" AnchorPane.topAnchor="297.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" offsetX="2.0" offsetY="3.0" radius="4.5" width="10.0" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

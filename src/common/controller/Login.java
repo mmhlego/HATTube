@@ -3,6 +3,7 @@ package common.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -27,7 +28,7 @@ public class Login implements Initializable {
     private Label PasswordLBL;
 
     @FXML
-    private JFXButton LoginBTN;
+    private Button LoginBTN;
 
     @FXML
     private HBox SignupBTN;
@@ -42,7 +43,7 @@ public class Login implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         LabelFloat(UsernameTXF, UsernameLBL, UsernameIMG);
         LabelFloat(PasswordTXF, PasswordLBL, PasswordIMG);
-        LoginBTN.setOnMouseEntered(e -> ChangeTextField(LoginBTN, LoginBTN.getWidth() * 1.2));
-        LoginBTN.setOnMouseExited(e -> ChangeTextField(LoginBTN, LoginBTN.getWidth() * 10 / 12));
+        LoginBTN.setOnMouseEntered(e -> ChangeTextField(LoginBTN, 300));
+        LoginBTN.setOnMouseExited(e -> ChangeTextField(LoginBTN, 250));
     }
 }
