@@ -112,12 +112,12 @@ public class MainStructure implements Initializable {
         });
 
         AccountANC.setOnMouseClicked(e -> {
-            if (UserController.LoggedIn())
+            if (UserController.LoggedIn()) {
+                // OpenPage("src/common/visual/Login.fxml"); TODO Profile
+            } else
                 OpenPage("src/common/visual/Login.fxml");
-            else
-                OpenPage("src/common/visual/SignUp1.fxml");
         });
-      /*  try {
+        /*  try {
             new LoadingStage();
         } catch (IOException e) {
             e.printStackTrace();
@@ -128,6 +128,7 @@ public class MainStructure implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
             Parent root = loader.load();
+            AnchorPane.setTopAnchor(root, 40.0);
             ((AnchorPane) EndArea.getParent()).getChildren().add(root);
         } catch (Exception e) {
             e.printStackTrace();

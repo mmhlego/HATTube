@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Main extends Application {
     public static void main(String[] args) {
-        //launch(args);
+        launch(args);
         //        Content c;
         //        try {
         //            c = new Content("The Conjuring 3", "Horror Movie Realesed In 2021", Rate.G, new ArrayList<Genre>(), 9.2,

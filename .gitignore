@@ -1,3 +1,5 @@
+resource/images/posters/*
+
 src/api/Token.api.txt
 
 target/api/Token.api.txt
