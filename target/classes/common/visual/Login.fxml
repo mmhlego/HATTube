@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -14,8 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.Login">
+<AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.Login">
    <children>
       <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <TextField fx:id="UsernameTXF" layoutX="65.0" layoutY="132.0" prefHeight="40.0" prefWidth="250.0" styleClass="field" AnchorPane.topAnchor="132.0">
@@ -94,5 +94,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <JFXCheckBox fx:id="RemembermeCHB" checkedColor="#2cc1cf" layoutX="79.0" layoutY="267.0" text="Remember me" textFill="WHITE" />
    </children>
 </AnchorPane>

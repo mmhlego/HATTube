@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
@@ -22,10 +23,11 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import user.UserController;
-
+import javafx.stage.StageStyle;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.paint.Color;
 
 public class MainStructure implements Initializable {
 
@@ -112,11 +114,27 @@ public class MainStructure implements Initializable {
             }
         });
 
+        
+
         AccountANC.setOnMouseClicked(e -> {
             if (UserController.LoggedIn()) {
-                // OpenPage("src/common/visual/Login.fxml"); TODO Profile
-            } else
-                OpenPage("src/common/visual/Login.fxml");
+                OpenPage("src/user/visual/AccountInfoPage.fxml");
+            } else {
+                try {
+                    FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
+                    Stage stage = new Stage();
+                    Parent parent = loader.load();
+                    Scene scene = new Scene(parent);
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.show();
+                    rootBlur();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        
         });
         new LoadingStage();
     }
