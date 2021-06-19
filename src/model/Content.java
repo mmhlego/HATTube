@@ -3,7 +3,6 @@ package model;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import database.DataSelector;
 import database.DataUpdator;
@@ -96,16 +95,6 @@ public class Content extends ContentInheritance {
         Poster = poster;
     }
 
-    public ArrayList<Comment> getComments() {
-        return Comments;
-    }
-
-    public void setComments(ArrayList<Comment> comments) {
-        Comments = comments;
-    }
-
-    ArrayList<Comment> Comments;
-
     public Content(String id, String name, String description, Rate contentRate, ArrayList<Genre> genres, double score,
             long views, long likes, String[][] info, boolean visibility, URL poster) {
         ID = id;
@@ -132,25 +121,42 @@ public class Content extends ContentInheritance {
     }
 
     public String GenerateInvitationLink() {
-        String Stars = "╔";
-        String InvitaionText = "║\tHey Lets Watch " + getName() + " On HATTube !\n║\tID = " + getID();
-        for (int i = 0; i < InvitaionText.length(); i++) {
-            Stars += "═";
-        }
-        Stars += "╗\n║";
-        for (int i = 0; i < InvitaionText.length() - 2; i++) {
-            Stars += " ";
-        }
-        Stars += "\n" + InvitaionText + "\n║";
-        for (int i = 0; i < InvitaionText.length(); i++) {
-            Stars += " ";
-        }
-        Stars += "║\n╚";
-        for (int i = 0; i < InvitaionText.length(); i++) {
-            Stars += "═";
-        }
-        Stars += "╝";
-        return Stars;
+        String Text = "╔";
+        String InvitaionText1 = "Hey Lets Watch " + getName() + " On HATTube !";
+        String InvitaionText2 = "ID = " + getID();
+
+        int len = InvitaionText1.length() + 10;
+        int diff = len - InvitaionText2.length();
+
+        for (int i = 0; i < len; i++)
+            Text += "═";
+
+        Text += "╗\n║";
+
+        for (int i = 0; i < len; i++)
+            Text += " ";
+
+        Text += "║\n║     " + InvitaionText1 + "     ║" + "\n║";
+
+        for (int i = 0; i < diff / 2; i++)
+            Text += " ";
+
+        Text += InvitaionText2;
+
+        for (int i = 0; i < (diff + 1) / 2; i++)
+            Text += " ";
+
+        Text += "║\n║";
+        for (int i = 0; i < len; i++)
+            Text += " ";
+
+        Text += "║\n╚";
+
+        for (int i = 0; i < len; i++)
+            Text += "═";
+
+        Text += "╝";
+        return Text;
     }
 
     public static String GenerateID() {
