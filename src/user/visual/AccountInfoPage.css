@@ -21,9 +21,14 @@
     -fx-text-fill: #46d4ff;
 }
 .btn{
-    -fx-background-color: #5b02ff;
+    /*-fx-background-color: #5b02ff;*/
+    -fx-background-color:black;
+    -fx-border-color:#46d4ff;
+    -fx-border-radius:100px;
+    -fx-border-width:2px;
     -fx-background-radius:100px;
 }
 .btn:hover{
-    -fx-background-color: rgba(87, 0, 253, 0.74);
+    /*-fx-background-color: rgba(87, 0, 253, 0.74);*/
+    -fx-background-color: #007596;
 }
