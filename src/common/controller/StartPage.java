@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import model.Content;
 
 import java.io.File;
 import java.net.URL;
@@ -44,33 +45,35 @@ public class StartPage implements Initializable {
         transition.setInterpolator(Interpolator.EASE_BOTH);
         transition.play();
 
-        Thread DBConnection = new Thread(() -> {
-
-            try {
-                Thread.sleep(2500);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            while (!DataBase.Connect()) {
-                System.out.println("Connection Failed. Retrying ...");
-            }
-            System.out.println("Connected");
-
-            Platform.runLater(() -> {
-                try {
-                    FXMLLoader loader = new FXMLLoader(
-                            new File("src/common/visual/MainStructure.fxml").toURI().toURL());
-                    anchor.getParent().getScene().getWindow().hide();
-                    Stage stage = new Stage(StageStyle.TRANSPARENT);
-                    Scene s = new Scene(loader.load());
-                    s.setFill(Color.TRANSPARENT);
-                    stage.setScene(s);
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
+        Thread DBConnection = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!DataBase.Connect()) {
+                    System.out.println("Connection Failed. Retrying ...");
                 }
-            });
+                System.out.println("Connected");
+
+                Content.CheckImages();
+                System.out.println("Loaded Images");
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            FXMLLoader loader = new FXMLLoader(
+                                    new File("src/common/visual/MainStructure.fxml").toURI().toURL());
+                            ((Stage) anchor.getParent().getScene().getWindow()).hide();
+                            Stage stage = new Stage(StageStyle.TRANSPARENT);
+                            Scene s = new Scene(loader.load());
+                            s.setFill(Color.TRANSPARENT);
+                            stage.setScene(s);
+                            stage.show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
         });
 
         Thread thread = new Thread(new Runnable() {
@@ -78,64 +81,11 @@ public class StartPage implements Initializable {
             public void run() {
                 int millis = 400;
                 try {
-
                     String Text = "HAT TUBE";
                     for (int i = 1; i <= Text.length(); i++) {
                         ShowText(Text.substring(0, i));
                         Thread.sleep(millis);
                     }
-
-                    //Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("H");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HA");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT ");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT T");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT Tu");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT Tub");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
-                    //                    Platform.runLater(new Runnable() {
-                    //                        @Override
-                    //                        public void run() {
-                    //                            LBL.setText("HAT Tube");
-                    //                        }
-                    //                    });
-                    //                    Thread.sleep(millis);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -145,6 +95,8 @@ public class StartPage implements Initializable {
                 Platform.runLater(() -> LBL.setText(substring));
             }
         });
+
+        DataBase.LoadScreen();
 
         DBConnection.start();
         thread.start();

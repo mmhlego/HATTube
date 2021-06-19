@@ -1,9 +1,9 @@
 package database;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.google.gson.Gson;
+import database.DataSelector.Table;
 import model.*;
 
 public class DataUpdator {
@@ -83,22 +83,15 @@ public class DataUpdator {
         }
     }
 
-    public static void Like(String ID) {
-        long Likes;
-        PreparedStatement ps;
+    public static void Like(Table table, String ID) {
         try {
-            ResultSet r = DataBase.RunCommand("SELECT Likes FROM Contents WHERE ID =" + "\'" + ID + "\'");
-            ResultSet r1 = DataBase.RunCommand("SELECT Likes FROM Comments WHERE ID =" + "\'" + ID + "\'");
-            if (r.next()) {
-                Likes = r.getLong(1);
-                ps = DataBase.Con.prepareStatement(
-                        "UPDATE `Comments` SET `Likes`=" + (Likes + 1) + " WHERE ID =" + "\'" + ID + "\'");
-                ps.executeUpdate();
-            } else if (r1.next()) {
-                Likes = r1.getLong(1);
-                ps = DataBase.Con.prepareStatement(
-                        "UPDATE `Contents` SET `Likes`=" + (Likes + 1) + " WHERE ID =" + "\'" + ID + "\'");
-                ps.executeUpdate();
+            if (table.equals(Table.Comments)) {
+                DataBase.Con.prepareStatement("UPDATE `Comments` SET `Likes` = `Likes` + 1 WHERE ID ='" + ID + "'")
+                        .executeUpdate();
+
+            } else if (table.equals(Table.Contents)) {
+                DataBase.Con.prepareStatement("UPDATE `Contents` SET `Likes` = `Likes` + 1 WHERE ID ='" + ID + "'")
+                        .executeUpdate();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,19 +99,11 @@ public class DataUpdator {
     }
 
     public static void View(String ID) {
-        long Views;
-        PreparedStatement ps;
         try {
-            ResultSet r = DataBase.RunCommand("SELECT Views FROM Contents WHERE ID =" + "\'" + ID + "\'");
-            r.next();
-            Views = r.getLong(1);
-            ps = DataBase.Con.prepareStatement(
-                    "UPDATE `Contents` SET `Views`=" + (Views + 1) + " WHERE ID =" + "\'" + ID + "\'");
-            ps.executeUpdate();
-
+            DataBase.Con.prepareStatement("UPDATE `Contents` SET `Views` = `Views` + 1 WHERE ID ='" + ID + "'")
+                    .executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 }

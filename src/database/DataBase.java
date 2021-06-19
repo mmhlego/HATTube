@@ -2,15 +2,15 @@ package database;
 
 import java.sql.*;
 
-import javafx.stage.Stage;
+import common.controller.component.LoadingStage;
 
 public class DataBase {
     protected static Connection Con;
-    protected static Stage LoadingScreen;
+    protected static LoadingStage LoadingScreen;
     protected static ResultSet Results;
 
     public static void LoadScreen() {
-
+        LoadingScreen = new LoadingStage();
     }
 
     public static boolean Connect() {
@@ -36,8 +36,8 @@ public class DataBase {
     }
 
     private static void ShowLoading(Runnable runnable) {
-        LoadingScreen.show();
+        LoadingScreen.load();
         new Thread(runnable).start();
-        LoadingScreen.hide();
+        LoadingScreen.unLoad();
     }
 }

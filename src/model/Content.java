@@ -1,9 +1,15 @@
 package model;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import database.DataSelector;
+import database.DataUpdator;
+import database.DataSelector.Table;
 import tools.IDGenerator;
+import tools.ImageDownloader;
 
 public class Content extends ContentInheritance {
     String Name, Description;
@@ -125,9 +131,26 @@ public class Content extends ContentInheritance {
         return ID;
     }
 
-    public String GenerateLink() {
-        // TODO "hey watch this : #...{ID}"
-        return "";
+    public String GenerateInvitationLink() {
+        String Stars = "╔";
+        String InvitaionText = "║\tHey Lets Watch " + getName() + " On HATTube !\n║\tID = " + getID();
+        for (int i = 0; i < InvitaionText.length(); i++) {
+            Stars += "═";
+        }
+        Stars += "╗\n║";
+        for (int i = 0; i < InvitaionText.length() - 2; i++) {
+            Stars += " ";
+        }
+        Stars += "\n" + InvitaionText + "\n║";
+        for (int i = 0; i < InvitaionText.length(); i++) {
+            Stars += " ";
+        }
+        Stars += "║\n╚";
+        for (int i = 0; i < InvitaionText.length(); i++) {
+            Stars += "═";
+        }
+        Stars += "╝";
+        return Stars;
     }
 
     public static String GenerateID() {
@@ -136,16 +159,41 @@ public class Content extends ContentInheritance {
 
     @Override
     public void Like() {
-        // TODO
+        DataUpdator.Like(Table.Contents, ID);
     }
 
     @Override
     public void View() {
-        // TODO
+        DataUpdator.View(ID);
     }
 
     public static void CheckImages() {
-        // TODO
+        ArrayList<String> Images = DataSelector.Select(Table.Contents).GetColumn("Poster");
+        ArrayList<String> Names = DataSelector.Select(Table.Contents).GetColumn("Name");
+
+        int index = 0;
+        while (index < Images.size()) {
+            if (new File("resource/images/posters/" + Names.get(index) + ".png").exists()
+                    || new File("resource/images/posters/" + Names.get(index) + ".jpg").exists()
+                    || new File("resource/images/posters/" + Names.get(index) + ".jpeg").exists()) {
+                Images.remove(index);
+                Names.remove(index);
+            } else {
+                index++;
+            }
+        }
+
+        for (int i = 0; i < Images.size(); i++) {
+            final String ImageUrl = Images.get(i);
+            final String ImageName = Names.get(i);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ImageDownloader.DownloadImage(ImageUrl, ImageName);
+                }
+            }).start();
+        }
     }
 }
 

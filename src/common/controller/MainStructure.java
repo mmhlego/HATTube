@@ -24,7 +24,6 @@ import javafx.util.Duration;
 import user.UserController;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -114,22 +113,19 @@ public class MainStructure implements Initializable {
         });
 
         AccountANC.setOnMouseClicked(e -> {
-            if (UserController.LoggedIn())
+            if (UserController.LoggedIn()) {
+                // OpenPage("src/common/visual/Login.fxml"); TODO Profile
+            } else
                 OpenPage("src/common/visual/Login.fxml");
-            else
-                OpenPage("src/common/visual/SignUp1.fxml");
         });
-        try {
-            new LoadingStage();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new LoadingStage();
     }
 
     private void OpenPage(String path) {
         try {
             FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
             Parent root = loader.load();
+            AnchorPane.setTopAnchor(root, 40.0);
             ((AnchorPane) EndArea.getParent()).getChildren().add(root);
         } catch (Exception e) {
             e.printStackTrace();
