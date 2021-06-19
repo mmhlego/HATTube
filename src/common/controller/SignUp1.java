@@ -3,6 +3,7 @@ package common.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -29,7 +30,7 @@ public class SignUp1 implements Initializable {
     private Label LastnameLBL;
 
     @FXML
-    private JFXButton NextBTN;
+    private Button NextBTN;
 
     @FXML
     private HBox SignInBTN;

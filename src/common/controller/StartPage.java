@@ -92,12 +92,7 @@ public class StartPage implements Initializable {
             }
 
             private void ShowText(String substring) {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        LBL.setText(substring);
-                    }
-                });
+                Platform.runLater(() -> LBL.setText(substring));
             }
         });
 

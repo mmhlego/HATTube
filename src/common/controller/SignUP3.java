@@ -3,6 +3,7 @@ package common.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -22,7 +23,7 @@ public class SignUP3 implements Initializable {
     private Label CodeLBL;
 
     @FXML
-    private JFXButton NextBTN;
+    private Button NextBTN;
 
     @FXML
     private ImageView CodeIMG;

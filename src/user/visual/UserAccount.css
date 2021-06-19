@@ -1,0 +1,20 @@
+.root{
+    -fx-background-color: #1d1d1e;
+    -fx-border-width:1px;
+    -fx-border-color: white;
+}
+.box:hover{
+    -fx-background-color: #38383b;
+}
+.logout:hover{
+    -fx-background-color: #3b1a1a;
+    -fx-border-color: white;
+    -fx-border-width:0 0 1 0;
+}
+.sep{
+    -fx-background-color: rgba(255,255,255,0.3);
+}
+.s{
+   /* -fx-background-color:linear-gradient(to left,Transparent,rgb(255, 255, 255),Transparent);*/
+    -fx-background-color:white;
+}

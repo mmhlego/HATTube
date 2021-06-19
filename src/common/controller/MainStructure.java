@@ -1,5 +1,6 @@
 package common.controller;
 
+import common.controller.component.LoadingStage;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -71,7 +72,7 @@ public class MainStructure implements Initializable {
         pane.setStyle("-fx-background-color: rgba(255,255,255,0.2)");
         AnchorPane.setBottomAnchor(pane, 0.0);
         AnchorPane.setLeftAnchor(pane, 0.0);
-        AnchorPane.setTopAnchor(pane, 0.0);
+        AnchorPane.setTopAnchor(pane, 40.0);
         AnchorPane.setRightAnchor(pane, 0.0);
         root.getChildren().add(pane);
 
@@ -117,11 +118,7 @@ public class MainStructure implements Initializable {
             } else
                 OpenPage("src/common/visual/Login.fxml");
         });
-        /*  try {
-            new LoadingStage();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        new LoadingStage();
     }
 
     private void OpenPage(String path) {

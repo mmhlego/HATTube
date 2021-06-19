@@ -1,0 +1,34 @@
+.root{
+    -fx-background-color: black;
+}
+.sep{
+    -fx-background-color:linear-gradient(to right,transparent,white,transparent);
+}
+.field{
+    -fx-background-color: Transparent;
+    -fx-border-color: rgb(72, 72, 72);
+    -fx-border-radius: 10px;
+    -fx-border-width: 2;
+    -fx-text-fill: white;
+}
+.field:focused{
+    -fx-border-color: rgb(0, 204, 255);
+    /*-fx-border-radius: 100px;*/
+    -fx-border-width: 2;
+}
+.lb{
+    -fx-background-color:black;
+    -fx-text-fill: #46d4ff;
+}
+.btn{
+    /*-fx-background-color: #5b02ff;*/
+    -fx-background-color:black;
+    -fx-border-color:#46d4ff;
+    -fx-border-radius:100px;
+    -fx-border-width:2px;
+    -fx-background-radius:100px;
+}
+.btn:hover{
+    /*-fx-background-color: rgba(87, 0, 253, 0.74);*/
+    -fx-background-color: #007596;
+}
