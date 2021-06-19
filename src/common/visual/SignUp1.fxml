@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SignUp1">
+<AnchorPane fx:id="RegisterAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SignUp1">
    <children>
       <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <TextField fx:id="FirstnameTXF" layoutX="65.0" layoutY="132.0" prefHeight="40.0" prefWidth="250.0" styleClass="field" AnchorPane.topAnchor="132.0">
@@ -25,7 +25,7 @@
             <Insets left="50.0" right="15.0" />
          </padding>
       </TextField>
-      <Label fx:id="FirstnameLBL" alignment="CENTER" layoutX="106.0" layoutY="144.0" prefHeight="19.0" prefWidth="80.0" styleClass="tL" text="First Name:" textFill="#b9b9b9">
+      <Label fx:id="FirstnameLBL" alignment="CENTER" layoutX="106.0" layoutY="144.0" prefHeight="19.0" prefWidth="80.0" styleClass="tL" text="First Name" textFill="#b9b9b9">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
@@ -38,7 +38,7 @@
             <Insets left="50.0" right="15.0" />
          </padding>
       </TextField>
-      <Label fx:id="LastnameLBL" alignment="CENTER" layoutX="106.0" layoutY="219.0" prefHeight="19.0" prefWidth="80.0" styleClass="tL" text="Last Name:" textFill="#b9b9b9">
+      <Label fx:id="LastnameLBL" alignment="CENTER" layoutX="106.0" layoutY="219.0" prefHeight="19.0" prefWidth="80.0" styleClass="tL" text="Last Name" textFill="#b9b9b9">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
@@ -93,5 +93,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <ImageView fx:id="ReturnBTN" fitHeight="32.0" fitWidth="32.0" layoutX="26.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resource/images/icons/Return.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

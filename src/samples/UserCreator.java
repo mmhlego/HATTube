@@ -6,18 +6,19 @@ import java.util.Random;
 
 import model.Channel;
 import model.User;
+import tools.Encoder;
 
 class UserCreator {
     private static Random random = new Random(System.currentTimeMillis());
 
-    public static User CreateUser(int count) {
+    protected static User CreateUser(int count) {
         String ID = User.GenerateID();
         String FirstName = RandomFirstName();
         String LastName = RandomLastName();
         String Phone = RandomPhone();
         String Email = RandomEmail(FirstName, LastName);
         String Username = "User" + count;
-        String Password = "User" + count;
+        String Password = Encoder.EncodePassword("User" + count);
         int AccessID = RandomAccessID();
 
         LocalDate BirthDate = RandomBirthDate();
@@ -55,8 +56,10 @@ class UserCreator {
     }
 
     static String RandomEmail(String firstName, String LastName) {
-        // TODO
-        return "";
+        String[] Emails = { "gmail.com", "yahoo.com", "hotmail.com", "outlook.com" };
+        if (random.nextBoolean())
+            return LastName + "." + firstName + "@" + Emails[random.nextInt(Emails.length)];
+        return firstName + "." + LastName + "@" + Emails[random.nextInt(Emails.length)];
     }
 
     static LocalDate RandomBirthDate() {

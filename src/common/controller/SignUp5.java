@@ -1,6 +1,5 @@
 package common.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
