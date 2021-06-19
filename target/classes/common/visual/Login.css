@@ -50,3 +50,10 @@
 .glass {
     -fx-background-color: rgba(136, 136, 136, 0.51);
 }
+.check .box{
+    -fx-background-color: #2cc1cf;
+    -fx-background-radius:50px;
+}
+.check:selected .box .mark{
+    -fx-background-color: white;
+}
