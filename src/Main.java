@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Main extends Application {
     public static void main(String[] args) {
-        //launch(args);
+        launch(args);
         //samples.FullDataCreator.CreateData(4);
 
         model.Content c;
@@ -29,7 +29,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(new File("src/common/visual/MainStructure.fxml").toURI().toURL());
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         scene.setFill(Color.TRANSPARENT);

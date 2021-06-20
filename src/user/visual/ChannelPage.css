@@ -1,0 +1,24 @@
+.root {
+    -fx-background-color: black;
+}
+
+.top_anc {
+    -fx-background-color: linear-gradient(rgba(90, 90, 90, 0.76), transparent);
+}
+
+.btn {
+    -fx-background-color: rgb(0, 153, 255);
+    -fx-background-radius: 50px;
+    -fx-text-fill: white;
+}
+
+.sep {
+    -fx-background-color: rgba(190, 190, 190, 0.33);
+}
+
+.btn:hover {
+    -fx-background-color: rgba(0, 153, 255, 0.9);
+    -fx-border-width: 2;
+    -fx-border-radius: 100px;
+    -fx-border-color: white;
+}
