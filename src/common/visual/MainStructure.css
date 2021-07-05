@@ -54,6 +54,7 @@
 .sideItem {
     -fx-border-width: 0 0 1 0;
     -fx-border-color: linear-gradient(to left, transparent, rgba(171, 170, 170, 0.55), transparent);
+    -fx-cursor: hand;
 }
 
 .sideItem:hover {
@@ -62,6 +63,3 @@
     -fx-background-color: linear-gradient(to left, rgba(0, 126, 126, 0.71), rgba(0, 126, 126, 0.38));
 }
 
-.sideItem:selected .sideItem {
-    -fx-background-color: red;
-}
