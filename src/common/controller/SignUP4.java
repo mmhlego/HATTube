@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
 
-public class SignUP4 implements Initializable {
+public class SignUp4 implements Initializable {
 
     @FXML
     private TextField UsernameTXF;
