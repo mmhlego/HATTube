@@ -31,7 +31,7 @@ class UserCreator {
                 new ArrayList<String>());
     }
 
-    static String RandomFirstName() {
+    private static String RandomFirstName() {
         String[] FirstNames = new String[] { "Aaren", "Abbey", "Belita", "Bell", "Candy", "Caprice", "Darell",
                 "Darelle", "Edin", "Edita", "Farrand", "Faun", "Gayleen", "Gaylene", "Harriott", "Hatti", "Ivory",
                 "Ivy", "Jaclin", "Jaclyn", "Karalynn", "Kare", "Larissa", "Lark", "Mady", "Mae", "Nanon", "Nola", "Ora",
@@ -41,28 +41,28 @@ class UserCreator {
         return FirstNames[random.nextInt(FirstNames.length)];
     }
 
-    static String RandomLastName() {
+    private static String RandomLastName() {
         String[] LastNames = new String[] { "Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis",
                 "Garcia", "Rodriguez", "Wilson" };
 
         return LastNames[random.nextInt(LastNames.length)];
     }
 
-    static String RandomPhone() {
+    private static String RandomPhone() {
         String Phone = "09";
         for (int i = 0; i < 9; i++)
             Phone += random.nextInt(10);
         return Phone;
     }
 
-    static String RandomEmail(String firstName, String LastName) {
+    private static String RandomEmail(String firstName, String LastName) {
         String[] Emails = { "gmail.com", "yahoo.com", "hotmail.com", "outlook.com" };
         if (random.nextBoolean())
             return LastName + "." + firstName + "@" + Emails[random.nextInt(Emails.length)];
         return firstName + "." + LastName + "@" + Emails[random.nextInt(Emails.length)];
     }
 
-    static LocalDate RandomBirthDate() {
+    private static LocalDate RandomBirthDate() {
         int Year = 1991 + random.nextInt(16);
         int Month = random.nextInt(12) + 1;
         int Day = random.nextInt(29) + 1;
