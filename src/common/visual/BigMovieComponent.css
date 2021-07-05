@@ -32,12 +32,71 @@
 
 }
 
-.download_area{
+.download_area {
     -fx-background-color: #1d1d1e;
     -fx-border-width: 2 0 0 0;
     -fx-border-color: rgba(255, 255, 255, 0.58);
 }
-.dL{
+
+.dL {
     -fx-background-color: #2d2d35;
     -fx-background-radius: 20 20 0 0;
 }
+
+.writecmnt {
+    -fx-background-color: #1c1c22;
+    -fx-background-radius: 10px;
+}
+
+.writecmnt .scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.writecmnt .viewport {
+    -fx-background-color: #1c1c22;
+    -fx-background-radius: 10px;
+}
+
+.writecmnt .viewport .content {
+    -fx-background-color: #1c1c22;
+    -fx-background-radius: 10px;
+}
+
+.send {
+    -fx-background-color: #292929;
+    -fx-background-radius: 0 10 10 0;
+}
+
+.writecmnt:hover .viewport .content {
+    -fx-background-color: #383841;
+}
+
+.writecmnt:hover .viewport {
+    -fx-background-color: #383841;
+}
+
+.writecmnt:hover {
+    -fx-background-color: #383841;
+}
+
+.writecmnt:focused .viewport .content {
+    -fx-background-color: #606060;
+    -fx-text-fill: white;
+}
+
+.writecmnt:focused .viewport {
+    -fx-background-color: #606060;
+    -fx-text-fill: white;
+}
+
+.writecmnt:focused {
+    -fx-background-color: #606060;
+    -fx-text-fill: white;
+}
+
+.send:hover {
+    -fx-background-color: rgba(0, 140, 255, 0.63);
+}
+
+

@@ -20,69 +20,103 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import user.UserController;
-import javafx.stage.StageStyle;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.paint.Color;
 
 public class MainStructure implements Initializable {
 
     boolean isSearchOpen = false;
-    @FXML
-    private HBox EndArea;
-    @FXML
-    private Label MiniIMG;
-    @FXML
-    private Label ExitIIMG;
-    @FXML
-    private Label LogoLBL;
-    @FXML
-    private ImageView MenuIMG;
-    @FXML
-    private AnchorPane WatchlistANC;
-    @FXML
-    private ImageView WatchlistIMG;
-    @FXML
-    private Label WatchlistLBL;
-    @FXML
-    private Separator Sep;
-    @FXML
-    private AnchorPane AccountANC;
-    @FXML
-    private ImageView AccountIMG;
-    @FXML
-    private Label AccountLBL;
-    @FXML
-    private AnchorPane SearchANC;
-    @FXML
-    private TextField SearchBar;
-    @FXML
-    private AnchorPane SearchIMG;
+    static AnchorPane pane;
     @FXML
     private AnchorPane Root;
+
+    @FXML
+    private HBox EndArea;
+
+    @FXML
+    private Label MiniIMG;
+
+    @FXML
+    private Label ExitIIMG;
+
+    @FXML
+    private AnchorPane main;
+
+    @FXML
+    private Label LogoLBL;
+
+    @FXML
+    private ImageView MenuIMG;
+
+    @FXML
+    private AnchorPane WatchlistANC;
+
+    @FXML
+    private ImageView WatchlistIMG;
+
+    @FXML
+    private Label WatchlistLBL;
+
+    @FXML
+    private Separator Sep;
+
+    @FXML
+    private AnchorPane AccountANC;
+
+    @FXML
+    private ImageView AccountIMG;
+
+    @FXML
+    private Label AccountLBL;
+
+    @FXML
+    private AnchorPane SearchANC;
+
+    @FXML
+    private TextField SearchBar;
+
+    @FXML
+    private AnchorPane SearchIMG;
+
+    @FXML
+    private VBox SideBar;
     private static AnchorPane root;
+    boolean isWatchlistOpen = false;
 
     public static void rootBlur() {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(10);
         root.setEffect(gaussianBlur);
-        AnchorPane pane = new AnchorPane();
+        pane = new AnchorPane();
         pane.setStyle("-fx-background-color: rgba(255,255,255,0.2)");
         AnchorPane.setBottomAnchor(pane, 0.0);
         AnchorPane.setLeftAnchor(pane, 0.0);
-        AnchorPane.setTopAnchor(pane, 40.0);
+        AnchorPane.setTopAnchor(pane, 0.0);
         AnchorPane.setRightAnchor(pane, 0.0);
         root.getChildren().add(pane);
 
     }
 
+    public static void rootUnBlur() {
+        GaussianBlur gaussianBlur = new GaussianBlur();
+        gaussianBlur.setRadius(0);
+        root.setEffect(gaussianBlur);
+        root.getChildren().remove(pane);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        root = Root;
+        root = main;
+        SideBar.setTranslateX(300);
+        MenuIMG.setOnMouseClicked(e -> sidebarAnimation());
         ExitIIMG.setOnMouseClicked(e -> Platform.exit());
         MiniIMG.setOnMouseClicked(e -> ((Stage) EndArea.getParent().getScene().getWindow()).setIconified(true));
         EndArea.setOnMouseEntered(e -> EndArea.setCursor(Cursor.OPEN_HAND));
@@ -93,24 +127,34 @@ public class MainStructure implements Initializable {
         TranslateToBack(Sep, -85);
         TranslateToBack(AccountANC, -85);
 
-        WatchlistIMG.setOnMouseEntered(e -> {
-            TranslateToFront(Sep);
-            TranslateToFront(AccountANC);
+        WatchlistIMG.getParent().setOnMouseEntered(e -> {
+            TranslateToFront(Sep, 85, true);
+            TranslateToFront(AccountANC, 85, true);
         });
 
-        AccountIMG.setOnMouseEntered(e -> AccountLBL.setVisible(true));
-        WatchlistIMG.setOnMouseExited(e -> {
+        AccountIMG.getParent().setOnMouseEntered(e -> AccountLBL.setVisible(true));
+
+        WatchlistIMG.getParent().setOnMouseExited(e -> {
             TranslateToBack(Sep, -85);
             TranslateToBack(AccountANC, -85);
         });
 
-        AccountIMG.setOnMouseExited(e -> AccountLBL.setVisible(false));
+        AccountIMG.getParent().setOnMouseExited(e -> AccountLBL.setVisible(false));
         SearchIMG.setOnMouseClicked(e -> {
             if (!isSearchOpen) {
                 SearchBar.setVisible(true);
                 TranslateToBack(SearchANC, -700);
                 LogoLBL.setVisible(false);
-                ChangeSize(SearchANC);
+                ChangeSize(SearchANC, 700);
+                SearchIMG.getStyleClass().set(0, "searchBa");
+                isSearchOpen = true;
+            } else {
+                SearchIMG.getStyleClass().set(0, "iBack");
+                SearchIMG.setStyle("-fx-background-color: transparent");
+                TranslateToFront(SearchANC, 700, false);
+                LogoLBL.setVisible(true);
+                ChangeSize(SearchANC, 0);
+                isSearchOpen = false;
             }
         });
 
@@ -151,23 +195,38 @@ public class MainStructure implements Initializable {
     }
 
     private void TranslateToBack(Node node, double dis) {
+
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
         transition.setByX(dis);
         transition.play();
         transition.setOnFinished(e -> WatchlistLBL.setVisible(false));
     }
 
-    private void TranslateToFront(Node node) {
+    private void TranslateToFront(Node node, double dis, boolean s) {
+
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
-        transition.setByX(85);
+        transition.setByX(dis);
         transition.play();
-        transition.setOnFinished(e -> WatchlistLBL.setVisible(true));
+        transition.setOnFinished(e -> WatchlistLBL.setVisible(s));
+
     }
 
-    private void ChangeSize(AnchorPane field) {
-        KeyValue value = new KeyValue(field.prefWidthProperty(), 700);
-        KeyFrame frame = new KeyFrame(Duration.seconds(0.3), value);
+    private void ChangeSize(AnchorPane field, double end) {
+        KeyValue value = new KeyValue(field.prefWidthProperty(), end);
+        KeyFrame frame = new KeyFrame(Duration.seconds(0.1), value);
         Timeline timeline = new Timeline(frame);
         timeline.play();
+        if (isSearchOpen)
+            timeline.setOnFinished(e -> SearchBar.setVisible(false));
+    }
+
+    boolean isSidebarOpen = false;
+
+    private void sidebarAnimation() {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), SideBar);
+        transition.setByX((isSidebarOpen) ? 300 : -300);
+        transition.play();
+        isSidebarOpen = !isSidebarOpen;
+
     }
 }

@@ -8,12 +8,10 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 
-import database.DataBase;
-
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
-        //samples.FullDataCreator.CreateData(4);
+        // samples.FullDataCreator.CreateData(10);
         System.exit(0);
     }
 
@@ -26,5 +24,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
+
     }
 }

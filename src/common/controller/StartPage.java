@@ -90,15 +90,15 @@ public class StartPage implements Initializable {
                     e.printStackTrace();
                 }
             }
-
-            private void ShowText(String substring) {
-                Platform.runLater(() -> LBL.setText(substring));
-            }
         });
 
         DataBase.LoadScreen();
 
         DBConnection.start();
         thread.start();
+    }
+
+    private void ShowText(String substring) {
+        Platform.runLater(() -> LBL.setText(substring));
     }
 }
