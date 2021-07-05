@@ -37,10 +37,31 @@
     -fx-text-fill: white;
     -fx-prompt-text-fill: rgba(255,255,255,0.9);
 }
-.searchBar:focused{
-    -fx-background-color: rgba(255,255,255,0.5);
+.searchBar:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
 }
-.iBack:hover{
+
+.iBack:hover {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 5px;
+}
+
+.sidebar {
+    -fx-background-color: linear-gradient(to left, #1F1F1F, #1F1F1F99);
+
+}
+
+.sideItem {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: linear-gradient(to left, transparent, rgba(171, 170, 170, 0.55), transparent);
+}
+
+.sideItem:hover {
+    -fx-border-color: linear-gradient(to left, transparent, white, white, rgb(255, 254, 254), transparent);
+    /*-fx-background-color: rgba(0, 255, 255, 0.43);*/
+    -fx-background-color: linear-gradient(to left, rgba(0, 126, 126, 0.71), rgba(0, 126, 126, 0.38));
+}
+
+.sideItem:selected .sideItem {
+    -fx-background-color: red;
 }
