@@ -55,17 +55,24 @@ public class SignUp1 implements Initializable {
 
     public static String UserFirstName;
     public static String UserLastname;
+    public static boolean Returned = false;
 
     Parent root;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        if (Returned) {
+            FirstnameTXF.setText(UserFirstName);
+            LastnameTXF.setText(UserLastname);
+        }
+
         LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
         LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
         NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
         NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
         ReturnBTN.setCursor(Cursor.HAND);
+        NextBTN.setCursor(Cursor.HAND);
 
         ReturnBTN.setOnMouseClicked((e) -> {
             try {

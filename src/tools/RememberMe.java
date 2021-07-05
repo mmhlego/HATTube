@@ -18,7 +18,7 @@ public class RememberMe implements Serializable {
                 Remembered.mkdir();
             }
             ObjectOutputStream OOS = new ObjectOutputStream(
-                    new FileOutputStream(System.getProperty("user.dir") + "\\.AppData\\Data.np"));
+                    new FileOutputStream(System.getProperty("user.dir") + "\\.AppData\\Data.ht"));
             OOS.writeObject(rm);
             OOS.flush();
             OOS.close();
@@ -31,10 +31,10 @@ public class RememberMe implements Serializable {
     public static RememberMe GetRemember() {
         RememberMe rm = null;
         try {
-            File Remembered = new File(System.getProperty("user.dir") + "\\.AppData\\Data.np");
+            File Remembered = new File(System.getProperty("user.dir") + "\\.AppData\\Data.ht");
             if (Remembered.exists()) {
                 ObjectInputStream OIS = new ObjectInputStream(
-                        new FileInputStream(System.getProperty("user.dir") + "\\.AppData\\Data.np"));
+                        new FileInputStream(System.getProperty("user.dir") + "\\.AppData\\Data.ht"));
                 rm = (RememberMe) OIS.readObject();
                 OIS.close();
             }
@@ -46,7 +46,7 @@ public class RememberMe implements Serializable {
 
     public static void RemoveRemember() {
         try {
-            File Remembered = new File(System.getProperty("user.dir") + "\\.AppData\\Data.np");
+            File Remembered = new File(System.getProperty("user.dir") + "\\.AppData\\Data.ht");
             Remembered.delete();
         } catch (Exception e) {
             e.printStackTrace();

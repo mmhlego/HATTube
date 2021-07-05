@@ -15,13 +15,12 @@ public class DataBase {
 
     public static boolean Connect() {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://sql4.freesqldatabase.com/sql4418978", "sql4418978",
-                    "IFsr6JbPnp");
+            Con = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com/sql11423044", "sql11423044",
+                    "Qu6KFNnmTP");
 
             return Con != null;
 
         } catch (SQLException e) {
-            e.printStackTrace();
             return false;
         }
     }
