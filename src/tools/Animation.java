@@ -11,14 +11,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class Animation {
-
-    public enum Directions {
+    public enum Direction {
         UP(90), RIGHT(0), DOWN(270), LEFT(180);
 
         private double X;
         private double Y;
 
-        private Directions(double angle) {
+        private Direction(double angle) {
             X = Math.sin(Math.toRadians(angle));
             Y = Math.cos(Math.toRadians(angle));
         }
@@ -33,7 +32,7 @@ public class Animation {
     }
 
     public enum Speed {
-        VERYSLOW(4500),SLOW(3500),MEDIUM(2500),FAST(1500),VERYFAST(500);
+        VERYSLOW(4500), SLOW(3500), MEDIUM(2500), FAST(1500), VERYFAST(500);
 
         Duration duration;
 
@@ -48,7 +47,6 @@ public class Animation {
         private Speed(int millis) {
             setDuration(Duration.millis(millis));
         }
-        
     }
 
     public static void NextPageAnimation(AnchorPane CurrentAnchor, Parent root, Button NextStepBTN) {
@@ -60,7 +58,7 @@ public class Animation {
         KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
         timeline.getKeyFrames().add(kf);
         timeline.play();
-        
+
     }
 
     public static void PreviousPageAnimation(AnchorPane CurrentAnchor, Parent root, ImageView ReturnBTN) {
@@ -73,9 +71,4 @@ public class Animation {
         timeline.getKeyFrames().add(kf);
         timeline.play();
     }
-
-}
-
-class Direction {
-
 }
