@@ -2,12 +2,8 @@ package api;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Scanner;
 import java.security.*;
-import javafx.scene.control.Alert.AlertType;
-import tools.Dialog;
 
 public class OTPSender {
     private static String CurrentOTP = "";
