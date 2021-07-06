@@ -1,5 +1,6 @@
 package common.controller;
 
+import com.jfoenix.controls.JFXCheckBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,10 +12,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+
+import java.io.File;
 import java.net.URL;
-import java.io.*;
 import java.util.ResourceBundle;
-import com.jfoenix.controls.JFXCheckBox;
+
 import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
 
@@ -49,6 +51,54 @@ public class Login implements Initializable {
 
     @FXML
     private JFXCheckBox RemembermeCHB;
+
+    public TextField getUsernameTXF() {
+        return UsernameTXF;
+    }
+
+    public void setUsernameTXF(TextField usernameTXF) {
+        UsernameTXF = usernameTXF;
+    }
+
+    public Label getUsernameLBL() {
+        return UsernameLBL;
+    }
+
+    public void setUsernameLBL(Label usernameLBL) {
+        UsernameLBL = usernameLBL;
+    }
+
+    public TextField getPasswordTXF() {
+        return PasswordTXF;
+    }
+
+    public void setPasswordTXF(TextField passwordTXF) {
+        PasswordTXF = passwordTXF;
+    }
+
+    public Label getPasswordLBL() {
+        return PasswordLBL;
+    }
+
+    public void setPasswordLBL(Label passwordLBL) {
+        PasswordLBL = passwordLBL;
+    }
+
+    public ImageView getUsernameIMG() {
+        return UsernameIMG;
+    }
+
+    public void setUsernameIMG(ImageView usernameIMG) {
+        UsernameIMG = usernameIMG;
+    }
+
+    public ImageView getPasswordIMG() {
+        return PasswordIMG;
+    }
+
+    public void setPasswordIMG(ImageView passwordIMG) {
+        PasswordIMG = passwordIMG;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

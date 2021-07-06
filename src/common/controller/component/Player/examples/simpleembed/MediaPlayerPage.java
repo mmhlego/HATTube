@@ -1,14 +1,28 @@
 package common.controller.component.Player.examples.simpleembed;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.File;
+import java.io.IOException;
 
 public class MediaPlayerPage {
 
     @FXML
     private WebView Player;
+
+    @FXML
+    private AnchorPane SepAnc;
 
     @FXML
     private Label NameLBL;
@@ -21,7 +35,13 @@ public class MediaPlayerPage {
 
     @FXML
     private ImageView PcpIMG;
+
+    @FXML
+    private Label FullScreenBTN;
+
     int size = 530;
+    int i = 0;
+
     public void OpenMediaPlayer(String url) {
         String content =
                 "<!DOCTYPE html>\n" +
@@ -45,32 +65,52 @@ public class MediaPlayerPage {
                         "</html>\n";
         Player.getEngine().setJavaScriptEnabled(true);
         Player.getEngine().loadContent(content);
-      /*  PcpIMG.setOnMouseClicked(e->{
-            size= (int) Screen.getScreens().get(0).getBounds().getHeight()-10;
-            size=150;
+        PcpIMG.setOnMouseClicked(e -> {
+            System.out.println("1");
+            try {
+                FXMLLoader loader = new FXMLLoader(new File("src/common/visual/component/PCPMediaPlayer.fxml").toURI().toURL());
+                Scene scene = new Scene(loader.load());
+                PCPMediaPlayer c = loader.getController();
+                c.OpenMediaPlayer(url);
+                scene.setFill(Color.TRANSPARENT);
+                Stage stage = new Stage(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
+                stage.show();
+                ((AnchorPane) PcpIMG.getParent().getParent()).getChildren().clear();
+                ((AnchorPane) PcpIMG.getParent().getParent()).getScene().getWindow().hide();
+
+            } catch (IOException malformedURLException) {
+                malformedURLException.printStackTrace();
+            }
+        });
+        FullScreenBTN.setOnMouseClicked(e -> {
+            size = (int) Screen.getScreens().get(0).getBounds().getHeight() - 10;
             OpenMediaPlayer(url);
             Stage s = new Stage();
-            AnchorPane.setRightAnchor(Player,0.0);
-            AnchorPane.setBottomAnchor(Player,0.0);
-            AnchorPane.setTopAnchor(Player,0.0);
-            AnchorPane.setLeftAnchor(Player,0.0);
+            AnchorPane.setRightAnchor(Player, 0.0);
+            AnchorPane.setBottomAnchor(Player, 0.0);
+            AnchorPane.setTopAnchor(Player, 0.0);
+            AnchorPane.setLeftAnchor(Player, 0.0);
             AnchorPane pane = new AnchorPane(Player);
-            pane.setPrefHeight(150);
-            pane.setPrefWidth(300);
-            Player.setPrefHeight(150);
-            Player.setPrefWidth(300);
-            Scene scene= new Scene(pane);
+            Scene scene = new Scene(pane);
             s.setScene(scene);
-            s.setAlwaysOnTop(true);
+            s.setFullScreen(true);
             s.show();
-            *//**//*scene.setOnKeyPressed(e1->{
-                if (e1.getCode().equals(KeyCode.ESCAPE)){
-                    size=529;
+            i = 0;
+            scene.setOnKeyPressed(e1 -> {
+                if (e1.getCode().equals(KeyCode.ESCAPE)) {
+                    size = 529;
+                    AnchorPane.setRightAnchor(Player, 0.0);
+                    AnchorPane.setBottomAnchor(Player, 90.0);
+                    AnchorPane.setTopAnchor(Player, 0.0);
+                    AnchorPane.setLeftAnchor(Player, 0.0);
+                    ((AnchorPane) PcpIMG.getParent().getParent()).getChildren().add(Player);
                     OpenMediaPlayer(url);
+                    FullScreenBTN.toFront();
                     s.hide();
                 }
-            });*//*
-        });*/
+            });
+        });
     }
 
 }
