@@ -61,16 +61,64 @@ public class SignUp1 implements Initializable {
 
     Parent root;
 
+    public TextField getFirstnameTXF() {
+        return FirstnameTXF;
+    }
+
+    public void setFirstnameTXF(TextField firstnameTXF) {
+        FirstnameTXF = firstnameTXF;
+    }
+
+    public Label getFirstnameLBL() {
+        return FirstnameLBL;
+    }
+
+    public void setFirstnameLBL(Label firstnameLBL) {
+        FirstnameLBL = firstnameLBL;
+    }
+
+    public TextField getLastnameTXF() {
+        return LastnameTXF;
+    }
+
+    public void setLastnameTXF(TextField lastnameTXF) {
+        LastnameTXF = lastnameTXF;
+    }
+
+    public Label getLastnameLBL() {
+        return LastnameLBL;
+    }
+
+    public void setLastnameLBL(Label lastnameLBL) {
+        LastnameLBL = lastnameLBL;
+    }
+
+    public ImageView getFirstnameIMG() {
+        return FirstnameIMG;
+    }
+
+    public void setFirstnameIMG(ImageView firstnameIMG) {
+        FirstnameIMG = firstnameIMG;
+    }
+
+    public ImageView getLastnameIMG() {
+        return LastnameIMG;
+    }
+
+    public void setLastnameIMG(ImageView lastnameIMG) {
+        LastnameIMG = lastnameIMG;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+        LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
+        LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
         if (Returned) {
             FirstnameTXF.setText(UserFirstName);
             LastnameTXF.setText(UserLastname);
         }
-
-        LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
-        LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
         NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
         NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
         ReturnBTN.setCursor(Cursor.HAND);
@@ -80,9 +128,7 @@ public class SignUp1 implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
                 root = loader.load();
-                Login c = loader.getController();
-                LabelFloat(c.getUsernameTXF(), c.getUsernameLBL(), c.getUsernameIMG());
-                LabelFloat(c.getPasswordTXF(), c.getPasswordLBL(), c.getPasswordIMG());
+
                 Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
             } catch (Exception e1) {
                 e1.printStackTrace();

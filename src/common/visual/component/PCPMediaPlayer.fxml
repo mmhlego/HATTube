@@ -1,41 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.WebView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0"
-            prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="common.controller.component.Player.examples.simpleembed.PCPMediaPlayer">
    <children>
       <WebView fx:id="Player" layoutX="-19.0" layoutY="-16.0" prefHeight="200.0" prefWidth="200.0"
                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                AnchorPane.topAnchor="0.0"/>
-      <AnchorPane fx:id="Anc" layoutX="36.0" layoutY="116.0" prefHeight="34.0" prefWidth="250.0"
-                  style="-fx-background-color: linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0.5));" visible="false"
-                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                  AnchorPane.topAnchor="116.0">
-         <children>
-            <ImageView fx:id="PauseBTN" fitHeight="25.0" fitWidth="25.0" layoutX="113.0" layoutY="5.0"
-                       pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../resource/images/icons/icons8_pause_480px.png"/>
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND"/>
-               </cursor>
-            </ImageView>
-            <ImageView fx:id="MaximizeBTN" fitHeight="25.0" fitWidth="25.0" layoutX="211.0" layoutY="5.0"
-                       pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../resource/images/icons/icons8_linking_480px.png"/>
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND"/>
-               </cursor>
-            </ImageView>
-         </children>
-      </AnchorPane>
+      <Label fx:id="ReturnBTN" layoutX="216.0" layoutY="127.0" prefHeight="30.0" prefWidth="30.0"
+             AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
    </children>
 </AnchorPane>
