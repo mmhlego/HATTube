@@ -1,25 +1,27 @@
 package common.controller;
 
-import static model.StyleController.ChangeTextField;
-import static model.StyleController.LabelFloat;
-
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import tools.*;
+import tools.Animation;
+import tools.Dialog;
+import tools.Validator;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import static model.StyleController.ChangeTextField;
+import static model.StyleController.LabelFloat;
 
 public class SignUp1 implements Initializable {
 
@@ -76,7 +78,11 @@ public class SignUp1 implements Initializable {
 
         ReturnBTN.setOnMouseClicked((e) -> {
             try {
-                root = FXMLLoader.load(new File("src/common/visual/Login.fxml").toURI().toURL());
+                FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
+                root = loader.load();
+                Login c = loader.getController();
+                LabelFloat(c.getUsernameTXF(), c.getUsernameLBL(), c.getUsernameIMG());
+                LabelFloat(c.getPasswordTXF(), c.getPasswordLBL(), c.getPasswordIMG());
                 Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
             } catch (Exception e1) {
                 e1.printStackTrace();

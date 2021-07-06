@@ -13,8 +13,8 @@
    <children>
       <WebView fx:id="Player" layoutX="96.0" layoutY="21.0" prefHeight="530.0" prefWidth="1060.0" styleClass="view"
                AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
-      <AnchorPane layoutX="14.0" layoutY="553.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep"
-                  AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0"/>
+      <AnchorPane fx:id="SepAnc" layoutX="14.0" layoutY="553.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep"
+                  AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="553.0"/>
       <Label fx:id="NameLBL" layoutX="14.0" layoutY="566.0" prefHeight="33.0" prefWidth="247.0" text="Movie Name"
              textFill="WHITE">
          <font>
@@ -49,5 +49,10 @@
             </ImageView>
          </children>
       </HBox>
+      <Label fx:id="FullScreenBTN" layoutX="961.0" layoutY="507.0" prefHeight="33.0" prefWidth="64.0">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Label>
    </children>
 </AnchorPane>
