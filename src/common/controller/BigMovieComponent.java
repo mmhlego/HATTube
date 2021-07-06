@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.Comment;
 import model.Content;
@@ -26,7 +27,8 @@ import model.Link;
 import user.UserController;
 
 public class BigMovieComponent {
-
+    @FXML
+    private AnchorPane BackgroundPosterIMG;
     @FXML
     private ImageView PosterIMG;
 
@@ -90,6 +92,9 @@ public class BigMovieComponent {
         DislikeBTN.setOnMouseClicked(e -> System.out.println("dislike")); //TODO
         LikeBTN.setOnMouseClicked(e -> System.out.println("like")); //TODO
         DescriptionAea.setText(content.getDescription());
+
+        BackgroundPosterIMG.setStyle("-fx-background-image: url(" + content.getPoster().toString()
+                + ");    -fx-background-repeat: stretch;    -fx-background-size: cover;");
 
         LinksPlace.getChildren().clear();
         ArrayList<?> Links = DataSelector.Select(Table.Links, new String[] { "ContentID='" + content.getID() + "'" })
