@@ -113,14 +113,14 @@ public class SignUp1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-        LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
-        LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
         if (Returned) {
             FirstnameTXF.setText(UserFirstName);
             LastnameTXF.setText(UserLastname);
         }
+
+        LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
+        LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
+
         NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
         NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
         ReturnBTN.setCursor(Cursor.HAND);
@@ -131,7 +131,7 @@ public class SignUp1 implements Initializable {
                 FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
                 root = loader.load();
 
-                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN  , Direction.RIGHT , Speed.FAST);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -145,8 +145,7 @@ public class SignUp1 implements Initializable {
                 UserLastname = LastnameTXF.getText();
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp2.fxml").toURI().toURL());
-                    Animation.NextPageAnimation(RegisterAnchor, root, NextBTN , Direction.LEFT,
-                            Speed.FAST);
+                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

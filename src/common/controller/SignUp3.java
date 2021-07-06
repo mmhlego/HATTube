@@ -68,7 +68,7 @@ public class SignUp3 implements Initializable {
             try {
                 SignUp2.Returned = true;
                 root = FXMLLoader.load(new File("src/common/visual/SignUp2.fxml").toURI().toURL());
-                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN , Direction.RIGHT , Speed.FAST);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -91,7 +91,7 @@ public class SignUp3 implements Initializable {
                 } else {
                     try {
                         root = FXMLLoader.load(new File("src/common/visual/SignUp4.fxml").toURI().toURL());
-                        Animation.NextPageAnimation(RegisterAnchor, root, NextBTN , Direction.LEFT , Speed.FAST);
+                        Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
