@@ -18,8 +18,8 @@ public class Animation {
         private double Y;
 
         private Direction(double angle) {
-            X = Math.sin(Math.toRadians(angle));
-            Y = Math.cos(Math.toRadians(angle));
+            X = Math.cos(Math.toRadians(angle));
+            Y = Math.sin(Math.toRadians(angle));
         }
 
         public double getX() {
@@ -49,25 +49,31 @@ public class Animation {
         }
     }
 
-    public static void NextPageAnimation(AnchorPane CurrentAnchor, Parent root, Button NextStepBTN) {
-        root.translateXProperty().set(NextStepBTN.getScene().getWidth());
+    public static void NextPageAnimation(AnchorPane CurrentAnchor, Parent root, Button NextStepBTN, Direction direction,
+            Speed speed) {
+        root.translateXProperty().set(NextStepBTN.getScene().getWidth() * (-direction.getX()));
+        root.translateYProperty().set(NextStepBTN.getScene().getHeight() * (-direction.getY()));
         CurrentAnchor.getChildren().clear();
         CurrentAnchor.getChildren().add(root);
         Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        KeyValue kv1 = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+        KeyValue kv2 = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(speed.getDuration() , kv1 , kv2);
         timeline.getKeyFrames().add(kf);
         timeline.play();
 
     }
 
-    public static void PreviousPageAnimation(AnchorPane CurrentAnchor, Parent root, ImageView ReturnBTN) {
-        root.translateXProperty().set(-ReturnBTN.getScene().getWidth());
+    public static void PreviousPageAnimation(AnchorPane CurrentAnchor, Parent root, ImageView ReturnBTN,
+            Direction direction, Speed speed) {
+        root.translateXProperty().set(ReturnBTN.getScene().getWidth() * (-direction.getX()));
+        root.translateYProperty().set(ReturnBTN.getScene().getHeight() * (-direction.getY()));
         CurrentAnchor.getChildren().clear();
         CurrentAnchor.getChildren().add(root);
         Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        KeyValue kv1 = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+        KeyValue kv2 = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(speed.getDuration(), kv1, kv2);
         timeline.getKeyFrames().add(kf);
         timeline.play();
     }

@@ -30,6 +30,7 @@ public class Terms implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Check = false;
         AcceptBTN.setCursor(Cursor.HAND);
         DeclineBTN.setCursor(Cursor.HAND);
 
@@ -44,6 +45,7 @@ public class Terms implements Initializable{
         });
         
         AcceptBTN.setOnAction((e) -> {
+            Check = true;
             AcceptBTN.getParent().getScene().getWindow().hide();
         });
     }
