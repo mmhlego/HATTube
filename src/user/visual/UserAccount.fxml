@@ -21,16 +21,16 @@
                                 <Font name="System Bold Italic" size="15.0"/>
                             </font>
                         </Label>
-                  <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../resource/images/icons/icons8_name_tag_480px.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <cursor>
+                        <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../resource/images/icons/icons8_name_tag_480px.png"/>
+                            </image>
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </ImageView>
+                    </children>
+                    <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
@@ -69,11 +69,11 @@
             </AnchorPane>
             <HBox fx:id="SettingBTN" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="111.0" prefHeight="100.0" prefWidth="200.0" styleClass="box">
                <children>
-                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="315.0" text="Setting" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold Italic" size="15.0" />
-                     </font>
-                  </Label>
+                   <Label alignment="CENTER" prefHeight="21.0" prefWidth="315.0" text="Settings" textFill="WHITE">
+                       <font>
+                           <Font name="System Bold Italic" size="15.0"/>
+                       </font>
+                   </Label>
                   <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../resource/images/icons/icons8_settings_500px.png" />
