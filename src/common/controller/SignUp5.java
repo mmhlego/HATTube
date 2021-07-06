@@ -4,7 +4,9 @@ import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXDatePicker;
+
 import database.DataAdder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.User;
 import tools.Animation;
+import tools.Animation.Direction;
+import tools.Animation.Speed;
 import tools.Dialog;
 
 public class SignUp5 implements Initializable {
@@ -56,8 +60,6 @@ public class SignUp5 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        // TermBOX.setSelected(true);
-
         BirthPicker.setCursor(Cursor.HAND);
         ReturnBTN.setCursor(Cursor.HAND);
         SignUpBTN.setCursor(Cursor.HAND);
@@ -67,7 +69,7 @@ public class SignUp5 implements Initializable {
             try {
                 SignUp4.Returned = true;
                 root = FXMLLoader.load(new File("src/common/visual/SignUp4.fxml").toURI().toURL());
-                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
+                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN  , Direction.RIGHT , Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -90,7 +92,7 @@ public class SignUp5 implements Initializable {
                 try {
                     User u = new User(SignUp1.UserFirstName, SignUp1.UserLastname, SignUp2.UserPhone, SignUp2.UserEmail,
                             SignUp4.UserUsername, SignUp4.UserPassword,
-                            LocalDate.parse(String.valueOf(User.CalculateAge(BirthPicker.getValue()))));
+                            LocalDate.parse(String.valueOf(BirthPicker.getValue())));
                     DataAdder.AddData(u);
                 } catch (Exception e1) {
                     e1.printStackTrace();
@@ -109,6 +111,10 @@ public class SignUp5 implements Initializable {
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             stage.setScene(scene);
+            stage.setOnHidden((e) -> {
+                TermBOX.setSelected(Terms.Check);
+                System.out.println(2);
+            });
             stage.showAndWait();
         } catch (Exception e) {
             e.printStackTrace();

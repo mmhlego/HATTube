@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="RegisterAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SignUp5">
+<AnchorPane fx:id="RegisterAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SignUp5">
    <children>
       <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label alignment="CENTER" layoutX="183.0" layoutY="25.0" text="One Last Step" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="25.0">
@@ -39,7 +39,7 @@
       </HBox>
       <JFXDatePicker fx:id="BirthPicker" defaultColor="WHITE" layoutX="65.0" layoutY="143.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="250.0" styleClass="field">
          <padding>
-            <Insets left="80.0" right="6.0" />
+            <Insets left="60.0" right="6.0" />
          </padding></JFXDatePicker>
       <Label fx:id="BirthDateLBL" alignment="CENTER" layoutX="104.0" layoutY="154.0" prefHeight="19.0" prefWidth="87.0" styleClass="tL" text="Birth Date:" textFill="#b9b9b9">
          <font>
