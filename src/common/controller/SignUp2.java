@@ -19,6 +19,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import api.OTPSender;
+
 import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
 
@@ -91,6 +93,7 @@ public class SignUp2 implements Initializable {
             } else {
                 UserEmail = EmailTXF.getText();
                 UserPhone = PhoneNumberTXF.getText();
+                Dialog.Alert(AlertType.INFORMATION, "Code", String.valueOf(OTPSender.CreateOTP()));
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp3.fxml").toURI().toURL());
                     Animation.NextPageAnimation(RegisterAnchor, root, NextBTN);

@@ -55,12 +55,12 @@ public class SignUp3 implements Initializable {
         ReturnBTN.setCursor(Cursor.HAND);
         NextBTN.setCursor(Cursor.HAND);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                OTPSender.SendOTP(SignUp2.UserPhone);
-            }
-        }).start();
+        // new Thread(new Runnable() {
+        //     @Override
+        //     public void run() {
+        //         OTPSender.SendOTP(SignUp2.UserPhone);
+        //     }
+        // }).start();
 
         ReturnBTN.setOnMouseClicked((e) -> {
             try {
