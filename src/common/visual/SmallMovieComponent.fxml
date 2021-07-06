@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="MovieAnc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="200.0" styleClass="root" stylesheets="@SmallMovieComponent.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SmallMovieComponent">
+<AnchorPane fx:id="MovieAnc" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="200.0" styleClass="root" stylesheets="@SmallMovieComponent.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.SmallMovieComponent">
    <children>
       <Label fx:id="LikeLBL" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="25.0" layoutY="58.0" prefHeight="35.0" prefWidth="150.0" styleClass="overlays" text="99%" textFill="WHITE">
          <font>

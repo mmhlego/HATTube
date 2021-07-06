@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
-            prefWidth="1080.0" stylesheets="@MediaPlayrePage.css" xmlns="http://javafx.com/javafx/8.0.171"
+            prefWidth="1080.0" stylesheets="@MediaPlayrePage.css" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="common.controller.component.Player.examples.simpleembed.MediaPlayerPage">
    <children>

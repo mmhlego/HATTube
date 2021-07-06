@@ -14,11 +14,11 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.GaussianBlur;
@@ -33,7 +33,6 @@ import javafx.util.Duration;
 import user.UserController;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -77,6 +76,8 @@ public class MainStructure implements Initializable {
     @FXML
     private VBox SideBar;
 
+    private static ScrollPane scrollPane;
+    private static VBox Scroll;
     private static AnchorPane root;
     boolean isWatchlistOpen = false;
     boolean isSearchOpen = false;
@@ -104,14 +105,16 @@ public class MainStructure implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        scrollPane = (ScrollPane) main.getChildren().get(0);
+        Scroll = InsideComponent;
         root = main;
+
+        LogoLBL.setOnMouseClicked(e -> OpenFirstPage());
+
         SideBar.setTranslateX(300);
         MenuIMG.setOnMouseClicked(e -> sidebarAnimation());
         ExitIIMG.setOnMouseClicked(e -> Platform.exit());
         MiniIMG.setOnMouseClicked(e -> ((Stage) EndArea.getParent().getScene().getWindow()).setIconified(true));
-        EndArea.setOnMouseEntered(e -> EndArea.setCursor(Cursor.OPEN_HAND));
-        EndArea.setOnMousePressed(e -> EndArea.setCursor(Cursor.CLOSED_HAND));
-        EndArea.setOnMouseReleased(e -> EndArea.setCursor(Cursor.OPEN_HAND));
         WatchlistLBL.setVisible(false);
         AccountLBL.setVisible(false);
         TranslateToBack(Sep, -85);
@@ -166,34 +169,21 @@ public class MainStructure implements Initializable {
                     e1.printStackTrace();
                 }
             }
-
         });
         new LoadingStage();
 
-        MainStructureInsideComponent TopRated = CreateCategory("Top Rated");
-        TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
-                new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+        tools.OtherTools.MakeStageMovable(Root, EndArea);
 
-        // MainStructureInsideComponent MostCommented = CreateCategory("Most Commented");
-        // TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
-        //         new OrderBy[] { OrderBy.C }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
-
-        MainStructureInsideComponent MostLiked = CreateCategory("Most Liked");
-        MostLiked.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
-                new OrderBy[] { OrderBy.Likes }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
-
-        MainStructureInsideComponent MostViewed = CreateCategory("Most Viewed");
-        MostViewed.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
-                new OrderBy[] { OrderBy.Views }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+        OpenFirstPage();
     }
 
-    private MainStructureInsideComponent CreateCategory(String name) {
+    private static MainStructureInsideComponent CreateCategory(String name) {
         try {
             FXMLLoader loader = new FXMLLoader(
                     new File("src/common/visual/component/MainStructureInsideComponet.fxml").toURI().toURL());
             Parent parent = loader.load();
             ((Label) ((HBox) ((AnchorPane) parent).getChildren().get(0)).getChildren().get(0)).setText(name);
-            InsideComponent.getChildren().add(parent);
+            Scroll.getChildren().add(parent);
             return loader.getController();
         } catch (Exception e) {
             e.printStackTrace();
@@ -242,5 +232,32 @@ public class MainStructure implements Initializable {
         transition.setByX((isSidebarOpen) ? 300 : -300);
         transition.play();
         isSidebarOpen = !isSidebarOpen;
+    }
+
+    public static void OpenFirstPage() {
+        Scroll.getChildren().clear();
+        scrollPane.setVvalue(0.0);
+
+        MainStructureInsideComponent TopRated = CreateCategory("Top Rated");
+        TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+
+        // MainStructureInsideComponent MostCommented = CreateCategory("Most Commented");
+        // TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+        //         new OrderBy[] { OrderBy.C }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+
+        MainStructureInsideComponent MostLiked = CreateCategory("Most Liked");
+        MostLiked.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                new OrderBy[] { OrderBy.Likes }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+
+        MainStructureInsideComponent MostViewed = CreateCategory("Most Viewed");
+        MostViewed.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                new OrderBy[] { OrderBy.Views }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+    }
+
+    public static void OpenPage(Parent parent) {
+        Scroll.getChildren().clear();
+        scrollPane.setVvalue(0.0);
+        Scroll.getChildren().add(parent);
     }
 }

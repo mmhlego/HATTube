@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="1078.0" stylesheets="@MaisnStrucureInsideComponent.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.MainStructureInsideComponent">
+<AnchorPane prefHeight="450.0" prefWidth="1078.0" stylesheets="@MaisnStrucureInsideComponent.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.MainStructureInsideComponent">
     <children>
       <HBox layoutX="25.0" layoutY="25.0">
          <children>

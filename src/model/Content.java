@@ -1,12 +1,15 @@
 package model;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 
 import database.DataSelector;
 import database.DataUpdator;
 import database.DataSelector.Table;
+import javafx.scene.image.Image;
 import tools.IDGenerator;
 import tools.ImageDownloader;
 
@@ -18,6 +21,16 @@ public class Content extends ContentInheritance {
     String[][] Info;
     boolean Visibility;
     URL Poster;
+
+    public Image getPosterImage() {
+        try {
+            return new Image(new FileInputStream(new File("resource/images/posters/" + this.getName()
+                    + ImageDownloader.GetImageFormat(this.getPoster().toString()))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public String getID() {
         return ID;
