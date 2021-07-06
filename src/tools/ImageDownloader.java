@@ -7,7 +7,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class ImageDownloader {
-    public static void DownloadImage(String imageUrl, String imageName) {
+    private static boolean Downloaded = false;
+
+    public static boolean isDownloaded() {
+        return Downloaded;
+    }
+
+    public static void setDownloaded(boolean downloaded) {
+        Downloaded = downloaded;
+    }
+
+    public static void DownloadImage(String imageUrl, String imageName, boolean changeDownloaded) {
         System.out.println("Starting download");
 
         String ImagePath = "resource/images/posters/" + imageName + GetImageFormat(imageUrl);
@@ -28,9 +38,11 @@ public class ImageDownloader {
         }
 
         System.out.println("Download Finished");
+
+        Downloaded = (changeDownloaded) ? true : Downloaded;
     }
 
-    private static String GetImageFormat(String imageUrl) {
+    public static String GetImageFormat(String imageUrl) {
         return imageUrl.substring(imageUrl.lastIndexOf("."), imageUrl.length());
     }
 }

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Content;
+import tools.ImageDownloader;
 
 import java.io.File;
 import java.net.URL;
@@ -54,7 +55,16 @@ public class StartPage implements Initializable {
                 System.out.println("Connected");
 
                 Content.CheckImages();
+
                 System.out.println("Loaded Images");
+
+                while (!ImageDownloader.isDownloaded()) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
 
                 Platform.runLater(new Runnable() {
                     @Override

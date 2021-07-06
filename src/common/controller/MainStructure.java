@@ -1,6 +1,11 @@
 package common.controller;
 
 import common.controller.component.LoadingStage;
+import common.controller.component.MainStructureInsideComponent;
+import database.DataSelector;
+import database.DataSelector.Arrangement;
+import database.DataSelector.OrderBy;
+import database.DataSelector.Table;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -28,68 +33,54 @@ import javafx.util.Duration;
 import user.UserController;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainStructure implements Initializable {
-
-    boolean isSearchOpen = false;
-    static AnchorPane pane;
     @FXML
     private AnchorPane Root;
-
     @FXML
     private HBox EndArea;
-
     @FXML
     private Label MiniIMG;
-
     @FXML
     private Label ExitIIMG;
-
     @FXML
     private AnchorPane main;
-
     @FXML
     private Label LogoLBL;
-
     @FXML
     private ImageView MenuIMG;
-
     @FXML
     private AnchorPane WatchlistANC;
-
     @FXML
     private ImageView WatchlistIMG;
-
     @FXML
     private Label WatchlistLBL;
-
     @FXML
     private Separator Sep;
-
     @FXML
     private AnchorPane AccountANC;
-
     @FXML
     private ImageView AccountIMG;
-
     @FXML
     private Label AccountLBL;
-
     @FXML
     private AnchorPane SearchANC;
-
     @FXML
     private TextField SearchBar;
-
     @FXML
     private AnchorPane SearchIMG;
-
+    @FXML
+    private VBox InsideComponent;
     @FXML
     private VBox SideBar;
+
     private static AnchorPane root;
     boolean isWatchlistOpen = false;
+    boolean isSearchOpen = false;
+    static AnchorPane pane;
 
     public static void rootBlur() {
         GaussianBlur gaussianBlur = new GaussianBlur();
@@ -102,7 +93,6 @@ public class MainStructure implements Initializable {
         AnchorPane.setTopAnchor(pane, 0.0);
         AnchorPane.setRightAnchor(pane, 0.0);
         root.getChildren().add(pane);
-
     }
 
     public static void rootUnBlur() {
@@ -158,8 +148,6 @@ public class MainStructure implements Initializable {
             }
         });
 
-        
-
         AccountANC.setOnMouseClicked(e -> {
             if (UserController.LoggedIn()) {
                 OpenPage("src/user/visual/AccountInfoPage.fxml");
@@ -178,9 +166,39 @@ public class MainStructure implements Initializable {
                     e1.printStackTrace();
                 }
             }
-        
+
         });
         new LoadingStage();
+
+        MainStructureInsideComponent TopRated = CreateCategory("Top Rated");
+        TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+
+        // MainStructureInsideComponent MostCommented = CreateCategory("Most Commented");
+        // TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+        //         new OrderBy[] { OrderBy.C }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+
+        MainStructureInsideComponent MostLiked = CreateCategory("Most Liked");
+        MostLiked.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                new OrderBy[] { OrderBy.Likes }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+
+        MainStructureInsideComponent MostViewed = CreateCategory("Most Viewed");
+        MostViewed.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                new OrderBy[] { OrderBy.Views }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+    }
+
+    private MainStructureInsideComponent CreateCategory(String name) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    new File("src/common/visual/component/MainStructureInsideComponet.fxml").toURI().toURL());
+            Parent parent = loader.load();
+            ((Label) ((HBox) ((AnchorPane) parent).getChildren().get(0)).getChildren().get(0)).setText(name);
+            InsideComponent.getChildren().add(parent);
+            return loader.getController();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private void OpenPage(String path) {
@@ -195,7 +213,6 @@ public class MainStructure implements Initializable {
     }
 
     private void TranslateToBack(Node node, double dis) {
-
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
         transition.setByX(dis);
         transition.play();
@@ -203,12 +220,10 @@ public class MainStructure implements Initializable {
     }
 
     private void TranslateToFront(Node node, double dis, boolean s) {
-
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
         transition.setByX(dis);
         transition.play();
         transition.setOnFinished(e -> WatchlistLBL.setVisible(s));
-
     }
 
     private void ChangeSize(AnchorPane field, double end) {
@@ -227,6 +242,5 @@ public class MainStructure implements Initializable {
         transition.setByX((isSidebarOpen) ? 300 : -300);
         transition.play();
         isSidebarOpen = !isSidebarOpen;
-
     }
 }

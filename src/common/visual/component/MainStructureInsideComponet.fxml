@@ -1,32 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="450.0" prefWidth="1078.0" stylesheets="@MaisnStrucureInsideComponent.css"
-            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="common.controller.component.MainStructureInsideComponent">
+
+<AnchorPane prefHeight="450.0" prefWidth="1078.0" stylesheets="@MaisnStrucureInsideComponent.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.MainStructureInsideComponent">
     <children>
-        <Label fx:id="Title" graphicTextGap="10.0" layoutX="203.0" layoutY="143.0" text="Title:Top Picks:"
-               AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-            <font>
-                <Font name="System Bold" size="17.0"/>
-            </font>
-            <graphic>
-                <AnchorPane prefHeight="35.0" prefWidth="7.0" styleClass="BL"/>
-            </graphic>
-        </Label>
-        <ImageView fx:id="MoreBTN" fitHeight="35.0" fitWidth="167.0" layoutX="163.0" layoutY="25.0" pickOnBounds="true"
-                   preserveRatio="true" rotate="180.0">
-            <image>
-                <Image url="@../../../../resource/images/icons/icons8_back_480px.png"/>
-            </image>
-        </ImageView>
-        <AnchorPane layoutX="25.0" layoutY="71.0" prefHeight="2.0" prefWidth="2.0" styleClass="sep"
-                    AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"/>
-        <HBox fx:id="MoviesPlace" alignment="CENTER_LEFT" layoutX="98.0" layoutY="86.0" prefHeight="347.0"
-              prefWidth="1030.0" spacing="20.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"/>
+      <HBox layoutX="25.0" layoutY="25.0">
+         <children>
+              <Label fx:id="Title" graphicTextGap="10.0" text="Title:Top Picks:">
+                  <font>
+                      <Font name="System Bold" size="17.0" />
+                  </font>
+                  <graphic>
+                      <AnchorPane prefHeight="35.0" prefWidth="7.0" styleClass="BL" />
+                  </graphic>
+              </Label>
+            <ImageView fx:id="MoreBTN" fitHeight="35.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../../../../resource/images/icons/icons8_back_480px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+        <AnchorPane layoutX="25.0" layoutY="71.0" prefHeight="2.0" prefWidth="2.0" styleClass="sep" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+      <ScrollPane fx:id="Scroll" hbarPolicy="NEVER" layoutX="25.0" layoutY="86.0" prefHeight="360.0" vbarPolicy="NEVER" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+         <content>
+              <HBox fx:id="MoviesPlace" alignment="CENTER_LEFT" prefHeight="347.0" spacing="20.0" />
+         </content>
+      </ScrollPane>
+      <VBox fx:id="ToLeft" alignment="CENTER" layoutX="35.0" layoutY="205.0" prefHeight="50.0" prefWidth="30.0" style="-fx-background-color: #ffffffb0; -fx-background-radius: 5;">
+         <children>
+              <ImageView disable="true" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../../../../resource/images/icons/icons8_back_480px.png" />
+                  </image>
+              </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+      <VBox fx:id="ToRight" alignment="CENTER" layoutX="1010.0" layoutY="205.0" prefHeight="50.0" prefWidth="30.0" rotate="180.0" style="-fx-background-color: #ffffffb0; -fx-background-radius: 5;">
+         <children>
+            <ImageView disable="true" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resource/images/icons/icons8_back_480px.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
     </children>
 </AnchorPane>

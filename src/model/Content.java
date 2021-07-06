@@ -174,6 +174,8 @@ public class Content extends ContentInheritance {
     }
 
     public static void CheckImages() {
+        ImageDownloader.setDownloaded(false);
+
         ArrayList<String> Images = DataSelector.Select(Table.Contents).GetColumn("Poster");
         ArrayList<String> Names = DataSelector.Select(Table.Contents).GetColumn("Name");
 
@@ -189,14 +191,17 @@ public class Content extends ContentInheritance {
             }
         }
 
+        ImageDownloader.setDownloaded(Images.size() == 0);
+
         for (int i = 0; i < Images.size(); i++) {
             final String ImageUrl = Images.get(i);
             final String ImageName = Names.get(i);
+            final boolean change = i == Images.size() - 1;
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    ImageDownloader.DownloadImage(ImageUrl, ImageName);
+                    ImageDownloader.DownloadImage(ImageUrl, ImageName, change);
                 }
             }).start();
         }

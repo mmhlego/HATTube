@@ -61,7 +61,7 @@ public class DataSelector {
     }
 
     public enum OrderBy {
-        ID;
+        ID, Score, Views, Likes;
     }
 
     public enum Arrangement {

@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane fx:id="Root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css"
-            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="common.controller.MainStructure">
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.MainStructure">
    <children>
-      <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0"
-            spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-            AnchorPane.topAnchor="0.0">
+      <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0" spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="MiniIMG">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png"/>
+                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -37,184 +42,141 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="HAND"/>
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
          </children>
          <padding>
-            <Insets right="10.0"/>
+            <Insets right="10.0" />
          </padding>
       </HBox>
-      <AnchorPane fx:id="main" layoutY="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <AnchorPane fx:id="main" layoutY="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutY="60.0" prefHeight="200.0" prefWidth="200.0"
-                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                        AnchorPane.topAnchor="60.0">
+            <ScrollPane hbarPolicy="NEVER" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                <content>
-                  <VBox alignment="TOP_CENTER" prefHeight="617.0" prefWidth="1080.0">
-                     <children>
-                        <AnchorPane prefHeight="450.0" prefWidth="200.0"
-                                    stylesheets="@component/MaisnStrucureInsideComponent.css">
-                           <children>
-                              <Label graphicTextGap="10.0" layoutX="203.0" layoutY="143.0" text="Title:Top Picks:"
-                                     AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-                                 <font>
-                                    <Font name="System Bold" size="17.0"/>
-                                 </font>
-                                 <graphic>
-                                    <AnchorPane prefHeight="35.0" prefWidth="7.0" styleClass="BL"/>
-                                 </graphic>
-                              </Label>
-                              <ImageView fitHeight="35.0" fitWidth="167.0" layoutX="163.0" layoutY="25.0"
-                                         pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                                 <image>
-                                    <Image url="@../../../resource/images/icons/icons8_back_480px.png"/>
-                                 </image>
-                              </ImageView>
-                              <AnchorPane layoutX="25.0" layoutY="71.0" prefHeight="2.0" prefWidth="2.0"
-                                          styleClass="sep" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"/>
-                              <HBox alignment="CENTER_LEFT" layoutX="98.0" layoutY="86.0" prefHeight="347.0"
-                                    prefWidth="1030.0" spacing="20.0" AnchorPane.leftAnchor="25.0"
-                                    AnchorPane.rightAnchor="25.0"/>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </VBox>
+                  <VBox fx:id="InsideComponent" alignment="TOP_CENTER" prefHeight="617.0" prefWidth="1080.0" />
                </content>
             </ScrollPane>
             <AnchorPane prefHeight="60.0" prefWidth="200.0" styleClass="topMenu">
                <children>
-                  <Separator layoutX="994.0" layoutY="10.0" orientation="VERTICAL" prefHeight="40.0"/>
-                  <Label fx:id="LogoLBL" alignment="CENTER" layoutX="461.0" layoutY="4.0" prefHeight="60.0"
-                         prefWidth="158.0" text="HAT Tube">
+                  <Separator layoutX="994.0" layoutY="10.0" orientation="VERTICAL" prefHeight="40.0" />
+                  <Label fx:id="LogoLBL" alignment="CENTER" layoutX="461.0" layoutY="4.0" prefHeight="60.0" prefWidth="158.0" text="HAT Tube">
                      <font>
-                        <Font name="System Bold Italic" size="30.0"/>
+                        <Font name="System Bold Italic" size="30.0" />
                      </font>
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color blue="0.23529411852359772" red="1.0"/>
+                                    <Color red="1.0" blue="0.23529411852359772" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color blue="0.7803921699523926" red="1.0"/>
+                                    <Color red="1.0" blue="0.7803921699523926" />
                                  </color>
                               </Stop>
                            </stops>
                         </LinearGradient>
                      </textFill>
                      <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <ImageView fx:id="MenuIMG" fitHeight="45.0" fitWidth="60.0" layoutX="1020.0" layoutY="8.0"
-                             pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="MenuIMG" fitHeight="45.0" fitWidth="60.0" layoutX="1020.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../resource/images/icons/icons8_menu_96px.png"/>
+                        <Image url="@../../../resource/images/icons/icons8_menu_96px.png" />
                      </image>
                      <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
                   <Group layoutX="15.0" layoutY="10.0">
                      <children>
                         <AnchorPane fx:id="WatchlistANC" prefHeight="40.0" prefWidth="124.0" styleClass="iBack">
                            <children>
-                              <ImageView fx:id="WatchlistIMG" fitHeight="40.0" fitWidth="200.0" pickOnBounds="true"
-                                         preserveRatio="true">
+                              <ImageView fx:id="WatchlistIMG" fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../resource/images/icons/icons8_bookmark_144px.png"/>
+                                    <Image url="@../../../resource/images/icons/icons8_bookmark_144px.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="WatchlistLBL" layoutX="40.0" layoutY="7.0" text="Watchlist"
-                                     textFill="WHITE">
+                              <Label fx:id="WatchlistLBL" layoutX="40.0" layoutY="7.0" text="Watchlist" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="17.0"/>
+                                    <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
                            </children>
                            <cursor>
-                              <Cursor fx:constant="HAND"/>
+                              <Cursor fx:constant="HAND" />
                            </cursor>
                         </AnchorPane>
                      </children>
                   </Group>
-                  <Separator fx:id="Sep" layoutX="145.0" layoutY="10.0" orientation="VERTICAL" prefHeight="40.0"/>
+                  <Separator fx:id="Sep" layoutX="145.0" layoutY="10.0" orientation="VERTICAL" prefHeight="40.0" />
                   <Group layoutX="157.0" layoutY="10.0">
                      <children>
                         <AnchorPane fx:id="AccountANC" prefHeight="40.0" prefWidth="115.0" styleClass="iBack">
                            <children>
-                              <ImageView fx:id="AccountIMG" fitHeight="40.0" fitWidth="200.0" pickOnBounds="true"
-                                         preserveRatio="true">
+                              <ImageView fx:id="AccountIMG" fitHeight="40.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../resource/images/icons/user.png"/>
+                                    <Image url="@../../../resource/images/icons/user.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="AccountLBL" layoutX="40.0" layoutY="7.0" text="Account" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="17.0"/>
+                                    <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
                      </children>
                      <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                   </Group>
                   <AnchorPane fx:id="SearchANC" layoutX="911.0" layoutY="11.0" prefHeight="40.0" prefWidth="58.0">
                      <children>
-                        <TextField fx:id="SearchBar" focusTraversable="false" prefHeight="40.0" prefWidth="63.0"
-                                   promptText="Search here ..." styleClass="searchBar" visible="false"
-                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <TextField fx:id="SearchBar" focusTraversable="false" prefHeight="40.0" prefWidth="63.0" promptText="Search here ..." styleClass="searchBar" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
-                              <Font name="System Bold Italic" size="15.0"/>
+                              <Font name="System Bold Italic" size="15.0" />
                            </font>
                            <padding>
-                              <Insets left="15.0" right="48.0"/>
+                              <Insets left="15.0" right="48.0" />
                            </padding>
                            <cursor>
-                              <Cursor fx:constant="TEXT"/>
+                              <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <AnchorPane fx:id="SearchIMG" layoutX="43.0" prefHeight="40.0" prefWidth="40.0"
-                                    styleClass="iBack" AnchorPane.rightAnchor="0.0">
+                        <AnchorPane fx:id="SearchIMG" layoutX="43.0" prefHeight="40.0" prefWidth="40.0" styleClass="iBack" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <ImageView fitHeight="30.0" fitWidth="200.0" layoutX="6.0" layoutY="6.0"
-                                         pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="30.0" fitWidth="200.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../resource/images/icons/icons8_search_144px.png"/>
+                                    <Image url="@../../../resource/images/icons/icons8_search_144px.png" />
                                  </image>
                                  <cursor>
-                                    <Cursor fx:constant="HAND"/>
+                                    <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
                            </children>
                            <cursor>
-                              <Cursor fx:constant="HAND"/>
+                              <Cursor fx:constant="HAND" />
                            </cursor>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <VBox fx:id="SideBar" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0" styleClass="sidebar"
-                  AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <VBox fx:id="SideBar" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" styleClass="sideItem" text="My Movies"
-                         textFill="WHITE">
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" styleClass="sideItem" text="My Movies" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="15.0"/>
+                        <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="50.0" prefWidth="300.0"
-                         styleClass="sideItem" text="Categories" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="50.0" prefWidth="300.0" styleClass="sideItem" text="Categories" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="15.0"/>
+                        <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Label>
                </children>
