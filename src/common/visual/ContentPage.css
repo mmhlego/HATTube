@@ -1,0 +1,7 @@
+.root {
+    -fx-background-color: black;
+}
+
+.sep {
+    -fx-background-color: linear-gradient(to left, transparent, #dddddd50, #dddddd50, #dddddd50, #dddddd50, #dddddd50, transparent);
+}
