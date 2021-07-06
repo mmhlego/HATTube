@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
+            prefWidth="1080.0" stylesheets="@MediaPlayrePage.css" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="common.controller.component.Player.examples.simpleembed.MediaPlayerPage">
+   <children>
+      <WebView fx:id="Player" layoutX="96.0" layoutY="21.0" prefHeight="530.0" prefWidth="1060.0" styleClass="view"
+               AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+      <AnchorPane layoutX="14.0" layoutY="553.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep"
+                  AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0"/>
+      <Label fx:id="NameLBL" layoutX="14.0" layoutY="566.0" prefHeight="33.0" prefWidth="247.0" text="Movie Name"
+             textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="17.0"/>
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="849.0" layoutY="568.0" prefHeight="30.0" prefWidth="223.0" spacing="30.0">
+         <children>
+            <ImageView fx:id="CopyIMG" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resource/images/icons/icons8_copy_240px.png"/>
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="DownloadIMG" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resource/images/icons/icons8_download_240px.png"/>
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="PcpIMG" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resource/images/icons/icons8_picture_in_picture_alternative_240px.png"/>
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

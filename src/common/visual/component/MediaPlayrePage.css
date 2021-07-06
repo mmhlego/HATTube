@@ -1,0 +1,15 @@
+.root {
+    -fx-background-color: black;
+}
+
+.view {
+    -fx-background-color: transparent;
+}
+
+.view .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.sep {
+    -fx-background-color: rgba(155, 155, 155, 0.52);
+}
