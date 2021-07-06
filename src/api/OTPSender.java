@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
-
+import java.security.*;
 import javafx.scene.control.Alert.AlertType;
 import tools.Dialog;
 
@@ -22,26 +22,38 @@ public class OTPSender {
         return reader.next();
     }
 
-    public static void SendOTP(String Phone) {
-        CurrentState = State.SENDING;
-        try {
-            String Token = LoadApiToken();
+    // public static void SendOTP(String Phone) {
+    //     CurrentState = State.SENDING;
+    //     try {
+    //         String Token = LoadApiToken();
 
-            // URL url = new URL("http://89.165.64.251:1500/api/MMHSmsSender?phone=" + Phone
-            // + "&Token=" + Token);
-            URL Url = new URL("http://127.0.0.1:1000/api/MMHSmsSender?phone=" + Phone + "&token=" + Token);
+    //         // URL url = new URL("http://89.165.64.251:1500/api/MMHSmsSender?phone=" + Phone
+    //         // + "&Token=" + Token);
+    //         URL Url = new URL("http://127.0.0.1:1000/api/MMHSmsSender?phone=" + Phone + "&token=" + Token);
 
-            HttpURLConnection conn = (HttpURLConnection) Url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.connect();
+    //         HttpURLConnection conn = (HttpURLConnection) Url.openConnection();
+    //         conn.setRequestMethod("GET");
+    //         conn.connect();
 
-            Scanner scanner = new Scanner(Url.openStream());
-            CurrentOTP = scanner.next();
+    //         Scanner scanner = new Scanner(Url.openStream());
+    //         CurrentOTP = scanner.next();
+    //         CurrentState = State.RECIEVED;
+    //     } catch (IOException e) {
+    //         Dialog.Alert(AlertType.ERROR, "Error", "Check Your Internet Connection !");
+    //         CurrentState = State.ERROR;
+    //         e.printStackTrace();
+    //     }
+    // }
+
+    public static int CreateOTP() {
+        SecureRandom random = new SecureRandom();
+        int otp = random.nextInt(100000) + random.nextInt(100000);
+        if (otp > 100000 && otp < 999999) {
+            CurrentOTP = String.valueOf(otp);
             CurrentState = State.RECIEVED;
-        } catch (IOException e) {
-            Dialog.Alert(AlertType.ERROR, "Error", "Check Your Internet Connection !");
-            CurrentState = State.ERROR;
-            e.printStackTrace();
+            return otp;
+        } else {
+            return CreateOTP();
         }
     }
 
