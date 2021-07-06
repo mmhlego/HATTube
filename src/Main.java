@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
         Parent parent = loader.load();
-        /*MediaPlayerPage c =loader.getController();
+      /*  MediaPlayerPage c =loader.getController();
         c.OpenMediaPlayer("https://download.toplearn.com/downloads/demo/01_Html.mp4");*/
         Scene scene = new Scene(parent);
         scene.setFill(Color.TRANSPARENT);
