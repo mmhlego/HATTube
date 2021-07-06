@@ -72,4 +72,26 @@ public class StyleController {
         Timeline timeline = new Timeline(frame);
         timeline.play();
     }
+
+  /*  public static void ReturnTransition(TextField t, Label l, ImageView i) {
+        l.setCursor(Cursor.TEXT);
+        l.setOnMouseClicked(e -> t.requestFocus());
+
+        TranslateTransition transition = new TranslateTransition();
+        transition.setInterpolator(Interpolator.EASE_BOTH);
+        transition.setNode(l);
+        transition.setCycleCount(1);
+        transition.setDuration(Duration.seconds(0.3));
+        i.setVisible(false);
+        t.setPadding(new Insets(0, 15, 0, 15));
+
+        transition.setByY(t.getHeight() / 2 * -1);
+        l.setStyle("-fx-background-color: #2d2d35;");
+
+
+        transition.play();
+        transition.setOnFinished(e -> l.setStyle("-fx-background-color: #2d2d35;-fx-text-fill: #4B8B90;"));
+    }*/
+
+
 }

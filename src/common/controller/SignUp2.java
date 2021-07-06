@@ -1,5 +1,6 @@
 package common.controller;
 
+import api.OTPSender;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,8 +19,6 @@ import tools.Validator;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import api.OTPSender;
 
 import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
@@ -77,7 +76,8 @@ public class SignUp2 implements Initializable {
         ReturnBTN.setOnMouseClicked((e) -> {
             try {
                 SignUp1.Returned = true;
-                root = FXMLLoader.load(new File("src/common/visual/SignUp1.fxml").toURI().toURL());
+                FXMLLoader loader = new FXMLLoader(new File("src/common/visual/SignUp1.fxml").toURI().toURL());
+                root = loader.load();
                 Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
             } catch (Exception e1) {
                 e1.printStackTrace();

@@ -14,8 +14,7 @@ public class PCPMediaPlayer {
     private ImageView PauseBTN;
     @FXML
     private WebView Player;
-    @FXML
-    private ImageView MaximizeBTN;
+
     int size = 140;
     int i = 0;
 
@@ -32,7 +31,7 @@ public class PCPMediaPlayer {
                         "</head>\n" +
                         "<body style=\"margin: 0;padding: 0;background-color: black;\">\n" +
                         "\n" +
-                        "  <video style=\"margin: auto\" id=\"example_video_1\" class=\"video-js\" autoplay preload=\"none\" width=\"auto\" height=\"" + size + "\" data-setup=\"{}\">\n" +
+                        "  <video style=\"margin: auto\" id=\"example_video_1\" class=\"video-js\" controls preload=\"none\" width=\"auto\" height=\"" + size + "\" data-setup=\"{}\">\n" +
                         "    <source src=\"" + url + "\" type=\"video/mp4\">\n" +
                         "    <p class=\"vjs-no-js\">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href=\"https://videojs.com/html5-video-support/\" target=\"_blank\">supports HTML5 video</a></p>\n" +
                         "  </video>\n" +
