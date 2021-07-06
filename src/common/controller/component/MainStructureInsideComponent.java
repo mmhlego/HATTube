@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import common.controller.BigMovieComponent;
+import common.controller.MainStructure;
 import common.controller.SmallMovieComponent;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -67,7 +69,6 @@ public class MainStructureInsideComponent implements Initializable {
         Counter = 0;
         for (Content content : (ArrayList<Content>) arrayList) {
             Counter++;
-            System.out.println(content.getName());
 
             try {
                 FXMLLoader loader = new FXMLLoader(
@@ -75,12 +76,25 @@ public class MainStructureInsideComponent implements Initializable {
                 Parent movie = loader.load();
                 ((SmallMovieComponent) loader.getController()).ShowContent(content);
                 MoviesPlace.getChildren().add(movie);
+                movie.setOnMouseClicked(e -> OpenContent(content));
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
             if (Counter == Count)
                 break;
+        }
+    }
+
+    private void OpenContent(Content content) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/common/visual/BigMovieComponent.fxml").toURI().toURL());
+            Parent parent = loader.load();
+            BigMovieComponent controller = loader.getController();
+            controller.ShowContent(content);
+            MainStructure.OpenPage(parent);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="936.0" prefWidth="1078.0" styleClass="root" stylesheets="@AccountInfoPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.controller.AccountInfoPage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="936.0" prefWidth="1078.0" styleClass="root" stylesheets="@AccountInfoPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.controller.AccountInfoPage">
    <children>
       <ImageView fx:id="AvatarIMG" fitHeight="150.0" fitWidth="200.0" layoutX="464.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
