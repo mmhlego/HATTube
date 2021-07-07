@@ -7,7 +7,6 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import api.OTPSender;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import tools.Animation;
+import tools.Animation.Direction;
+import tools.Animation.Speed;
 import tools.Dialog;
 import tools.Validator;
 
@@ -88,7 +89,7 @@ public class SignUp4 implements Initializable {
             try {
                 SignUp2.Returned = true;
                 root = FXMLLoader.load(new File("src/common/visual/SignUp2.fxml").toURI().toURL());
-                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -104,7 +105,7 @@ public class SignUp4 implements Initializable {
                 UserPassword = PasswordTXF.getText();
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp5.fxml").toURI().toURL());
-                    Animation.NextPageAnimation(RegisterAnchor, root, NextBTN);
+                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

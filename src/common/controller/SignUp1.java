@@ -1,5 +1,12 @@
 package common.controller;
 
+import static model.StyleController.ChangeTextField;
+import static model.StyleController.LabelFloat;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,15 +20,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import tools.Animation;
+import tools.Animation.Direction;
+import tools.Animation.Speed;
 import tools.Dialog;
 import tools.Validator;
-
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import static model.StyleController.ChangeTextField;
-import static model.StyleController.LabelFloat;
 
 public class SignUp1 implements Initializable {
 
@@ -111,14 +113,14 @@ public class SignUp1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-        LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
-        LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
         if (Returned) {
             FirstnameTXF.setText(UserFirstName);
             LastnameTXF.setText(UserLastname);
         }
+
+        LabelFloat(FirstnameTXF, FirstnameLBL, FirstnameIMG);
+        LabelFloat(LastnameTXF, LastnameLBL, LastnameIMG);
+
         NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
         NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
         ReturnBTN.setCursor(Cursor.HAND);
@@ -129,7 +131,7 @@ public class SignUp1 implements Initializable {
                 FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
                 root = loader.load();
 
-                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -143,7 +145,7 @@ public class SignUp1 implements Initializable {
                 UserLastname = LastnameTXF.getText();
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp2.fxml").toURI().toURL());
-                    Animation.NextPageAnimation(RegisterAnchor, root, NextBTN);
+                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

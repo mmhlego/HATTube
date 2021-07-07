@@ -1,5 +1,12 @@
 package common.controller;
 
+import static model.StyleController.ChangeTextField;
+import static model.StyleController.LabelFloat;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import api.OTPSender;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,15 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import tools.Animation;
+import tools.Animation.Direction;
+import tools.Animation.Speed;
 import tools.Dialog;
 import tools.Validator;
-
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import static model.StyleController.ChangeTextField;
-import static model.StyleController.LabelFloat;
 
 public class SignUp2 implements Initializable {
 
@@ -67,9 +69,9 @@ public class SignUp2 implements Initializable {
 
         LabelFloat(PhoneNumberTXF, PhoneNumberLBL, PhoneNumberIMG);
         LabelFloat(EmailTXF, EmailLBL, EmailIMG);
+
         NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
         NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
-
         ReturnBTN.setCursor(Cursor.HAND);
         NextBTN.setCursor(Cursor.HAND);
 
@@ -78,7 +80,7 @@ public class SignUp2 implements Initializable {
                 SignUp1.Returned = true;
                 FXMLLoader loader = new FXMLLoader(new File("src/common/visual/SignUp1.fxml").toURI().toURL());
                 root = loader.load();
-                Animation.PreviousPageAnimation(RegisterAnchor, root, ReturnBTN);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -96,7 +98,7 @@ public class SignUp2 implements Initializable {
                 Dialog.Alert(AlertType.INFORMATION, "Code", String.valueOf(OTPSender.CreateOTP()));
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp3.fxml").toURI().toURL());
-                    Animation.NextPageAnimation(RegisterAnchor, root, NextBTN);
+                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
