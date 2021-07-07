@@ -13,7 +13,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import model.User;
 import tools.RememberMe;
 
@@ -129,7 +128,7 @@ public class Login implements Initializable {
         LoginBTN.setOnMouseClicked(e -> {
             if (User.Approve(new User(UsernameTXF.getText(), PasswordTXF.getText()))) {
                 // ((Stage) LoginAnchor.getScene().getWindow()).close();
-                MainStructure.rootUnBlur();
+                MainStructure.ClosePopup();
                 tools.Dialog.Alert(AlertType.INFORMATION, "Success", "Login successful.");
                 MainStructure.OpenFirstPage();
 

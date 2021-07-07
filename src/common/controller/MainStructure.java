@@ -258,7 +258,7 @@ public class MainStructure implements Initializable {
     boolean isSidebarOpen = false;
 
     private void sidebarAnimation() {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), SideBar);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.3), SideBar);
         transition.setByX((isSidebarOpen) ? 300 : -300);
         transition.play();
         isSidebarOpen = !isSidebarOpen;

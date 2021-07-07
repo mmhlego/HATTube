@@ -47,7 +47,7 @@
 }
 
 .sidebar {
-    -fx-background-color: linear-gradient(to left, #1F1F1F, #1F1F1F99);
+    -fx-background-color: linear-gradient(to left, #1F1F1F, rgba(31, 31, 31, 0.75));
 
 }
 

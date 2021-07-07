@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox alignment="TOP_CENTER" prefHeight="1275.0" prefWidth="1065.0" spacing="25.0" stylesheets="@AddContentPage.css"
+      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="user.controller.AddContentPage">
+   <children>
+      <Label text="Add Content" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="20.0"/>
+         </font>
+         <VBox.margin>
+            <Insets top="25.0"/>
+         </VBox.margin>
+      </Label>
+      <AnchorPane prefHeight="2.0" prefWidth="200.0" styleClass="sep"/>
+      <VBox alignment="CENTER" spacing="50.0">
+         <children>
+            <ImageView fx:id="PosterSelectIMG" fitHeight="207.0" fitWidth="170.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <image>
+                  <Image url="@../../../resource/images/icons/add-image.png"/>
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </ImageView>
+            <Group>
+               <children>
+                  <TextField fx:id="NameTXF" alignment="CENTER" focusTraversable="false" layoutY="50.0"
+                             prefHeight="50.0" prefWidth="900.0" styleClass="fields" text="-">
+                     <font>
+                        <Font name="System Bold" size="14.0"/>
+                     </font>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="900.0" styleClass="upFields" text="Name:"
+                         textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0"/>
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1449.0" spacing="30.0">
+               <children>
+                  <Group>
+                     <children>
+                        <TextField fx:id="GenresIMG" alignment="CENTER" editable="false" focusTraversable="false"
+                                   layoutY="50.0" prefHeight="50.0" prefWidth="280.0" styleClass="fields" text="-">
+                           <font>
+                              <Font name="System Bold" size="14.0"/>
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="280.0" styleClass="upFields"
+                               text="Genres:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0"/>
+                           </font>
+                        </Label>
+                        <ImageView fx:id="GenersOpenIMG" fitHeight="25.0" fitWidth="25.0" layoutX="254.0" layoutY="63.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resource/images/icons/icons8_sort_down_500px.png"/>
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND"/>
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </Group>
+                  <Group layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="280.0" styleClass="upFields" text="Rate:"
+                               textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0"/>
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="RateCMB" layoutY="50.0" prefHeight="50.0" prefWidth="280.0"/>
+                     </children>
+                  </Group>
+                  <Group layoutX="510.0" layoutY="10.0">
+                     <children>
+                        <TextField fx:id="ScoreTXF" alignment="CENTER" focusTraversable="false" layoutY="50.0"
+                                   prefHeight="50.0" prefWidth="280.0" styleClass="fields" text="-">
+                           <font>
+                              <Font name="System Bold" size="14.0"/>
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="280.0" styleClass="upFields"
+                               text="Score:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0"/>
+                           </font>
+                        </Label>
+                     </children>
+                  </Group>
+               </children>
+            </HBox>
+            <Group layoutX="299.0" layoutY="230.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="-215.0" prefHeight="50.0" prefWidth="900.0" styleClass="upFields"
+                         text="Description:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0"/>
+                     </font>
+                  </Label>
+                  <TextArea fx:id="DescriptionTXF" layoutX="-215.0" layoutY="50.0" prefHeight="143.0" prefWidth="900.0"
+                            styleClass="area" text="-">
+                     <font>
+                        <Font name="System Bold" size="14.0"/>
+                     </font>
+                  </TextArea>
+               </children>
+            </Group>
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <TextField fx:id="NameTXF" alignment="CENTER" editable="false" focusTraversable="false"
+                                         prefHeight="50.0" prefWidth="300.0" promptText="Name" styleClass="i_upFields">
+                                 <font>
+                                    <Font name="System Bold Italic" size="17.0"/>
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="DetailTXF" alignment="CENTER" editable="false" focusTraversable="false"
+                                         prefHeight="50.0" prefWidth="300.0" promptText="Details" styleClass="i_fields">
+                                 <font>
+                                    <Font name="System Bold" size="14.0"/>
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button fx:id="AddInfoBTN" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="50.0"
+                          prefWidth="600.0" styleClass="btn" text="Add Info">
+                     <font>
+                        <Font name="System Bold" size="17.0"/>
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0"/>
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resource/images/icons/icons8_add_512px.png"/>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND"/>
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <Button fx:id="UploadBTN" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="900.0"
+                    styleClass="btn" text="Upload File">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_upload_480px.png"/>
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="17.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+            <Button fx:id="AddContentBTN" graphicTextGap="15.0" layoutX="99.0" layoutY="944.0" mnemonicParsing="false"
+                    prefHeight="50.0" prefWidth="900.0" styleClass="add" text="Add Content">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resource/images/icons/icons8_Add_to_Collection_480px.png"/>
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="17.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0"/>
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

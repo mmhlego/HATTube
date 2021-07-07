@@ -52,6 +52,10 @@ public class StartPage implements Initializable {
             @Override
             public void run() {
                 while (!DataBase.Connect()) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (Exception e) {
+                    }
                     System.out.println("Connection Failed. Retrying ...");
                 }
                 System.out.println("Connected");
