@@ -5,6 +5,7 @@ import java.awt.*;
 
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class OtherTools {
@@ -36,6 +37,12 @@ public class OtherTools {
             Desktop.getDesktop().browse(Url.toURI());
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void ChangeTextFieldAccess(TextField[] tf , boolean Accessible) {
+        for (TextField textField : tf) {
+            textField.setEditable(Accessible);
         }
     }
 }
