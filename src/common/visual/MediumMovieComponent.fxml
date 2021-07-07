@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" stylesheets="@MediumMovieComponent.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" stylesheets="@MediumMovieComponent.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.MediumMovieComponent">
    <children>
-      <ImageView fitHeight="250.0" fitWidth="172.0" layoutX="500.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="PosterIMG" fitHeight="250.0" fitWidth="172.0" layoutX="500.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../resource/images/posters/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_QL75_UX280_CR0,0,280,414_.jpg" />
          </image>
       </ImageView>
       <AnchorPane layoutX="68.0" layoutY="65.0" prefHeight="2.0" prefWidth="400.0" styleClass="lines" AnchorPane.leftAnchor="64.0" />
-      <Label layoutX="192.0" layoutY="14.0" text="Movie Name: Loki" textFill="WHITE">
+      <Label fx:id="NameLBL" layoutX="192.0" layoutY="14.0" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="17.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextArea layoutX="64.0" layoutY="74.0" prefHeight="75.0" prefWidth="367.0" styleClass="area" text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" wrapText="true" />
+      <TextArea fx:id="DescriptionAea" layoutX="64.0" layoutY="74.0" prefHeight="75.0" prefWidth="367.0" styleClass="area" wrapText="true" />
       <HBox layoutX="136.0" layoutY="40.0" spacing="42.0">
          <children>
             <AnchorPane>
@@ -38,7 +38,7 @@
                         <Image url="@../../../resource/images/icons/icons8_facebook_like_480px.png" />
                      </image>
                   </ImageView>
-                  <Label layoutY="2.0" text="85%" textFill="WHITE" />
+                  <Label fx:id="LikeLBL" layoutY="2.0" text="85%" textFill="WHITE" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="23.0" prefWidth="76.0">
@@ -48,7 +48,7 @@
                         <Image url="@../../../resource/images/icons/icons8_eye_96px.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="40.0" layoutY="3.0" text="53453453" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+                  <Label fx:id="ViewLBL" layoutX="40.0" layoutY="3.0" text="53453453" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
                </children>
             </AnchorPane>
             <AnchorPane>
@@ -58,34 +58,34 @@
                         <Image url="@../../../resource/images/icons/icons8_imdb_208px.png" />
                      </image>
                   </ImageView>
-                  <Label layoutY="2.0" text="9.9" textFill="WHITE" />
+                  <Label fx:id="ScoreLBL" layoutY="2.0" text="9.9" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="64.0" layoutY="157.0" prefHeight="36.0" prefWidth="400.0" spacing="10.0">
          <children>
-            <Label text="Time:124M" textFill="WHITE">
+            <Label fx:id="DetailLBL" text="Time:" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
             <AnchorPane prefHeight="20.0" prefWidth="2.0" styleClass="lines" />
-            <Label text="Country:Iran" textFill="WHITE">
+            <Label fx:id="RateLBL" text="PG-13" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <JFXButton id="first" buttonType="RAISED" layoutX="264.0" layoutY="205.0" prefHeight="35.0" prefWidth="203.0" ripplerFill="#8d0050" text="Watch" textFill="WHITE">
+      <JFXButton id="first" fx:id="WatchBTN" buttonType="RAISED" layoutX="264.0" layoutY="205.0" prefHeight="35.0" prefWidth="203.0" ripplerFill="#8d0050" text="Watch" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton id="second" layoutX="64.0" layoutY="205.0" prefHeight="35.0" prefWidth="203.0" ripplerFill="#8d0050" text="Add To Watchlist" textFill="WHITE">
+      <JFXButton id="second" fx:id="AddToWatchBTN" layoutX="64.0" layoutY="205.0" prefHeight="35.0" prefWidth="203.0" ripplerFill="#8d0050" text="Add To Watchlist" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
