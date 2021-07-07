@@ -120,6 +120,26 @@ public class MainStructure implements Initializable {
         TranslateToBack(Sep, -85);
         TranslateToBack(AccountANC, -85);
 
+        WatchlistANC.setOnMouseClicked((e) ->{
+            if (UserController.LoggedIn()) {
+                OpenPage("src/common/visual/ContentPage.fxml");
+            } else {
+                try {
+                    FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
+                    Stage stage = new Stage();
+                    Parent parent = loader.load();
+                    Scene scene = new Scene(parent);
+                    scene.setFill(Color.TRANSPARENT);
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.show();
+                    rootBlur();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+
         WatchlistIMG.getParent().setOnMouseEntered(e -> {
             TranslateToFront(Sep, 85, true);
             TranslateToFront(AccountANC, 85, true);
@@ -191,12 +211,13 @@ public class MainStructure implements Initializable {
         return null;
     }
 
-    private void OpenPage(String path) {
+    public static void OpenPage(String path) {
         try {
             FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
             Parent root = loader.load();
-            AnchorPane.setTopAnchor(root, 40.0);
-            ((AnchorPane) EndArea.getParent()).getChildren().add(root);
+            // AnchorPane.setTopAnchor(root, 40.0);
+            // ((AnchorPane) EndArea.getParent()).getChildren().add(root);
+            OpenPage(root);
         } catch (Exception e) {
             e.printStackTrace();
         }
