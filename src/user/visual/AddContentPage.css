@@ -1,0 +1,106 @@
+.root {
+    -fx-background-color: black;
+}
+
+.sep {
+    -fx-background-color: linear-gradient(to left, transparent, #dddddd50, #dddddd50, rgba(255, 255, 255, 0.84), #dddddd50, #dddddd50, transparent);
+}
+
+.fields {
+    -fx-background-radius: 0 0 5 5;
+    -fx-background-color: #d4d4d4;
+    -fx-text-fill: black;
+}
+
+.upFields {
+    -fx-background-color: #3b4043;
+    -fx-background-radius: 5 5 0 0;
+    -fx-text-fill: white;
+}
+
+.fields:hover {
+    -fx-background-color: white;
+}
+
+.fields:focused {
+    -fx-background-color: white;
+}
+
+.fields:hover .upFields {
+    -fx-background-color: #3f799b;
+}
+
+.i_fields {
+    -fx-background-radius: 0 50 50 0;
+    -fx-background-color: #d4d4d4;
+    -fx-text-fill: black;
+}
+
+.i_upFields {
+    -fx-background-color: #3b4043;
+    -fx-background-radius: 50 0 0 50;
+    -fx-text-fill: white;
+}
+
+.i_fields:hover {
+    -fx-background-color: white;
+}
+
+.i_fields:focused {
+    -fx-background-color: white;
+}
+
+.i_fields:hover .upFields {
+    -fx-background-color: #3f799b;
+}
+
+.area .scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0 0 5 5;
+}
+
+.area .scroll-pane .viewport {
+    -fx-background-radius: 0 0 5 5;
+    -fx-background-color: #d4d4d4;
+}
+
+.area .scroll-pane .viewport .content {
+    -fx-background-radius: 0 0 5 5;
+    -fx-background-color: #d4d4d4;
+}
+
+.area {
+    -fx-background-radius: 0 0 5 5;
+    -fx-background-color: #d4d4d4;
+}
+
+.btn {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 50px;
+}
+
+.btn:hover {
+    -fx-background-color: #9b9b9b;
+    -fx-border-width: 2;
+    -fx-border-radius: 45;
+    -fx-border-color: #ffffff;
+
+}
+
+.combo .list-cell:selected:empty {
+    -fx-background-color: #d4d4d4;
+}
+
+.combo .arrow-button {
+    -fx-background-color: #d4d4d4;
+}
+
+.add {
+    -fx-background-color: #4cb0fd;
+    -fx-background-radius: 50;
+}
+
+.add:hover {
+    -fx-background-color: #8dceff;
+}
