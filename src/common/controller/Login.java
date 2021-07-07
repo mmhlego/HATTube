@@ -9,9 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import model.User;
+import tools.RememberMe;
 
 import java.io.File;
 import java.net.URL;
@@ -102,13 +106,13 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         RemembermeCHB.setCursor(Cursor.HAND);
         LoginBTN.setCursor(Cursor.HAND);
         SignupBTN.setCursor(Cursor.HAND);
 
         LabelFloat(UsernameTXF, UsernameLBL, UsernameIMG);
         LabelFloat(PasswordTXF, PasswordLBL, PasswordIMG);
+
         LoginBTN.setOnMouseEntered(e -> ChangeTextField(LoginBTN, 300));
         LoginBTN.setOnMouseExited(e -> ChangeTextField(LoginBTN, 250));
 
@@ -119,6 +123,21 @@ public class Login implements Initializable {
                 LoginAnchor.getChildren().add(root);
             } catch (Exception e1) {
                 e1.printStackTrace();
+            }
+        });
+
+        LoginBTN.setOnMouseClicked(e -> {
+            if (User.Approve(new User(UsernameTXF.getText(), PasswordTXF.getText()))) {
+                ((Stage) LoginAnchor.getScene().getWindow()).close();
+                tools.Dialog.Alert(AlertType.INFORMATION, "Success", "Login successful.");
+                MainStructure.rootUnBlur();
+                MainStructure.OpenFirstPage();
+
+                if (RemembermeCHB.isSelected()) {
+                    tools.RememberMe.SetRemember(new RememberMe(UsernameTXF.getText(), PasswordTXF.getText()));
+                }
+            } else {
+                tools.Dialog.Alert(AlertType.ERROR, "Wrong credential", "Wrong Username/Password has been entered.");
             }
         });
     }

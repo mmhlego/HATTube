@@ -15,7 +15,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Content;
+import model.User;
 import tools.ImageDownloader;
+import tools.RememberMe;
 
 import java.io.File;
 import java.net.URL;
@@ -64,6 +66,10 @@ public class StartPage implements Initializable {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                }
+
+                if (RememberMe.GetRemember() != null) {
+                    User.Approve(new User(RememberMe.GetRemember().Username, RememberMe.GetRemember().Password));
                 }
 
                 Platform.runLater(new Runnable() {

@@ -6,6 +6,8 @@ target/api/Token.api.txt
 
 target/*
 
+.AppData/*
+
 .classpath
 .project
 pom.xml
