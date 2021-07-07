@@ -130,6 +130,10 @@ public class User extends Unique {
                 "", new ArrayList<String>());
     }
 
+    public User(String username, String password) { // Just for approve
+        this("", "", "", "", "", username, Encoder.EncodePassword(password), LocalDate.now(), 0, "", null);
+    }
+
     public void CalculateAge() {
         Age = CalculateAge(BirthDate);
     }

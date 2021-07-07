@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="936.0"
-            prefWidth="1078.0" styleClass="root" stylesheets="@AccountInfoPage.css"
-            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="user.controller.AccountInfoPage">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="936.0" prefWidth="1063.0" styleClass="root" stylesheets="@AccountInfoPage.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.controller.AccountInfoPage">
    <children>
-      <ImageView fx:id="AvatarIMG" fitHeight="150.0" fitWidth="200.0" layoutX="464.0" layoutY="51.0" pickOnBounds="true"
-                 preserveRatio="true">
+      <ImageView fx:id="AvatarIMG" fitHeight="150.0" fitWidth="200.0" layoutX="464.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../resource/images/Avatars/user.png"/>
+            <Image url="@../../../resource/images/Avatars/user.png" />
          </image>
       </ImageView>
-      <VBox alignment="TOP_CENTER" layoutX="83.0" layoutY="272.0" prefHeight="577.0" prefWidth="978.0" spacing="30.0"
-            AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"
-            AnchorPane.topAnchor="300.0">
+      <VBox alignment="TOP_CENTER" layoutX="83.0" layoutY="272.0" prefHeight="577.0" prefWidth="978.0" spacing="30.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="300.0">
          <children>
             <Group>
                <children>
@@ -131,7 +132,7 @@
                               <Image url="@../../../resource/images/icons/icons8_user_96px.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="ChangePasswordBTN" layoutX="392.0" layoutY="33.0" styleClass="CNG" text="Change Password" textFill="#0099ff">
+                        <Label fx:id="ChangePasswordBTN" layoutX="370.0" layoutY="30.0" styleClass="CNG" text="Change Password" textFill="#0099ff">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -153,7 +154,7 @@
       <AnchorPane layoutX="501.0" layoutY="242.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="250.0" />
       <Label fx:id="AccessIdLBL" layoutX="480.0" layoutY="233.0" text="User ID:383748239" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="12.0"/>
+            <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
    </children>

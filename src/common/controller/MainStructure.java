@@ -117,26 +117,33 @@ public class MainStructure implements Initializable {
         MiniIMG.setOnMouseClicked(e -> ((Stage) EndArea.getParent().getScene().getWindow()).setIconified(true));
         WatchlistLBL.setVisible(false);
         AccountLBL.setVisible(false);
-        TranslateToBack(Sep, -85);
-        TranslateToBack(AccountANC, -85);
 
-        WatchlistIMG.getParent().setOnMouseEntered(e -> {
-            TranslateToFront(Sep, 85, true);
-            TranslateToFront(AccountANC, 85, true);
-        });
+        // TranslateNode(Sep, -85, false);
+        TranslateNode(Sep, 60, false);
+        // TranslateNode(AccountANC, -85, false);
+        TranslateNode(AccountANC, -85, false);
 
         AccountIMG.getParent().setOnMouseEntered(e -> AccountLBL.setVisible(true));
+        AccountIMG.getParent().setOnMouseExited(e -> AccountLBL.setVisible(false));
 
-        WatchlistIMG.getParent().setOnMouseExited(e -> {
-            TranslateToBack(Sep, -85);
-            TranslateToBack(AccountANC, -85);
+        WatchlistIMG.getParent().setOnMouseEntered(e -> {
+            // TranslateNode(Sep, 85, true);
+            TranslateNode(Sep, 145, true);
+            // TranslateNode(AccountANC, 85, true);
+            TranslateNode(AccountANC, 0, true);
         });
 
-        AccountIMG.getParent().setOnMouseExited(e -> AccountLBL.setVisible(false));
+        WatchlistIMG.getParent().setOnMouseExited(e -> {
+            // TranslateNode(Sep, -85, false);
+            TranslateNode(Sep, 60, false);
+            // TranslateNode(AccountANC, -85, false);
+            TranslateNode(AccountANC, -85, false);
+        });
+
         SearchIMG.setOnMouseClicked(e -> {
             if (!isSearchOpen) {
                 SearchBar.setVisible(true);
-                TranslateToBack(SearchANC, -700);
+                TranslateNode(SearchANC, 211, false);
                 LogoLBL.setVisible(false);
                 ChangeSize(SearchANC, 700);
                 SearchIMG.getStyleClass().set(0, "searchBa");
@@ -144,7 +151,8 @@ public class MainStructure implements Initializable {
             } else {
                 SearchIMG.getStyleClass().set(0, "iBack");
                 SearchIMG.setStyle("-fx-background-color: transparent");
-                TranslateToFront(SearchANC, 700, false);
+                // TranslateNode(SearchANC, 700, false);
+                TranslateNode(SearchANC, 911, false);
                 LogoLBL.setVisible(true);
                 ChangeSize(SearchANC, 0);
                 isSearchOpen = false;
@@ -191,27 +199,26 @@ public class MainStructure implements Initializable {
         return null;
     }
 
-    private void OpenPage(String path) {
+    private static void OpenPage(String path) {
         try {
             FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
             Parent root = loader.load();
-            AnchorPane.setTopAnchor(root, 40.0);
-            ((AnchorPane) EndArea.getParent()).getChildren().add(root);
+            // AnchorPane.setTopAnchor(root, 40.0);
+            // ((AnchorPane) EndArea.getParent()).getChildren().add(root);
+            OpenPage(root);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void TranslateToBack(Node node, double dis) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
-        transition.setByX(dis);
-        transition.play();
-        transition.setOnFinished(e -> WatchlistLBL.setVisible(false));
-    }
+    //         // TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
+    //         // transition.setByX(dis);
+    //         // transition.play();
+    //         // transition.setOnFinished(e -> WatchlistLBL.setVisible(s));
 
-    private void TranslateToFront(Node node, double dis, boolean s) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
-        transition.setByX(dis);
+    private void TranslateNode(Node node, double finalValue, boolean s) {
+        Timeline transition = new Timeline(
+                new KeyFrame(Duration.millis(50), new KeyValue(node.layoutXProperty(), finalValue)));
         transition.play();
         transition.setOnFinished(e -> WatchlistLBL.setVisible(s));
     }
