@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<HBox alignment="CENTER" style="-fx-background-color: transparent;" stylesheets="@AddContentPage.css"
+      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="user.controller.InfoComponent">
+    <children>
+        <TextField fx:id="NameTXF" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="50.0"
+                   prefWidth="300.0" promptText="Name" styleClass="i_upFields">
+            <font>
+                <Font name="System Bold Italic" size="17.0"/>
+            </font>
+        </TextField>
+        <TextField fx:id="DetailTXF" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="50.0"
+                   prefWidth="300.0" promptText="Details" styleClass="i_fields">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </TextField>
+    </children>
+</HBox>
