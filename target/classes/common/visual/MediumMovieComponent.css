@@ -1,5 +1,8 @@
 .root{
     -fx-background-color: #1a1a1a;
+    -fx-border-color: #383838;
+    -fx-border-width: 2;
+    -fx-border-radius:10;
 }
 .lines{
    /* -fx-background-color: #919191;*/
@@ -7,6 +10,7 @@
 }
 .area_side{
     -fx-background-color: #ff00c7;
+    -fx-background-color: #424242;
     -fx-background-radius: 3 3 0 0;
 }
 

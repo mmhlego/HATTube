@@ -8,15 +8,16 @@ import javafx.stage.StageStyle;
 import java.io.File;
 
 public class Main extends Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         launch(args);
         // samples.FullDataCreator.CreateData(10);
-        System.exit(0);
+        // System.exit(0);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
+        // FXMLLoader loader = new FXMLLoader(new File("src/user/visual/AccountInfoPage.fxml").toURI().toURL());
         Parent parent = loader.load();
         /*    MediaPlayerPage c =loader.getController();
         c.OpenMediaPlayer("https://download.toplearn.com/downloads/demo/01_Html.mp4");*/

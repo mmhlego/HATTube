@@ -105,13 +105,13 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         RemembermeCHB.setCursor(Cursor.HAND);
         LoginBTN.setCursor(Cursor.HAND);
         SignupBTN.setCursor(Cursor.HAND);
 
         LabelFloat(UsernameTXF, UsernameLBL, UsernameIMG);
         LabelFloat(PasswordTXF, PasswordLBL, PasswordIMG);
-
         LoginBTN.setOnMouseEntered(e -> ChangeTextField(LoginBTN, 300));
         LoginBTN.setOnMouseExited(e -> ChangeTextField(LoginBTN, 250));
 
@@ -131,6 +131,10 @@ public class Login implements Initializable {
                 MainStructure.ClosePopup();
                 tools.Dialog.Alert(AlertType.INFORMATION, "Success", "Login successful.");
                 MainStructure.OpenFirstPage();
+
+                // ArrayList<String> ans = new ArrayList<String>(); //INFO for sample content in subscriptions
+                // ans.add("HCNT-43c9006c0a");
+                // UserController.getCurrentUser().setSubcriptions(ans);
 
                 if (RemembermeCHB.isSelected()) {
                     tools.RememberMe.SetRemember(new RememberMe(UsernameTXF.getText(), PasswordTXF.getText()));

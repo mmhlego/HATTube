@@ -145,6 +145,14 @@ public class MainStructure implements Initializable {
         AccountIMG.getParent().setOnMouseEntered(e -> AccountLBL.setVisible(true));
         AccountIMG.getParent().setOnMouseExited(e -> AccountLBL.setVisible(false));
 
+        AccountANC.setOnMouseClicked(e -> {
+            if (UserController.LoggedIn()) {
+                OpenPage("src/user/visual/AccountInfoPage.fxml");
+            } else {
+                OpenPopup("src/common/visual/Login.fxml");
+            }
+        });
+
         WatchlistIMG.getParent().setOnMouseEntered(e -> {
             // TranslateNode(Sep, 85, true);
             TranslateNode(Sep, 145, true);
@@ -159,31 +167,32 @@ public class MainStructure implements Initializable {
             TranslateNode(AccountANC, -85, false);
         });
 
+        WatchlistANC.setOnMouseClicked((e) -> {
+            if (UserController.LoggedIn()) {
+                OpenPage("src/common/visual/ContentPage.fxml");
+            } else {
+                OpenPopup("src/common/visual/Login.fxml");
+            }
+        });
+
         SearchIMG.setOnMouseClicked(e -> {
             if (!isSearchOpen) {
                 SearchBar.setVisible(true);
                 TranslateNode(SearchANC, 211, false);
-                LogoLBL.setVisible(false);
+                // LogoLBL.setVisible(false);
                 ChangeSize(SearchANC, 700);
                 SearchIMG.getStyleClass().set(0, "searchBa");
-                isSearchOpen = true;
+                // isSearchOpen = true;
             } else {
                 SearchIMG.getStyleClass().set(0, "iBack");
                 SearchIMG.setStyle("-fx-background-color: transparent");
                 // TranslateNode(SearchANC, 700, false);
                 TranslateNode(SearchANC, 911, false);
-                LogoLBL.setVisible(true);
                 ChangeSize(SearchANC, 0);
-                isSearchOpen = false;
             }
-        });
 
-        AccountANC.setOnMouseClicked(e -> {
-            if (UserController.LoggedIn()) {
-                OpenPage("src/user/visual/AccountInfoPage.fxml");
-            } else {
-                OpenPopup("src/common/visual/Login.fxml");
-            }
+            LogoLBL.setVisible(isSearchOpen);
+            isSearchOpen = !isSearchOpen;
         });
 
         new LoadingStage();

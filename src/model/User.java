@@ -130,7 +130,7 @@ public class User extends Unique {
                 "", new ArrayList<String>());
     }
 
-    public User(String username, String password) { // Just for approve
+    public User(String username, String password) {
         this("", "", "", "", "", username, Encoder.EncodePassword(password), LocalDate.now(), 0, "", null);
     }
 
