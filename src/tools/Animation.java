@@ -50,8 +50,10 @@ public class Animation {
     public static void NextPageAnimation(AnchorPane CurrentAnchor, Parent NextPage, Direction direction, Speed speed) {
         // NextPage.translateXProperty().set(NextStepBTN.getScene().getWidth() * (-direction.getX()));
         NextPage.translateXProperty().set(CurrentAnchor.getWidth() * (-direction.getX()));
+        // NextPage.layoutXProperty().set(CurrentAnchor.getWidth() * (-direction.getX()));
         // NextPage.translateYProperty().set(NextStepBTN.getScene().getHeight() * (-direction.getY()));
         NextPage.translateYProperty().set(CurrentAnchor.getHeight() * (-direction.getY()));
+        // NextPage.layoutYProperty().set(CurrentAnchor.getHeight() * (-direction.getY()));
         CurrentAnchor.getChildren().clear();
         CurrentAnchor.getChildren().add(NextPage);
         Timeline timeline = new Timeline();

@@ -128,9 +128,9 @@ public class Login implements Initializable {
 
         LoginBTN.setOnMouseClicked(e -> {
             if (User.Approve(new User(UsernameTXF.getText(), PasswordTXF.getText()))) {
-                ((Stage) LoginAnchor.getScene().getWindow()).close();
-                tools.Dialog.Alert(AlertType.INFORMATION, "Success", "Login successful.");
+                // ((Stage) LoginAnchor.getScene().getWindow()).close();
                 MainStructure.rootUnBlur();
+                tools.Dialog.Alert(AlertType.INFORMATION, "Success", "Login successful.");
                 MainStructure.OpenFirstPage();
 
                 if (RemembermeCHB.isSelected()) {

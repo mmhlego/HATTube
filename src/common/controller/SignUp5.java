@@ -94,6 +94,8 @@ public class SignUp5 implements Initializable {
                             SignUp4.UserUsername, SignUp4.UserPassword,
                             LocalDate.parse(String.valueOf(BirthPicker.getValue())));
                     DataAdder.AddData(u);
+                    MainStructure.ClosePopup();
+                    MainStructure.OpenFirstPage();
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

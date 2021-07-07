@@ -131,7 +131,9 @@ public class SignUp1 implements Initializable {
                 FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
                 root = loader.load();
 
-                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
+                // Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
+                Animation.NextPageAnimation((AnchorPane) MainStructure.PopupPane.getChildren().get(0), root,
+                        Direction.RIGHT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }

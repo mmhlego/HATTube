@@ -14,9 +14,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
@@ -26,9 +26,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import user.UserController;
 
@@ -81,26 +80,46 @@ public class MainStructure implements Initializable {
     private static AnchorPane root;
     boolean isWatchlistOpen = false;
     boolean isSearchOpen = false;
-    static AnchorPane pane;
+    // static AnchorPane pane;
+    // public static AnchorPane PopupPane;
+    public static VBox PopupPane;
 
     public static void rootBlur() {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(10);
-        root.setEffect(gaussianBlur);
-        pane = new AnchorPane();
-        pane.setStyle("-fx-background-color: rgba(255,255,255,0.2)");
-        AnchorPane.setBottomAnchor(pane, 0.0);
-        AnchorPane.setLeftAnchor(pane, 0.0);
-        AnchorPane.setTopAnchor(pane, 0.0);
-        AnchorPane.setRightAnchor(pane, 0.0);
-        root.getChildren().add(pane);
+        root.getChildren().get(0).setEffect(gaussianBlur);
+        root.getChildren().get(1).setEffect(gaussianBlur);
+        // root.setEffect(gaussianBlur);
+        // pane = new AnchorPane();
+        PopupPane = new VBox();
+        PopupPane.setAlignment(Pos.CENTER);
+        VBox parent = new VBox(PopupPane);
+        parent.setFillWidth(false);
+
+        Rectangle clip = new Rectangle();
+
+        clip.layoutXProperty().bind(parent.layoutXProperty());
+        clip.setLayoutY(0);
+        clip.widthProperty().bind(PopupPane.widthProperty());
+        clip.heightProperty().bind(PopupPane.heightProperty());
+
+        PopupPane.setClip(new Rectangle(200, 0, 200, 200));
+        PopupPane.setClip(clip);
+
+        parent.setAlignment(Pos.CENTER);
+        parent.setStyle("-fx-background-color: rgba(255,255,255,0.2)");
+        AnchorPane.setBottomAnchor(parent, 0.0);
+        AnchorPane.setLeftAnchor(parent, 0.0);
+        AnchorPane.setTopAnchor(parent, 0.0);
+        AnchorPane.setRightAnchor(parent, 0.0);
+        root.getChildren().add(parent);
     }
 
     public static void rootUnBlur() {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(0);
-        root.setEffect(gaussianBlur);
-        root.getChildren().remove(pane);
+        root.getChildren().get(0).setEffect(gaussianBlur);
+        root.getChildren().get(1).setEffect(gaussianBlur);
     }
 
     @Override
@@ -163,26 +182,42 @@ public class MainStructure implements Initializable {
             if (UserController.LoggedIn()) {
                 OpenPage("src/user/visual/AccountInfoPage.fxml");
             } else {
-                try {
-                    FXMLLoader loader = new FXMLLoader(new File("src/common/visual/Login.fxml").toURI().toURL());
-                    Stage stage = new Stage();
-                    Parent parent = loader.load();
-                    Scene scene = new Scene(parent);
-                    scene.setFill(Color.TRANSPARENT);
-                    stage.setScene(scene);
-                    stage.initStyle(StageStyle.UNDECORATED);
-                    stage.show();
-                    rootBlur();
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
+                OpenPopup("src/common/visual/Login.fxml");
             }
         });
+
         new LoadingStage();
 
         tools.OtherTools.MakeStageMovable(Root, EndArea);
 
         OpenFirstPage();
+    }
+
+    public static void ClosePopup() {
+        root.getChildren().remove(PopupPane.getParent());
+        MainStructure.rootUnBlur();
+    }
+
+    public static void OpenPopup(String path) {
+        OpenPopup(GetParent(path));
+    }
+
+    public static void OpenPopup(Parent root) {
+        try {
+            // Stage stage = new Stage();
+            // Scene scene = new Scene(root);
+            // scene.setFill(Color.TRANSPARENT);
+            // stage.setScene(scene);
+            // stage.initStyle(StageStyle.UNDECORATED);
+            // stage.show();
+            rootBlur();
+
+            // tools.OtherTools.MakeStageMovable(stage, EndArea);
+            PopupPane.getChildren().clear();
+            PopupPane.getChildren().add(root);
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
     }
 
     private static MainStructureInsideComponent CreateCategory(String name) {
@@ -197,18 +232,6 @@ public class MainStructure implements Initializable {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private static void OpenPage(String path) {
-        try {
-            FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
-            Parent root = loader.load();
-            // AnchorPane.setTopAnchor(root, 40.0);
-            // ((AnchorPane) EndArea.getParent()).getChildren().add(root);
-            OpenPage(root);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     //         // TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
@@ -260,6 +283,30 @@ public class MainStructure implements Initializable {
         MainStructureInsideComponent MostViewed = CreateCategory("Most Viewed");
         MostViewed.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
                 new OrderBy[] { OrderBy.Views }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+    }
+
+    public static Parent GetParent(String path) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
+            Parent root = loader.load();
+            return root;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static void OpenPage(String path) {
+        // try {
+        //     FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
+        //     Parent root = loader.load();
+        //     // AnchorPane.setTopAnchor(root, 40.0);
+        //     // ((AnchorPane) EndArea.getParent()).getChildren().add(root);
+        //     OpenPage(root);
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+        OpenPage(GetParent(path));
     }
 
     public static void OpenPage(Parent parent) {
