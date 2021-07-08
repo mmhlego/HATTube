@@ -100,7 +100,10 @@ public class SignUp4 implements Initializable {
                 Dialog.Alert(AlertType.ERROR, "Error", "Some Fields Are Empty ! ");
             } else if (!PasswordTXF.getText().equals(RepPasswordTXF.getText())) {
                 Dialog.Alert(AlertType.ERROR, "Error", "Passwords Don't Match !");
-            } else {
+            } else if(Validator.CheckUsername(UsernameTXF.getText())){
+                Dialog.Alert(AlertType.ERROR, "Error" , "This Username Already Exists Choose Another One !");
+            } 
+            else {
                 UserUsername = UsernameTXF.getText();
                 UserPassword = PasswordTXF.getText();
                 try {

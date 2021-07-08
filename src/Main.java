@@ -10,11 +10,13 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import tools.Validator;
 
 public class Main extends Application {
     public static void main(String[] args) throws Exception {
         launch(args);
         // samples.FullDataCreator.CreateData(10);
+        
         System.exit(0);
     }
 
