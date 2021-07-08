@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXTextField;
 
 import api.OTPSender;
+import common.controller.MainStructure;
 import javafx.fxml.*;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -19,7 +20,7 @@ import tools.Dialog;
 import tools.Animation.Direction;
 import tools.Animation.Speed;
 
-public class ChangePasswordPage1 implements Initializable{
+public class ChangePasswordPage1 implements Initializable {
 
     @FXML
     private AnchorPane Page;
@@ -39,9 +40,11 @@ public class ChangePasswordPage1 implements Initializable{
         NextBTN.setCursor(Cursor.HAND);
         CancelBTN.setCursor(Cursor.HAND);
 
-        //TODO Send OTP
+        // TODO Send OTP
 
-        //TODO CancelBTN.setOnMouseClicked((e) ->{});
+        CancelBTN.setOnMouseClicked((e) -> {
+            MainStructure.ClosePopup();
+        });
 
         NextBTN.setOnMouseClicked((e) -> {
             if (OTPSender.CheckOTP(CodeTXF.getText())) {
@@ -51,11 +54,11 @@ public class ChangePasswordPage1 implements Initializable{
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
-            } else{
+            } else {
                 Dialog.Alert(AlertType.ERROR, "Error", "Entered OTP Is Wrong !");
             }
         });
-        
+
     }
 
 }

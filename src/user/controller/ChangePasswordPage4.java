@@ -3,9 +3,8 @@ package user.controller;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXTextField;
-
+import common.controller.MainStructure;
 import database.DataUpdator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +20,7 @@ import tools.Animation.Direction;
 import tools.Animation.Speed;
 import user.UserController;
 import tools.Dialog;
+import tools.Encoder;
 
 public class ChangePasswordPage4 implements Initializable {
 
@@ -45,7 +45,9 @@ public class ChangePasswordPage4 implements Initializable {
         BackBTN.setCursor(Cursor.HAND);
         CancelBTN.setCursor(Cursor.HAND);
 
-        // TODO CancelBTN.setOnMouseClicked((e) ->{});
+        CancelBTN.setOnMouseClicked((e) -> {
+            MainStructure.ClosePopup();
+        });
 
         BackBTN.setOnMouseClicked((e) -> {
             ChangePasswordPage3.Returned = true;
@@ -58,18 +60,13 @@ public class ChangePasswordPage4 implements Initializable {
         });
 
         ChangePasswordBTN.setOnMouseClicked((e) -> {
-            if (!RepeatPasswordTXF.getText().equals(ChangePasswordPage3.UsernewPass)) {
+            if (RepeatPasswordTXF.getText().equals(ChangePasswordPage3.UsernewPass)) {
                 User u = UserController.getCurrentUser();
-                u.setPassword(RepeatPasswordTXF.getText());
+                u.setPassword(Encoder.EncodePassword(RepeatPasswordTXF.getText()));
                 DataUpdator.UpadateData(u);
                 Dialog.Alert(AlertType.INFORMATION, "Success", "Your Password Has Been Successfully Changed !");
-                // TODO try {
-                // Parent root = FXMLLoader.load(new
-                // File("src/user/visual/ChangePasswordPage4.fxml").toURI().toURL());
-                // Animation.NextPageAnimation(Page, root, Direction.RIGHT, Speed.FAST);
-                // } catch (Exception e1) {
-                // e1.printStackTrace();
-                // }
+                MainStructure.ClosePopup();
+                MainStructure.OpenFirstPage();
             } else {
                 Dialog.Alert(AlertType.ERROR, "Error", "Password Repeat Is Wrong !");
             }

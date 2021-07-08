@@ -69,7 +69,7 @@ public class SignUp5 implements Initializable {
             try {
                 SignUp4.Returned = true;
                 root = FXMLLoader.load(new File("src/common/visual/SignUp4.fxml").toURI().toURL());
-                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }

@@ -133,7 +133,7 @@ public class SignUp1 implements Initializable {
 
                 // Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
                 Animation.NextPageAnimation((AnchorPane) MainStructure.PopupPane.getChildren().get(0), root,
-                        Direction.RIGHT, Speed.FAST);
+                        Direction.LEFT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -147,7 +147,7 @@ public class SignUp1 implements Initializable {
                 UserLastname = LastnameTXF.getText();
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp2.fxml").toURI().toURL());
-                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
+                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

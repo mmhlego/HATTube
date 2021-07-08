@@ -10,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.User;
-import user.UserController;
 
 public class Main extends Application {
     public static void main(String[] args) throws Exception {
@@ -22,8 +20,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
-        FXMLLoader loader = new FXMLLoader(new File("src/user/visual/ChangePasswordPage1.fxml").toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
+        // FXMLLoader loader = new FXMLLoader(new File("src/user/visual/ChangePasswordPage1.fxml").toURI().toURL());
         Parent parent = loader.load();
         /*    MediaPlayerPage c =loader.getController();
         c.OpenMediaPlayer("https://download.toplearn.com/downloads/demo/01_Html.mp4");*/

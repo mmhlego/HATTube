@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXTextField;
 
+import common.controller.MainStructure;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import tools.Animation;
 import tools.Animation.Direction;
 import tools.Animation.Speed;
 import tools.Dialog;
+import tools.Encoder;
 import user.UserController;
 
 public class ChangePasswordPage2 implements Initializable {
@@ -50,20 +52,20 @@ public class ChangePasswordPage2 implements Initializable {
             CurrentPasswordTXF.setText(UserCurrentPassword);
         }
 
-        // TODO CancelBTN.setOnMouseClicked((e) ->{});
+        CancelBTN.setOnMouseClicked((e) -> {
+            MainStructure.ClosePopup();
+        });
 
         BackBTN.setOnMouseClicked((e) -> {
-            //TODO The Back btn must send page to accoount information
             try {
-                Parent root = FXMLLoader.load(new File("src/user/visual/ChangePasswordPage1.fxml").toURI().toURL());
-                Animation.NextPageAnimation(Page, root, Direction.LEFT, Speed.FAST);
+                MainStructure.ClosePopup();
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
         });
 
         NextBTN.setOnMouseClicked((e) -> {
-            if (UserController.getCurrentUser().getPassword().equals(CurrentPasswordTXF.getText())) {
+            if (UserController.getCurrentUser().getPassword().equals(Encoder.EncodePassword(CurrentPasswordTXF.getText()))) {
                 UserCurrentPassword = CurrentPasswordTXF.getText();
                 try {
                     Parent root = FXMLLoader.load(new File("src/user/visual/ChangePasswordPage3.fxml").toURI().toURL());

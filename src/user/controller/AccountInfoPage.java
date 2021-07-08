@@ -1,11 +1,19 @@
 
 package user.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import common.controller.MainStructure;
 import database.DataUpdator;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -55,6 +63,8 @@ public class AccountInfoPage implements Initializable {
         PhoneTXF.setText(UserController.getCurrentUser().getPhone());
         UsernameTXF.setText(UserController.getCurrentUser().getUsername());
 
+        ChangePasswordBTN.setCursor(Cursor.HAND);
+
         ChangeInfoBTN.setOnAction((e) -> {
             if (ChangeInfoBTN.getText().equals("Change Info")) {
                 OtherTools.ChangeTextFieldAccess(
@@ -80,6 +90,15 @@ public class AccountInfoPage implements Initializable {
                     ChangeInfoBTN.setText("Change Info");
                     Dialog.Alert(AlertType.INFORMATION, "Success", "Your Information Has Been Successfully Updated !");
                 }
+            }
+        });
+
+        ChangePasswordBTN.setOnMouseClicked((e) -> {
+            try {
+                Parent root = FXMLLoader.load(new File("src/user/visual/ChangePasswordPage1.fxml").toURI().toURL());
+                MainStructure.OpenPopup(root);
+            } catch (Exception e1) {
+                e1.printStackTrace();
             }
         });
 

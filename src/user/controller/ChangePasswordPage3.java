@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXTextField;
 
+import common.controller.MainStructure;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,7 +21,7 @@ import tools.Animation.Speed;
 import tools.Dialog;
 import user.UserController;
 
-public class ChangePasswordPage3 implements Initializable{
+public class ChangePasswordPage3 implements Initializable {
 
     @FXML
     private AnchorPane Page;
@@ -51,7 +52,9 @@ public class ChangePasswordPage3 implements Initializable{
         BackBTN.setCursor(Cursor.HAND);
         CancelBTN.setCursor(Cursor.HAND);
 
-        // TODO CancelBTN.setOnMouseClicked((e) ->{});
+        CancelBTN.setOnMouseClicked((e) -> {
+            MainStructure.ClosePopup();
+        });
 
         BackBTN.setOnMouseClicked((e) -> {
             ChangePasswordPage2.Returned = true;
@@ -76,7 +79,7 @@ public class ChangePasswordPage3 implements Initializable{
                 Dialog.Alert(AlertType.ERROR, "Error", "Enter A Password !");
             }
         });
-        
+
     }
 
 }

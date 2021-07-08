@@ -80,7 +80,7 @@ public class SignUp2 implements Initializable {
                 SignUp1.Returned = true;
                 FXMLLoader loader = new FXMLLoader(new File("src/common/visual/SignUp1.fxml").toURI().toURL());
                 root = loader.load();
-                Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
+                Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -98,7 +98,7 @@ public class SignUp2 implements Initializable {
                 Dialog.Alert(AlertType.INFORMATION, "Code", String.valueOf(OTPSender.CreateOTP()));
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp3.fxml").toURI().toURL());
-                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.LEFT, Speed.FAST);
+                    Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

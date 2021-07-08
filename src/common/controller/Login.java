@@ -55,6 +55,9 @@ public class Login implements Initializable {
     @FXML
     private JFXCheckBox RemembermeCHB;
 
+    @FXML
+    private ImageView CloseBTN;
+
     public TextField getUsernameTXF() {
         return UsernameTXF;
     }
@@ -109,6 +112,7 @@ public class Login implements Initializable {
         RemembermeCHB.setCursor(Cursor.HAND);
         LoginBTN.setCursor(Cursor.HAND);
         SignupBTN.setCursor(Cursor.HAND);
+        CloseBTN.setCursor(Cursor.HAND);
 
         LabelFloat(UsernameTXF, UsernameLBL, UsernameIMG);
         LabelFloat(PasswordTXF, PasswordLBL, PasswordIMG);
@@ -123,6 +127,10 @@ public class Login implements Initializable {
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
+        });
+        
+        CloseBTN.setOnMouseClicked((e) -> {
+            MainStructure.ClosePopup();
         });
 
         LoginBTN.setOnMouseClicked(e -> {
