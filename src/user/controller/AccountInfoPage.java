@@ -61,7 +61,7 @@ public class AccountInfoPage implements Initializable {
                         new TextField[] { FirstNameTXF, LastNameTXF, EmailTXF, PhoneTXF, UsernameTXF }, true);
                 ChangeInfoBTN.setText("Save Info");
             } else {
-                if (Validator.CheckTextFieldsValidaty(
+                if (!Validator.CheckTextFieldsValidaty(
                         new TextField[] { FirstNameTXF, LastNameTXF, EmailTXF, PhoneTXF, UsernameTXF })) {
                     Dialog.Alert(AlertType.ERROR, "Error", "Some Fields Are Empty !");
                 } else if (!Validator.CheckEmailValidaty(EmailTXF.getText())) {

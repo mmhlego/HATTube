@@ -10,7 +10,7 @@ import javafx.util.Duration;
 
 public class Animation {
     public enum Direction {
-        BOTTOMRIGHT(315), BOTTOM(270), BOTTOMLEFT(225), LEFT(180), TOPLEFT(135), TOP(90), TOPRIGHT(45), RIGHT(0);
+        BOTTOMRIGHT(315), BOTTOM(270), BOTTOMLEFT(225), LEFT(0), TOPLEFT(135), TOP(90), TOPRIGHT(45), RIGHT(180);
 
         private double X;
         private double Y;
