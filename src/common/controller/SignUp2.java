@@ -71,8 +71,8 @@ public class SignUp2 implements Initializable {
         LabelFloat(PhoneNumberTXF, PhoneNumberLBL, PhoneNumberIMG);
         LabelFloat(EmailTXF, EmailLBL, EmailIMG);
 
-        NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
-        NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
+        NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, 300));
+        NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, 250));
         ReturnBTN.setCursor(Cursor.HAND);
         NextBTN.setCursor(Cursor.HAND);
 

@@ -83,8 +83,8 @@ public class SignUp4 implements Initializable {
         LabelFloat(UsernameTXF, UsernameLBL, UsernameIMG);
         LabelFloat(PasswordTXF, PasswordLBL, PasswordIMG);
         LabelFloat(RepPasswordTXF, RepPasswordLBL, RepPasswordIMG);
-        NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
-        NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
+        NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, 300));
+        NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, 250));
 
         ReturnBTN.setOnMouseClicked((e) -> {
             try {

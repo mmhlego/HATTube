@@ -28,6 +28,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import static model.StyleController.ChangeTextField;
+
 public class SignUp5 implements Initializable {
 
     @FXML
@@ -59,7 +61,8 @@ public class SignUp5 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        SignUpBTN.setOnMouseEntered(e -> ChangeTextField(SignUpBTN, 300));
+        SignUpBTN.setOnMouseExited(e -> ChangeTextField(SignUpBTN, 250));
         BirthPicker.setCursor(Cursor.HAND);
         ReturnBTN.setCursor(Cursor.HAND);
         SignUpBTN.setCursor(Cursor.HAND);

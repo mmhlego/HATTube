@@ -1,0 +1,62 @@
+.root {
+    -fx-background-color: #2d2d35;
+}
+
+.tab {
+    -fx-pref-width: 170;
+}
+
+.tab-header-background {
+    -fx-background-color: rgba(0, 217, 255, 0.51);
+}
+
+.tab-selected-line {
+    -fx-background-color: white;
+}
+
+.jfx-rippler {
+    -jfx-rippler-fill: white;
+}
+
+/*.toggle{
+    -fx-background-color: rgba(0, 166, 255, 0.78);
+    -fx-background-radius: 0;
+    -fx-border-color:white;
+}
+#r{
+    -fx-border-width: 0 1 0 0;
+}
+#l{
+    -fx-border-width: 0 0 0 1;
+}
+#r:selected{
+    -fx-border-width: 0 1 2 0;
+}
+#l:selected{
+    -fx-border-width: 0 0 2 1;
+}*/
+.area {
+    -fx-background-color: #2d2d35;
+    -fx-text-fill: white;
+}
+
+.area .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.area .scroll-pane .viewport {
+    -fx-background-color: #2d2d35;
+    -fx-text-fill: white;
+}
+
+.area .scroll-pane .viewport .content {
+    -fx-background-color: #2d2d35;
+    -fx-text-fill: white;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+

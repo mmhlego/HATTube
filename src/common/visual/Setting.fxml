@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@Setting.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="common.controller.setting">
+   <children>
+      <JFXTabPane layoutX="47.0" layoutY="63.0" rotateGraphic="true" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Account Info">
+               <content>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" minHeight="361.0" minWidth="189.0" spacing="90.0">
+                                 <children>
+                                    <Label text="Account ID:">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0"/>
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="64.0" layoutY="180.0" text="Account Mode:">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0"/>
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="361.0" minWidth="189.0"
+                                    spacing="90.0">
+                                 <children>
+                                    <Label fx:id="AccountIdLBL" text="Account ID">
+                                       <font>
+                                          <Font name="System Italic" size="15.0"/>
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="AccountModeLBL" layoutX="57.0" layoutY="180.0" text="Account Mode">
+                                       <font>
+                                          <Font name="System Italic" size="15.0"/>
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="About Us">
+               <content>
+                  <TextArea fx:id="AboutUsArea" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="area"
+                            text="About Us" wrapText="true">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0"/>
+                     </font>
+                  </TextArea>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <ImageView fx:id="CancelBTN" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true"
+                 AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+         <image>
+            <Image url="@../../../resource/images/icons/icons8_delete_480px.png"/>
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -52,8 +52,8 @@ public class SignUp3 implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         LabelFloat(CodeTXF, CodeLBL, CodeIMG);
-        NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 1.2));
-        NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, NextBTN.getWidth() * 10 / 12));
+        NextBTN.setOnMouseEntered(e -> ChangeTextField(NextBTN, 300));
+        NextBTN.setOnMouseExited(e -> ChangeTextField(NextBTN, 250));
 
         ReturnBTN.setCursor(Cursor.HAND);
         NextBTN.setCursor(Cursor.HAND);
