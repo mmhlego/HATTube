@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+            prefWidth="400.0" styleClass="root" stylesheets="@AccessPage.css" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.controller.AccessPage">
+   <children>
+      <Label alignment="CENTER" layoutX="148.0" layoutY="28.0" text="Access Levels" textFill="WHITE"
+             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="System Bold Italic" size="17.0"/>
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="25.0" layoutY="67.0" spacing="10.0" AnchorPane.leftAnchor="25.0"
+            AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <AnchorPane maxHeight="1.0" prefHeight="1.0" prefWidth="100.0" styleClass="lsep" HBox.hgrow="ALWAYS"/>
+            <Label text="Access ID:" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="12.0"/>
+               </font>
+            </Label>
+            <Label fx:id="AccessIdLBL" text="Access ID" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="12.0"/>
+               </font>
+            </Label>
+            <AnchorPane maxHeight="1.0" prefHeight="1.0" prefWidth="100.0" styleClass="rsep" HBox.hgrow="ALWAYS"/>
+         </children>
+      </HBox>
+      <ScrollPane layoutY="100.0" prefHeight="395.0" prefWidth="400.0" styleClass="scroll" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <content>
+            <VBox prefHeight="720.0" prefWidth="384.0">
+               <children>
+                  <JFXToggleButton fx:id="RegularUserTGL" contentDisplay="RIGHT" graphicTextGap="180.0"
+                                   prefHeight="58.0" prefWidth="418.0" text="Regular User" textFill="WHITE"
+                                   toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="PermiumUserTGL" contentDisplay="RIGHT" graphicTextGap="174.0" layoutX="10.0"
+                                   layoutY="10.0" prefHeight="58.0" prefWidth="418.0" text="Permium User"
+                                   textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="CreateChannelTGL" contentDisplay="RIGHT" graphicTextGap="169.0" layoutX="10.0"
+                                   layoutY="70.0" prefHeight="58.0" prefWidth="418.0" text="Create Channel"
+                                   textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="EditchannelTGL" contentDisplay="RIGHT" graphicTextGap="194.0" layoutX="10.0"
+                                   layoutY="10.0" prefHeight="58.0" prefWidth="418.0" text="Edit channel"
+                                   textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="RestrictChannelTGL" contentDisplay="RIGHT" graphicTextGap="172.0"
+                                   layoutX="10.0" layoutY="70.0" prefHeight="58.0" prefWidth="418.0"
+                                   text="Restrict Channel" textFill="WHITE" toggleColor="#00b4ff"
+                                   toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="CreateContentTGL" contentDisplay="RIGHT" graphicTextGap="182.0" layoutX="10.0"
+                                   layoutY="130.0" prefHeight="58.0" prefWidth="418.0" text="Create Content"
+                                   textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="EditContentTGL" contentDisplay="RIGHT" graphicTextGap="205.0" layoutX="10.0"
+                                   layoutY="10.0" prefHeight="58.0" prefWidth="418.0" text="Edit Content"
+                                   textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="RestrictContentTGL" contentDisplay="RIGHT" graphicTextGap="185.0"
+                                   layoutX="10.0" layoutY="70.0" prefHeight="58.0" prefWidth="418.0"
+                                   text="Restrict Content" textFill="WHITE" toggleColor="#00b4ff"
+                                   toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="EditUserTGL" contentDisplay="RIGHT" graphicTextGap="233.0" layoutX="10.0"
+                                   layoutY="130.0" prefHeight="58.0" prefWidth="418.0" text="Edit User" textFill="WHITE"
+                                   toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="BanUserTGL" contentDisplay="RIGHT" graphicTextGap="234.0" layoutX="10.0"
+                                   layoutY="190.0" prefHeight="58.0" prefWidth="418.0" text="Ban User" textFill="WHITE"
+                                   toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="EditAdminTGL" contentDisplay="RIGHT" graphicTextGap="224.0" layoutX="10.0"
+                                   layoutY="250.0" prefHeight="58.0" prefWidth="418.0" text="Edit Admin"
+                                   textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+                  <JFXToggleButton fx:id="BanAdminTGL" contentDisplay="RIGHT" graphicTextGap="223.0" layoutX="10.0"
+                                   layoutY="310.0" prefHeight="58.0" prefWidth="418.0" text="Ban Admin" textFill="WHITE"
+                                   toggleColor="#00b4ff" toggleLineColor="AQUA">
+                     <font>
+                        <Font name="System Italic" size="15.0"/>
+                     </font>
+                  </JFXToggleButton>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="ExitBTN" fitHeight="30.0" fitWidth="30.0" layoutX="360.0" layoutY="10.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <image>
+            <Image url="@../../../resource/images/icons/icons8_delete_500px.png"/>
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+.root {
+    -fx-background-color: #2d2d35;
+}
+
+.rsep {
+    -fx-background-color: white;
+}
+
+.lsep {
+    -fx-background-color: white;
+}
+
+.scroll {
+    -fx-background-color: #2d2d35;
+    -fx-background: #2d2d35;
+}
+
+.scroll .scroll-bar:vertical .track-background {
+    -fx-background-color: #2d2d35;
+    -fx-pref-width: 1px;
+    -fx-max-width: 1px;
+    -fx-pref-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.scroll .scroll-bar:vertical .track {
+    -fx-background-color: #2d2d35;
+    -fx-pref-width: 1px;
+    -fx-max-width: 1px;
+    -fx-pref-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-pref-width: 1px;
+    -fx-max-width: 1px;
+    -fx-pref-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: white;
+}
+
+.scroll .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: white;
+}
