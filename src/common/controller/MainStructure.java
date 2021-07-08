@@ -32,6 +32,7 @@ import javafx.util.Duration;
 import user.UserController;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,14 +75,15 @@ public class MainStructure implements Initializable {
     private VBox InsideComponent;
     @FXML
     private VBox SideBar;
+    @FXML
+    private AnchorPane Header;
 
     private static ScrollPane scrollPane;
     private static VBox Scroll;
-    private static AnchorPane root;
+    private static AnchorPane root, UserAccount, header;
     boolean isWatchlistOpen = false;
     boolean isSearchOpen = false;
-    // static AnchorPane pane;
-    // public static AnchorPane PopupPane;
+    boolean isUserAccountHovered = false;
     public static VBox PopupPane;
 
     public static void rootBlur() {
@@ -89,8 +91,6 @@ public class MainStructure implements Initializable {
         gaussianBlur.setRadius(10);
         root.getChildren().get(0).setEffect(gaussianBlur);
         root.getChildren().get(1).setEffect(gaussianBlur);
-        // root.setEffect(gaussianBlur);
-        // pane = new AnchorPane();
         PopupPane = new VBox();
         PopupPane.setAlignment(Pos.CENTER);
         VBox parent = new VBox(PopupPane);
@@ -127,6 +127,8 @@ public class MainStructure implements Initializable {
         scrollPane = (ScrollPane) main.getChildren().get(0);
         Scroll = InsideComponent;
         root = main;
+        header = Header;
+        UserAccount = (AnchorPane) GetParent("src/user/visual/UserAccount.fxml");
 
         LogoLBL.setOnMouseClicked(e -> OpenFirstPage());
 
@@ -137,14 +139,46 @@ public class MainStructure implements Initializable {
         WatchlistLBL.setVisible(false);
         AccountLBL.setVisible(false);
 
-        // TranslateNode(Sep, -85, false);
         TranslateNode(Sep, 60, false);
-        // TranslateNode(AccountANC, -85, false);
         TranslateNode(AccountANC, -85, false);
 
-        AccountIMG.getParent().setOnMouseEntered(e -> AccountLBL.setVisible(true));
-        AccountIMG.getParent().setOnMouseExited(e -> AccountLBL.setVisible(false));
+        UserAccount.setOnMouseEntered(e -> isUserAccountHovered = true);
+        UserAccount.setOnMouseExited(e -> {
+            header.getChildren().remove(UserAccount);
+            isUserAccountHovered = false;
+            AccountLBL.setVisible(false);
+        });
 
+        AccountIMG.getParent().setOnMouseEntered(e -> {
+            AccountLBL.setVisible(true);
+            if (UserController.LoggedIn() && header.getChildren().indexOf(UserAccount) == -1) {
+                isUserAccountHovered = true;
+                header.getChildren().add(UserAccount);
+                UserAccount.setLayoutX(AccountIMG.getParent().getParent().getLayoutX() - 85);
+                UserAccount.setLayoutY(AccountIMG.getParent().getParent().getLayoutY() + 40);
+            }
+        });
+        AccountIMG.getParent().setOnMouseExited(e -> {
+            if (UserController.LoggedIn()) {
+                isUserAccountHovered = false;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    Platform.runLater(() -> {
+                        if (!isUserAccountHovered) {
+                            header.getChildren().remove(UserAccount);
+                            AccountLBL.setVisible(false);
+                        }
+                    });
+                }).start();
+            } else {
+                AccountLBL.setVisible(false);
+            }
+        });
         AccountANC.setOnMouseClicked(e -> {
             if (UserController.LoggedIn()) {
                 OpenPage("src/user/visual/AccountInfoPage.fxml");
@@ -154,22 +188,22 @@ public class MainStructure implements Initializable {
         });
 
         WatchlistIMG.getParent().setOnMouseEntered(e -> {
-            // TranslateNode(Sep, 85, true);
             TranslateNode(Sep, 145, true);
-            // TranslateNode(AccountANC, 85, true);
             TranslateNode(AccountANC, 0, true);
         });
-
         WatchlistIMG.getParent().setOnMouseExited(e -> {
-            // TranslateNode(Sep, -85, false);
             TranslateNode(Sep, 60, false);
-            // TranslateNode(AccountANC, -85, false);
             TranslateNode(AccountANC, -85, false);
         });
-
         WatchlistANC.setOnMouseClicked((e) -> {
             if (UserController.LoggedIn()) {
-                OpenPage("src/common/visual/ContentPage.fxml");
+                FXMLLoader loader = GetLoader("src/common/visual/ContentPage.fxml");
+                try {
+                    OpenPage((Parent) loader.load());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                ((ContentPage) loader.getController()).LoadSubscriptions();
             } else {
                 OpenPopup("src/common/visual/Login.fxml");
             }
@@ -179,20 +213,27 @@ public class MainStructure implements Initializable {
             if (!isSearchOpen) {
                 SearchBar.setVisible(true);
                 TranslateNode(SearchANC, 211, false);
-                // LogoLBL.setVisible(false);
                 ChangeSize(SearchANC, 700);
                 SearchIMG.getStyleClass().set(0, "searchBa");
-                // isSearchOpen = true;
-            } else {
+                LogoLBL.setVisible(false);
+                isSearchOpen = true;
+            } else if (isSearchOpen && SearchBar.getText().equals("")) {
                 SearchIMG.getStyleClass().set(0, "iBack");
                 SearchIMG.setStyle("-fx-background-color: transparent");
-                // TranslateNode(SearchANC, 700, false);
                 TranslateNode(SearchANC, 911, false);
                 ChangeSize(SearchANC, 0);
+                LogoLBL.setVisible(true);
+                isSearchOpen = false;
+            } else {
+                FXMLLoader loader = GetLoader("src/common/visual/ContentPage.fxml");
+                try {
+                    OpenPage((Parent) loader.load());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                ((ContentPage) loader.getController()).LoadSearchResults(SearchBar.getText());
             }
-
-            LogoLBL.setVisible(isSearchOpen);
-            isSearchOpen = !isSearchOpen;
+            //HCNT-4
         });
 
         new LoadingStage();
@@ -212,21 +253,11 @@ public class MainStructure implements Initializable {
     }
 
     public static void OpenPopup(Parent root) {
-        try {
-            // Stage stage = new Stage();
-            // Scene scene = new Scene(root);
-            // scene.setFill(Color.TRANSPARENT);
-            // stage.setScene(scene);
-            // stage.initStyle(StageStyle.UNDECORATED);
-            // stage.show();
-            rootBlur();
+        rootBlur();
 
-            // tools.OtherTools.MakeStageMovable(stage, EndArea);
-            PopupPane.getChildren().clear();
-            PopupPane.getChildren().add(root);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
+        PopupPane.getChildren().clear();
+        PopupPane.getChildren().add(root);
+
     }
 
     private static MainStructureInsideComponent CreateCategory(String name) {
@@ -242,11 +273,6 @@ public class MainStructure implements Initializable {
         }
         return null;
     }
-
-    //         // TranslateTransition transition = new TranslateTransition(Duration.seconds(0.1), node);
-    //         // transition.setByX(dis);
-    //         // transition.play();
-    //         // transition.setOnFinished(e -> WatchlistLBL.setVisible(s));
 
     private void TranslateNode(Node node, double finalValue, boolean s) {
         Timeline transition = new Timeline(
@@ -281,9 +307,9 @@ public class MainStructure implements Initializable {
         TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
                 new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
 
-        // MainStructureInsideComponent MostCommented = CreateCategory("Most Commented");
-        // TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
-        //         new OrderBy[] { OrderBy.C }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+        /* MainStructureInsideComponent MostCommented = CreateCategory("Most Commented");
+         TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
+                 new OrderBy[] { OrderBy.C }, new Arrangement[] { Arrangement.DESC }).ToArrayList());*/
 
         MainStructureInsideComponent MostLiked = CreateCategory("Most Liked");
         MostLiked.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
@@ -292,6 +318,15 @@ public class MainStructure implements Initializable {
         MainStructureInsideComponent MostViewed = CreateCategory("Most Viewed");
         MostViewed.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
                 new OrderBy[] { OrderBy.Views }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
+    }
+
+    public static FXMLLoader GetLoader(String path) {
+        try {
+            return new FXMLLoader(new File(path).toURI().toURL());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static Parent GetParent(String path) {
@@ -305,16 +340,18 @@ public class MainStructure implements Initializable {
         return null;
     }
 
-    private static void OpenPage(String path) {
-        // try {
-        //     FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
-        //     Parent root = loader.load();
-        //     // AnchorPane.setTopAnchor(root, 40.0);
-        //     // ((AnchorPane) EndArea.getParent()).getChildren().add(root);
-        //     OpenPage(root);
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
+    public static Object GetController(String path) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
+            loader.load();
+            return loader.getController();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void OpenPage(String path) {
         OpenPage(GetParent(path));
     }
 

@@ -1,3 +1,4 @@
+
 package user.controller;
 
 import java.net.URL;
@@ -47,6 +48,12 @@ public class AccountInfoPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        FirstNameTXF.setText(UserController.getCurrentUser().getFirstName());
+        LastNameTXF.setText(UserController.getCurrentUser().getLastName());
+        EmailTXF.setText(UserController.getCurrentUser().getEmail());
+        PhoneTXF.setText(UserController.getCurrentUser().getPhone());
+        UsernameTXF.setText(UserController.getCurrentUser().getUsername());
 
         ChangeInfoBTN.setOnAction((e) -> {
             if (ChangeInfoBTN.getText().equals("Change Info")) {

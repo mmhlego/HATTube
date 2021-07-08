@@ -11,7 +11,7 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
         launch(args);
         // samples.FullDataCreator.CreateData(10);
-        // System.exit(0);
+        System.exit(0);
     }
 
     @Override

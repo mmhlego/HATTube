@@ -36,6 +36,8 @@ public class StartPage implements Initializable {
     @FXML
     private ProgressIndicator pr;
 
+    private boolean DBConnected = false, LoadingFinished = false;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LBL.setText("");
@@ -76,23 +78,7 @@ public class StartPage implements Initializable {
                     User.Approve(new User(RememberMe.GetRemember().Username, RememberMe.GetRemember().Password));
                 }
 
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            FXMLLoader loader = new FXMLLoader(
-                                    new File("src/common/visual/MainStructure.fxml").toURI().toURL());
-                            ((Stage) anchor.getParent().getScene().getWindow()).hide();
-                            Stage stage = new Stage(StageStyle.TRANSPARENT);
-                            Scene s = new Scene(loader.load());
-                            s.setFill(Color.TRANSPARENT);
-                            stage.setScene(s);
-                            stage.show();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+                DBConnected = true;
             }
         });
 
@@ -109,6 +95,8 @@ public class StartPage implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                LoadingFinished = true;
             }
         });
 
@@ -116,6 +104,31 @@ public class StartPage implements Initializable {
 
         DBConnection.start();
         thread.start();
+
+        new Thread(() -> {
+            while (!(DBConnected && LoadingFinished)) {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                }
+            }
+
+            Platform.runLater(() -> {
+                try {
+                    FXMLLoader loader = new FXMLLoader(
+                            new File("src/common/visual/MainStructure.fxml").toURI().toURL());
+                    ((Stage) anchor.getParent().getScene().getWindow()).hide();
+                    Stage stage = new Stage(StageStyle.TRANSPARENT);
+                    Scene s = new Scene(loader.load());
+                    s.setFill(Color.TRANSPARENT);
+                    stage.setScene(s);
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }).start();
+        ;
     }
 
     private void ShowText(String substring) {

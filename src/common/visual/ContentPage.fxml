@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1080.0" stylesheets="@ContentPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.ContentPage">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1080.0" spacing="20.0" stylesheets="@ContentPage.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.ContentPage">
    <children>
       <Label fx:id="PageName" text="Example:Search Result" textFill="WHITE">
          <font>
@@ -18,13 +18,16 @@
       </Label>
       <AnchorPane prefHeight="2.0" prefWidth="200.0" styleClass="sep">
          <VBox.margin>
-            <Insets left="50.0" right="50.0" top="28.0" />
+            <Insets left="50.0" right="50.0" top="10.0" />
          </VBox.margin>
       </AnchorPane>
-      <VBox fx:id="MoviesPlace" alignment="TOP_CENTER" prefHeight="469.0" prefWidth="980.0">
+      <VBox fx:id="MoviesPlace" alignment="TOP_CENTER" maxWidth="-Infinity" minHeight="469.0" minWidth="-Infinity" prefWidth="1080.0" spacing="20.0">
          <VBox.margin>
-            <Insets bottom="25.0" left="50.0" right="50.0" top="25.0" />
+            <Insets />
          </VBox.margin>
       </VBox>
    </children>
+   <padding>
+      <Insets bottom="20.0" />
+   </padding>
 </VBox>
