@@ -13,10 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import tools.Animation;
-import tools.Dialog;
-import tools.Validator;
 import tools.Animation.Direction;
 import tools.Animation.Speed;
+import tools.Dialog;
+import tools.Validator;
 
 import java.io.File;
 import java.net.URL;
@@ -35,7 +35,8 @@ public class SignUp3 implements Initializable {
 
     @FXML
     private Label CodeLBL;
-
+    @FXML
+    private ImageView CloseBTN;
     @FXML
     private Button NextBTN;
 

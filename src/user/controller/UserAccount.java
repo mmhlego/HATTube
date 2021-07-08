@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
-import tools.RememberMe;
 import user.UserController;
 
 import java.net.URL;

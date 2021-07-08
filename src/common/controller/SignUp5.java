@@ -1,12 +1,6 @@
 package common.controller;
 
-import java.io.File;
-import java.net.URL;
-import java.time.LocalDate;
-import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXDatePicker;
-
 import database.DataAdder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +23,11 @@ import tools.Animation.Direction;
 import tools.Animation.Speed;
 import tools.Dialog;
 
+import java.io.File;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
 public class SignUp5 implements Initializable {
 
     @FXML
@@ -39,7 +38,8 @@ public class SignUp5 implements Initializable {
 
     @FXML
     private Label TermsLBL;
-
+    @FXML
+    private ImageView CloseBTN;
     @FXML
     private JFXDatePicker BirthPicker;
 

@@ -1,12 +1,5 @@
 package common.controller;
 
-import static model.StyleController.ChangeTextField;
-import static model.StyleController.LabelFloat;
-
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +17,13 @@ import tools.Animation.Speed;
 import tools.Dialog;
 import tools.Validator;
 
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import static model.StyleController.ChangeTextField;
+import static model.StyleController.LabelFloat;
+
 public class SignUp4 implements Initializable {
 
     @FXML
@@ -34,7 +34,8 @@ public class SignUp4 implements Initializable {
 
     @FXML
     private Label UsernameLBL;
-
+    @FXML
+    private ImageView CloseBTN;
     @FXML
     private TextField PasswordTXF;
 

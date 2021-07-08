@@ -3,10 +3,8 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,15 +13,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.Login">
+<AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.Login">
    <children>
-      <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <TextField fx:id="UsernameTXF" layoutX="65.0" layoutY="132.0" prefHeight="40.0" prefWidth="250.0" styleClass="field" AnchorPane.topAnchor="132.0">
+      <JFXTextField layoutX="6.0" layoutY="2.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.topAnchor="0.0"/>
+      <TextField fx:id="UsernameTXF" layoutX="65.0" layoutY="132.0" prefHeight="40.0" prefWidth="250.0"
+                 styleClass="field" AnchorPane.topAnchor="132.0">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="13.0"/>
          </font>
          <padding>
-            <Insets left="50.0" right="15.0" />
+            <Insets left="50.0" right="15.0"/>
          </padding>
       </TextField>
       <Label fx:id="UsernameLBL" alignment="CENTER" layoutX="106.0" layoutY="144.0" prefHeight="19.0" prefWidth="80.0" styleClass="tL" text="Username" textFill="#b9b9b9">
@@ -85,15 +85,20 @@
       </ImageView>
       <Button fx:id="LoginBTN" layoutX="68.0" layoutY="256.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="lBTN" text="Login" textFill="WHITE" AnchorPane.topAnchor="297.0">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="System Bold Italic" size="15.0"/>
          </font>
          <effect>
-            <DropShadow height="10.0" offsetX="2.0" offsetY="3.0" radius="4.5" width="10.0" />
+            <DropShadow height="10.0" offsetX="2.0" offsetY="3.0" radius="4.5" width="10.0"/>
          </effect>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
          </cursor>
       </Button>
       <JFXCheckBox fx:id="RemembermeCHB" checkedColor="#2cc1cf" layoutX="79.0" layoutY="267.0" text="Remember me" textFill="WHITE" />
+      <ImageView fx:id="CloseBTN" fitHeight="30.0" fitWidth="30.0" layoutX="332.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resource/images/icons/icons8_delete_480px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

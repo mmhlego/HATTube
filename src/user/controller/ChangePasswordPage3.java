@@ -19,7 +19,6 @@ import tools.Animation;
 import tools.Animation.Direction;
 import tools.Animation.Speed;
 import tools.Dialog;
-import user.UserController;
 
 public class ChangePasswordPage3 implements Initializable {
 

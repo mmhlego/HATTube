@@ -6,10 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -42,7 +42,8 @@ public class Login implements Initializable {
 
     @FXML
     private Button LoginBTN;
-
+    @FXML
+    private ImageView CloseBTN;
     @FXML
     private HBox SignupBTN;
 
@@ -54,9 +55,6 @@ public class Login implements Initializable {
 
     @FXML
     private JFXCheckBox RemembermeCHB;
-
-    @FXML
-    private ImageView CloseBTN;
 
     public TextField getUsernameTXF() {
         return UsernameTXF;
@@ -128,7 +126,7 @@ public class Login implements Initializable {
                 e1.printStackTrace();
             }
         });
-        
+
         CloseBTN.setOnMouseClicked((e) -> {
             MainStructure.ClosePopup();
         });
