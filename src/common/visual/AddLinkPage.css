@@ -1,0 +1,17 @@
+.root {
+    -fx-background-color: black;
+}
+
+.btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #08363b;
+    -fx-border-radius: 30px;
+    -fx-border-width: 2;
+
+}
+
+.btn:hover {
+    -fx-background-color: rgba(0, 255, 255, 0.38);
+    -fx-background-radius: 30px;
+    -fx-border-color: rgba(255, 255, 255, 0.56);
+}
