@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class setting {
+public class Setting {
 
     @FXML
     private AnchorPane LoginAnchor;
