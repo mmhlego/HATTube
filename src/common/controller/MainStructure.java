@@ -255,7 +255,6 @@ public class MainStructure implements Initializable {
                 }
                 ((ContentPage) loader.getController()).LoadSearchResults(SearchBar.getText());
             }
-            //HCNT-4
         });
 
         SideBarListeners();

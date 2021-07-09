@@ -5,21 +5,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<AnchorPane fx:id="AddLinkANC" prefHeight="50.0" prefWidth="850.0" styleClass="component"
-            stylesheets="@DownloadLinkComponent.css" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.AddComponent">
+
+<AnchorPane fx:id="AddLinkANC" prefHeight="70.0" prefWidth="850.0" styleClass="component" stylesheets="@DownloadLinkComponent.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.AddComponent">
    <children>
-      <HBox alignment="CENTER" layoutX="410.0" layoutY="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="410.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resource/images/icons/icons8_plus_500px.png"/>
+                  <Image url="@../../../../resource/images/icons/icons8_plus_500px.png" />
                </image>
             </ImageView>
          </children>
       </HBox>
    </children>
    <cursor>
-      <Cursor fx:constant="HAND"/>
+      <Cursor fx:constant="HAND" />
    </cursor>
 </AnchorPane>

@@ -15,7 +15,6 @@ import model.Access;
 import tools.Dialog;
 import user.UserController;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

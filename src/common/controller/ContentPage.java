@@ -10,8 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import model.Channel;
 import model.Content;
 import user.UserController;
+import user.controller.MediumChannelComponent;
 
 public class ContentPage {
     @FXML
@@ -19,7 +21,11 @@ public class ContentPage {
     @FXML
     private VBox MoviesPlace;
 
+    int Height = 110;
+
     public void LoadSubscriptions() {
+        Height = 110;
+
         PageName.setText("Your Subscriptions");
 
         CheckEmpty(UserController.getCurrentUser().getSubcriptions());
@@ -29,19 +35,44 @@ public class ContentPage {
                     .GetFirstResult();
             AddContent(content);
         }
+        FixHeight();
     }
 
     public void LoadSearchResults(String search) {
+        Height = 110;
+
         PageName.setText("Search Results");
-        ArrayList<?> Contents = DataSelector
-                .Select(Table.Contents, new String[] { "ID LIKE '%" + search + "%' OR Name Like '%" + search + "%'" })
+        ArrayList<?> Channels = DataSelector.Select(Table.Channels, new String[] {
+                "ID LIKE '%" + search + "%' OR Name Like '%" + search + "%' OR Contents LIKE '%" + search + "%'" })
                 .ToArrayList();
 
-        CheckEmpty(Contents);
+        for (Channel channel : (ArrayList<Channel>) Channels) {
+            AddChannel(channel);
+        }
+
+        ArrayList<?> Contents = DataSelector.Select(Table.Contents, new String[] {
+                "ID LIKE '%" + search + "%' OR Name Like '%" + search + "%' OR Genres LIKE '%" + search + "%'" })
+                .ToArrayList();
 
         for (Content content : (ArrayList<Content>) Contents) {
             AddContent(content);
         }
+
+        CheckEmpty(Contents, Channels);
+        FixHeight();
+    }
+
+    private void AddChannel(Channel channel) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    new File("src/common/visual/component/MediumChannelComponent.fxml").toURI().toURL());
+            Parent root = loader.load();
+            ((MediumChannelComponent) loader.getController()).ShowChannel(channel);
+            MoviesPlace.getChildren().add(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Height += 200 + 20;
     }
 
     private void AddContent(Content content) {
@@ -53,12 +84,21 @@ public class ContentPage {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ((VBox) MoviesPlace.getParent()).setPrefHeight(MoviesPlace.getChildren().size() * (250 + 20) + 110);
+        Height += 250 + 20;
     }
 
     private void CheckEmpty(ArrayList<?> list) {
-        if (list.size() == 0) {
+        CheckEmpty(list, new ArrayList<>());
+    }
+
+    private void CheckEmpty(ArrayList<?> list1, ArrayList<?> list2) {
+        if (list1.size() == 0 && list2.size() == 0) {
             MoviesPlace.getChildren().add(MainStructure.GetParent("src/common/visual/component/NotfoundPage.fxml"));
         }
+    }
+
+    private void FixHeight() {
+        // ((VBox) MoviesPlace.getParent()).setPrefHeight(MoviesPlace.getChildren().size() * (250 + 20) + 110);
+        ((VBox) MoviesPlace.getParent()).setPrefHeight(Height);
     }
 }

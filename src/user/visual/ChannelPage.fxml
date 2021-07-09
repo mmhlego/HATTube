@@ -19,17 +19,17 @@
                   <Image url="@../../../resource/images/avataaars.png" />
                </image>
             </ImageView>
-            <Label fx:id="ChannelCreatorNameLBL" layoutX="129.0" layoutY="88.0" prefHeight="48.0" prefWidth="203.0" text="Channel Creator Name" textFill="WHITE">
+            <Label fx:id="ChannelCreatorNameLBL" layoutX="129.0" layoutY="88.0" prefHeight="48.0" prefWidth="599.0" text="Channel Creator Name" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="ChannelNameLBL" layoutX="129.0" layoutY="56.0" prefHeight="48.0" prefWidth="217.0" text="Channel Name" textFill="WHITE">
+            <Label fx:id="ChannelNameLBL" layoutX="129.0" layoutY="56.0" prefHeight="48.0" prefWidth="599.0" text="Channel Name" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="FollowBTN" alignment="CENTER" graphicTextGap="10.0" layoutX="1001.0" layoutY="68.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="217.0" styleClass="btn" text="Follow" AnchorPane.rightAnchor="25.0">
+            <Button fx:id="FollowBTN" alignment="CENTER" disable="true" graphicTextGap="10.0" layoutX="1001.0" layoutY="68.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="217.0" styleClass="btn" text="Follow" AnchorPane.rightAnchor="25.0">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
