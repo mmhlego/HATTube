@@ -1,12 +1,17 @@
 package model;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 
 import database.DataSelector;
 import database.DataSelector.Table;
+import javafx.scene.image.Image;
 import tools.Encoder;
 import tools.IDGenerator;
+import tools.ImageDownloader;
 import user.UserController;
 
 public class User extends Unique {
@@ -162,5 +167,66 @@ public class User extends Unique {
 
     public static String GenerateID() {
         return IDGenerator.RandomID("HUSR", 8);
+    }
+
+    public static void CheckImages() {
+        ImageDownloader.setDownloaded(false);
+
+        ArrayList<String> Images = new ArrayList<>();
+        ArrayList<String> Names = new ArrayList<>();
+        Images.add("https://s19.picofile.com/file/8437844600/1.png");
+        Names.add("RandomAvatar0");
+        Images.add("https://s18.picofile.com/file/8437844618/2.png");
+        Names.add("RandomAvatar1");
+        Images.add("https://s19.picofile.com/file/8437844626/3.png");
+        Names.add("RandomAvatar2");
+        Images.add("https://s19.picofile.com/file/8437844634/4.png");
+        Names.add("RandomAvatar3");
+        Images.add("https://s18.picofile.com/file/8437844642/5.png");
+        Names.add("RandomAvatar4");
+        Images.add("https://s19.picofile.com/file/8437844668/6.png");
+        Names.add("RandomAvatar5");
+        Images.add("https://s19.picofile.com/file/8437844684/7.png");
+        Names.add("RandomAvatar6");
+        Images.add("https://s18.picofile.com/file/8437844700/8.png");
+        Names.add("RandomAvatar7");
+        Images.add("https://s18.picofile.com/file/8437844718/9.png");
+        Names.add("RandomAvatar8");
+        Images.add("https://s19.picofile.com/file/8437844734/10.png");
+        Names.add("RandomAvatar9");
+
+        int index = 0;
+        while (index < Images.size()) {
+            if (new File("resource/images/Avatars/" + Names.get(index) + ".png").exists()) {
+                Images.remove(index);
+            } else {
+                index++;
+            }
+        }
+
+        ImageDownloader.setDownloaded(Images.size() == 0);
+
+        for (int i = 0; i < Images.size(); i++) {
+            final String ImageUrl = Images.get(i);
+            final String ImageName = Names.get(i);
+            final boolean change = i == Images.size() - 1;
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ImageDownloader.DownloadImage(ImageUrl, ImageName, change, "resource/images/Avatars/");
+                }
+            }).start();
+        }
+    }
+
+    public static Image RandomUserImage() {
+        try {
+            return new Image(new FileInputStream(new File("resource/images/Avatars/RandomAvatar"
+                    + new Random(System.currentTimeMillis()).nextInt(10) + ".png")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

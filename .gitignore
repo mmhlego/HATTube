@@ -1,5 +1,7 @@
 resource/images/posters/*
 
+resource/images/Avatars/*
+
 src/api/Token.api.txt
 
 target/api/Token.api.txt

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.CommentsComponent">
+<AnchorPane prefHeight="200.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.component.CommentsComponent">
    <children>
       <ImageView fx:id="CommentsOwnerIMG" fitHeight="80.0" fitWidth="200.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -28,20 +29,7 @@
             <JFXTextArea fx:id="CommentTextArea" editable="false" focusColor="BLACK" layoutX="12.0" layoutY="48.0" prefHeight="139.0" prefWidth="709.0" styleClass="textArea" stylesheets="@CommentsComponent.css" text="sample text" unFocusColor="BLACK" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
             <HBox layoutX="642.0" layoutY="13.0" spacing="10.0" AnchorPane.rightAnchor="15.0">
                <children>
-                  <Group>
-                     <children>
-                        <Label fx:id="DislikeLBL" text="234234" textFill="WHITE">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="DislikeBTN" fitHeight="20.0" fitWidth="200.0" layoutX="49.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../resource/images/icons/icons8_thumbs_down_96px.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Group>
+                  <Group />
                   <Group>
                      <children>
                         <Label fx:id="LikeLBL" text="234234" textFill="WHITE">
@@ -53,6 +41,9 @@
                            <image>
                               <Image url="@../../../../resource/images/icons/icons8_facebook_like_500px.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </Group>

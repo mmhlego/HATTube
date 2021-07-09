@@ -30,7 +30,8 @@ public class ContentPage {
 
     public void LoadSearchResults(String search) {
         PageName.setText("Search Results");
-        ArrayList<?> Contents = DataSelector.Select(Table.Contents, new String[] { "ID LIKE '%" + search + "%'" })
+        ArrayList<?> Contents = DataSelector
+                .Select(Table.Contents, new String[] { "ID LIKE '%" + search + "%' OR Name Like '%" + search + "%'" })
                 .ToArrayList();
         for (Content content : (ArrayList<Content>) Contents) {
             AddContent(content);

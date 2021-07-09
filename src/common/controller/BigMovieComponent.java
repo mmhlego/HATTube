@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextArea;
 import common.controller.component.CommentsComponent;
 import common.controller.component.DownloadLinkComponent;
 import database.DataSelector;
+import database.DataUpdator;
 import database.DataSelector.Arrangement;
 import database.DataSelector.OrderBy;
 import database.DataSelector.Table;
@@ -45,9 +46,6 @@ public class BigMovieComponent {
     private Label RateLBL;
 
     @FXML
-    private Label TimeLBL;
-
-    @FXML
     private Label LikeLBL;
 
     @FXML
@@ -58,9 +56,6 @@ public class BigMovieComponent {
 
     @FXML
     private JFXButton AddToWatchListBTN;
-
-    @FXML
-    private JFXButton DislikeBTN;
 
     @FXML
     private JFXButton LikeBTN;
@@ -78,19 +73,44 @@ public class BigMovieComponent {
     private VBox CommentsPlace;
 
     public void ShowContent(Content content) {
+        DataUpdator.View(content.GetID());
+
+        if (UserController.LoggedIn()) {
+            if (UserController.getCurrentUser().getSubcriptions().contains(content.getID())) {
+                AddToWatchListBTN.setText("Remove From Watchlist");
+            } else {
+                AddToWatchListBTN.setText("Add To Watchlist");
+            }
+        }
+
         PosterIMG.setImage(content.getPosterImage());
         NameLBL.setText(content.getName());
         GenresLBL.setText(Arrays.toString(content.getGenres().toArray()).replace("[", "").replace("]", ""));
-        YearLBL.setText("-----"); //TODO
+        YearLBL.setText(Arrays.toString(content.getInfo()[0]).replace("[", "").replace("]", "").replace(",", " :"));
         RateLBL.setText(content.getContentRate().toString());
-        TimeLBL.setText("-----"); //TODO
         LikeLBL.setText(Long.toString(content.getLikes()));
         ViewLBL.setText(Long.toString(content.getViews()));
         RatingLBL.setText(String.format("%.1f", content.getScore()));
         AddToWatchListBTN.setDisable(!UserController.LoggedIn());
-        AddToWatchListBTN.setOnMouseClicked(e -> System.out.println("-----")); //TODO
-        DislikeBTN.setOnMouseClicked(e -> System.out.println("dislike")); //TODO
-        LikeBTN.setOnMouseClicked(e -> System.out.println("like")); //TODO
+        AddToWatchListBTN.setOnMouseClicked(e -> {
+            if (UserController.getCurrentUser().getSubcriptions().contains(content.getID())) {
+                UserController.getCurrentUser().getSubcriptions().remove(content.getID());
+                AddToWatchListBTN.setText("Add To Watchlist");
+            } else {
+                UserController.getCurrentUser().getSubcriptions().add(content.getID());
+                AddToWatchListBTN.setText("Remove From Watchlist");
+            }
+
+            new Thread(() -> DataUpdator.UpadateData(UserController.getCurrentUser())).start();
+        });
+
+        LikeBTN.setOnMouseClicked(e -> {
+            if (LikeLBL.getText().equals(Long.toString(content.getLikes()))) {
+                LikeLBL.setText(Long.toString(content.getLikes() + 1));
+                DataUpdator.Like(Table.Contents, content.getID());
+            }
+        });
+
         DescriptionAea.setText(content.getDescription());
 
         BackgroundPosterIMG.setStyle("-fx-background-image: url(" + content.getPoster().toString()

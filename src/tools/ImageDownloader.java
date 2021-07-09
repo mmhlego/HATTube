@@ -17,10 +17,10 @@ public class ImageDownloader {
         Downloaded = downloaded;
     }
 
-    public static void DownloadImage(String imageUrl, String imageName, boolean changeDownloaded) {
+    public static void DownloadImage(String imageUrl, String imageName, boolean changeDownloaded, String path) {
         System.out.println("Starting download");
 
-        String ImagePath = "resource/images/posters/" + imageName + GetImageFormat(imageUrl);
+        String ImagePath = path + imageName + GetImageFormat(imageUrl);
         InputStream ImageFile = null;
 
         try {

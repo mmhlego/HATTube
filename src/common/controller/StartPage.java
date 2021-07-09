@@ -63,6 +63,7 @@ public class StartPage implements Initializable {
                 System.out.println("Connected");
 
                 Content.CheckImages();
+                User.CheckImages();
 
                 System.out.println("Loaded Images");
 

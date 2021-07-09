@@ -84,26 +84,30 @@ public class DataUpdator {
     }
 
     public static void Like(Table table, String ID) {
-        try {
-            if (table.equals(Table.Comments)) {
-                DataBase.Con.prepareStatement("UPDATE `Comments` SET `Likes` = `Likes` + 1 WHERE ID ='" + ID + "'")
-                        .executeUpdate();
+        new Thread(() -> {
+            try {
+                if (table.equals(Table.Comments)) {
+                    DataBase.Con.prepareStatement("UPDATE `Comments` SET `Likes` = `Likes` + 1 WHERE ID ='" + ID + "'")
+                            .executeUpdate();
 
-            } else if (table.equals(Table.Contents)) {
-                DataBase.Con.prepareStatement("UPDATE `Contents` SET `Likes` = `Likes` + 1 WHERE ID ='" + ID + "'")
-                        .executeUpdate();
+                } else if (table.equals(Table.Contents)) {
+                    DataBase.Con.prepareStatement("UPDATE `Contents` SET `Likes` = `Likes` + 1 WHERE ID ='" + ID + "'")
+                            .executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        }).start();
     }
 
     public static void View(String ID) {
-        try {
-            DataBase.Con.prepareStatement("UPDATE `Contents` SET `Views` = `Views` + 1 WHERE ID ='" + ID + "'")
-                    .executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        new Thread(() -> {
+            try {
+                DataBase.Con.prepareStatement("UPDATE `Contents` SET `Views` = `Views` + 1 WHERE ID ='" + ID + "'")
+                        .executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }

@@ -214,7 +214,7 @@ public class Content extends ContentInheritance {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    ImageDownloader.DownloadImage(ImageUrl, ImageName, change);
+                    ImageDownloader.DownloadImage(ImageUrl, ImageName, change, "resource/images/posters/");
                 }
             }).start();
         }

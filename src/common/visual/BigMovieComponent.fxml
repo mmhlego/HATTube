@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1080.0" stylesheets="@BigMovieComponent.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.BigMovieComponent">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1080.0" stylesheets="@BigMovieComponent.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.BigMovieComponent">
     <children>
         <AnchorPane fx:id="BackgroundPosterIMG" layoutX="420.0" layoutY="168.0" prefHeight="400.0" prefWidth="200.0" styleClass="poster" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <effect>
@@ -37,25 +37,19 @@
                 </Label>
             <HBox alignment="CENTER" layoutX="81.0" layoutY="104.0" prefHeight="47.0" prefWidth="661.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="319.0">
                <children>
-                   <Label fx:id="GenresLBL" alignment="CENTER" prefHeight="47.0" prefWidth="150.0" text="Action,Fantasy" textFill="WHITE">
+                   <Label fx:id="GenresLBL" alignment="CENTER" prefHeight="47.0" prefWidth="160.0" text="Action,Fantasy" textFill="WHITE">
                        <font>
                            <Font name="System Bold Italic" size="12.0" />
                        </font>
                    </Label>
                   <AnchorPane prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                   <Label fx:id="YearLBL" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="2021" textFill="WHITE">
+                   <Label fx:id="RateLBL" alignment="CENTER" layoutX="162.0" layoutY="10.0" prefHeight="47.0" prefWidth="160.0" text="PG-13" textFill="WHITE">
                        <font>
                            <Font name="System Bold Italic" size="12.0" />
                        </font>
                    </Label>
                   <AnchorPane layoutX="160.0" layoutY="10.0" prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                   <Label fx:id="RateLBL" alignment="CENTER" layoutX="162.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="PG-13" textFill="WHITE">
-                       <font>
-                           <Font name="System Bold Italic" size="12.0" />
-                       </font>
-                   </Label>
-                  <AnchorPane layoutX="312.0" layoutY="10.0" prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                   <Label fx:id="TimeLBL" alignment="CENTER" layoutX="314.0" layoutY="10.0" prefHeight="47.0" prefWidth="150.0" text="129M" textFill="WHITE">
+                   <Label fx:id="YearLBL" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="160.0" text="2021" textFill="WHITE">
                        <font>
                            <Font name="System Bold Italic" size="12.0" />
                        </font>
@@ -106,7 +100,7 @@
             <AnchorPane layoutX="110.0" layoutY="182.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="295.0" />
             <HBox alignment="CENTER" layoutX="197.0" layoutY="317.0" prefHeight="40.0" prefWidth="455.0" spacing="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="319.0">
                <children>
-                   <JFXButton fx:id="AddToWatchListBTN" alignment="CENTER" buttonType="RAISED" prefWidth="200.0" ripplerFill="WHITE" styleClass="btns" text="Add To Watchlist" textFill="WHITE">
+                   <JFXButton fx:id="AddToWatchListBTN" alignment="CENTER" buttonType="RAISED" prefWidth="230.0" ripplerFill="WHITE" styleClass="btns" text="Add To Watchlist" textFill="WHITE">
                        <graphic>
                            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                <image>
@@ -125,24 +119,6 @@
                      </cursor>
                   </JFXButton>
                   <AnchorPane prefHeight="9.0" prefWidth="2.0" styleClass="sep_V" />
-                   <JFXButton fx:id="DislikeBTN" alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="10.0" prefWidth="131.0" ripplerFill="WHITE" styleClass="btns" text="Dislike" textFill="WHITE">
-                       <graphic>
-                           <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                               <image>
-                                   <Image url="@../../../resource/images/icons/icons8_thumbs_down_512px.png" />
-                               </image>
-                           </ImageView>
-                       </graphic>
-                       <font>
-                           <Font name="System Bold Italic" size="15.0" />
-                       </font>
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
                    <JFXButton fx:id="LikeBTN" alignment="CENTER" buttonType="RAISED" layoutX="93.0" layoutY="10.0" prefWidth="131.0" ripplerFill="WHITE" styleClass="btns" text="Like" textFill="WHITE">
                        <graphic>
                            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -157,6 +133,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
                   </JFXButton>
                </children>
             </HBox>
