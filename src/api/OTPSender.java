@@ -28,7 +28,7 @@ public class OTPSender {
         try {
             String Token = LoadApiToken();
 
-            URL url = new URL("http://89.165.64.251:1500/api/MMHSmsSender?phone=" + Phone + "&Token=" + Token);
+            // URL url = new URL("http://89.165.64.251:1500/api/MMHSmsSender?phone=" + Phone + "&Token=" + Token);
             URL Url = new URL("http://127.0.0.1:1000/api/MMHSmsSender?phone=" + Phone + "&token=" + Token);
 
             HttpURLConnection conn = (HttpURLConnection) Url.openConnection();
