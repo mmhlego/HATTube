@@ -1,5 +1,8 @@
 package tools;
 
+import java.sql.*;
+
+import database.DataBase;
 import javafx.scene.control.TextField;
 
 public class Validator {
@@ -24,6 +27,16 @@ public class Validator {
             if (Email.substring(Email.indexOf('@') + 1, Email.length()).toLowerCase().equals(ValidEmails[i])) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public static boolean CheckUsername(String Username) {
+        try {
+            ResultSet r = DataBase.RunCommand("SELECT * FROM Users WHERE Username ='" + Username + "'");
+            return r.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return false;
     }
