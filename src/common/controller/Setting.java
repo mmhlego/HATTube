@@ -3,6 +3,8 @@ package common.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.fxml.*;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
@@ -23,6 +25,8 @@ public class Setting implements Initializable {
     private TextArea AboutUsArea;
     @FXML
     private ImageView CancelBTN;
+    @FXML
+    private JFXButton UpgradeToPremiumBTN;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,6 +40,11 @@ public class Setting implements Initializable {
 
         CancelBTN.setOnMouseClicked((e) -> {
             MainStructure.ClosePopup();
+        });
+
+        UpgradeToPremiumBTN.setOnMouseClicked((e) -> {
+            MainStructure.ClosePopup();
+            MainStructure.OpenPage("src/user/visual/PaymentPage.fxml");
         });
     }
 }

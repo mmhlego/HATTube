@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -35,9 +36,10 @@
                                           <Font name="System Bold Italic" size="15.0" />
                                        </font>
                                     </Label>
+                                    <JFXButton visible="false" />
                                  </children>
                               </VBox>
-                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="361.0" minWidth="189.0" spacing="90.0">
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="317.0" minWidth="189.0" prefHeight="317.0" prefWidth="189.0" spacing="90.0">
                                  <children>
                                     <Label fx:id="AccountIdLBL" text="Account ID">
                                        <font>
@@ -49,6 +51,7 @@
                                           <Font name="System Italic" size="15.0" />
                                        </font>
                                     </Label>
+                                    <JFXButton fx:id="UpgradeToPremiumBTN" style="-fx-background-color: rgba(0, 217, 255, 0.51); -fx-background-radius: 10;" text="Upgrade To Premium" textFill="WHITE" />
                                  </children>
                               </VBox>
                            </children>

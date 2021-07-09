@@ -17,8 +17,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
-        FXMLLoader loader = new FXMLLoader(new File("src/user/visual/PaymentPage.fxml").toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
+        // FXMLLoader loader = new FXMLLoader(new File("src/user/visual/PaymentPage.fxml").toURI().toURL());
         Parent parent = loader.load();
         /*    MediaPlayerPage c =loader.getController();
         c.OpenMediaPlayer("https://download.toplearn.com/downloads/demo/01_Html.mp4");*/
