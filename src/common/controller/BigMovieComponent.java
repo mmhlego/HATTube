@@ -118,7 +118,11 @@ public class BigMovieComponent {
             }
         });
 
-        DescriptionAea.setText(content.getDescription());
+        String DescriptionText = content.getDescription();
+        for (String[] row : content.getInfo()) {
+            DescriptionText += "\n" + Arrays.toString(row).replace("[", "").replace("]", "").replace(",", " :");
+        }
+        DescriptionAea.setText(DescriptionText);
 
         BackgroundPosterIMG.setStyle("-fx-background-image: url(" + content.getPoster().toString()
                 + ");    -fx-background-repeat: stretch;    -fx-background-size: cover;");

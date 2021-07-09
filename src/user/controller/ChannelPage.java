@@ -1,9 +1,5 @@
 package user.controller;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import common.controller.MainStructure;
 import common.controller.MediumMovieComponent;
 import database.DataSelector;

@@ -282,13 +282,14 @@ public class MainStructure implements Initializable {
             sidebarAnimation();
         });
 
-        if (UserController.LoggedIn())
+        if (UserController.LoggedIn()) {
             SideBar.getChildren().get(1).setOnMouseClicked(e -> {
                 OpenPopup("src/common/visual/Setting.fxml");
                 sidebarAnimation();
             });
-        else
+        } else {
             SideBar.getChildren().remove(1);
+        }
 
         for (Genre genre : Genre.values()) {
             Label label = new Label(genre.toString());
