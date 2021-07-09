@@ -21,6 +21,7 @@ import tools.Dialog;
 import tools.Limiter;
 import tools.Validator;
 import tools.Validator.Card;
+import user.UserController;
 import user.visual.Captcha;
 
 public class PaymentPage implements Initializable {
@@ -61,7 +62,7 @@ public class PaymentPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Limiter.Limit(CardNumberTXF, 16, true);
+        Limiter.Limit(CardNumberTXF, 19, false);
         Limiter.Limit(CvvTXF, 3, true);
         Limiter.Limit(ExpTXF, 5, false);
         Limiter.Limit(CaptchaTXF, 6, false);
@@ -81,19 +82,18 @@ public class PaymentPage implements Initializable {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    // OTPSender.SendOTP(UserController.getCurrentUser().getPhone());
-                    OTPSender.SendOTP("09146559128");
+                    OTPSender.SendOTP(UserController.getCurrentUser().getPhone());
                 }
             }).start();
         });
 
         PayBTN.setOnAction((e) -> {
-            // while (OTPSender.getCurrentState() == OTPSender.State.SENDING) {
-            //     try {
-            //         Thread.sleep(500);
-            //     } catch (Exception e2) {
-            //     }
-            // }
+            while (OTPSender.getCurrentState() == OTPSender.State.SENDING) {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e2) {
+                }
+            }
             if (inValidCard) {
                 Dialog.Alert(AlertType.ERROR, "Error", "Card Is Invalid !");
             } else if (!(OTPSender.CheckOTP(CvvTXF.getText()))) {
@@ -103,7 +103,7 @@ public class PaymentPage implements Initializable {
             } else if (!captcha.getCaptchaResult().equals(CaptchaTXF.getText())) {
                 Dialog.Alert(AlertType.ERROR, "Error", "Captcha Is W !");
             } else {
-
+                //TODO
             }
         });
 
@@ -113,11 +113,11 @@ public class PaymentPage implements Initializable {
             }
         });
 
-        CardNumberTXF.setOnKeyReleased((e) -> {
-            // if (CardNumberTXF.getText().length() == 4 || CardNumberTXF.getText().length() == 9
-            //         || CardNumberTXF.getText().length() == 14) {
-            //     PressButton(32);
-            // }
+        CardNumberTXF.textProperty().addListener((e) -> {
+            if (CardNumberTXF.getText().length() == 4 || CardNumberTXF.getText().length() == 9
+                    || CardNumberTXF.getText().length() == 14) {
+                PressButton(32);
+            }
             if (Validator.CardType(CardNumberTXF.getText()) == Card.VISA) {
                 SetImage("Visa");
                 inValidCard = false;
