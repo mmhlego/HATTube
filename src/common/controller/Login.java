@@ -24,35 +24,26 @@ import static model.StyleController.ChangeTextField;
 import static model.StyleController.LabelFloat;
 
 public class Login implements Initializable {
-
     @FXML
     private AnchorPane LoginAnchor;
-
     @FXML
     private TextField UsernameTXF;
-
     @FXML
     private Label UsernameLBL;
-
     @FXML
     private TextField PasswordTXF;
-
     @FXML
     private Label PasswordLBL;
-
     @FXML
     private Button LoginBTN;
     @FXML
     private ImageView CloseBTN;
     @FXML
     private HBox SignupBTN;
-
     @FXML
     private ImageView UsernameIMG;
-
     @FXML
     private ImageView PasswordIMG;
-
     @FXML
     private JFXCheckBox RemembermeCHB;
 
@@ -133,14 +124,9 @@ public class Login implements Initializable {
 
         LoginBTN.setOnMouseClicked(e -> {
             if (User.Approve(new User(UsernameTXF.getText(), PasswordTXF.getText()))) {
-                // ((Stage) LoginAnchor.getScene().getWindow()).close();
                 MainStructure.ClosePopup();
                 tools.Dialog.Alert(AlertType.INFORMATION, "Success", "Login successful.");
                 MainStructure.OpenFirstPage();
-
-                // ArrayList<String> ans = new ArrayList<String>(); //INFO for sample content in subscriptions
-                // ans.add("HCNT-43c9006c0a");
-                // UserController.getCurrentUser().setSubcriptions(ans);
 
                 if (RemembermeCHB.isSelected()) {
                     tools.RememberMe.SetRemember(new RememberMe(UsernameTXF.getText(), PasswordTXF.getText()));

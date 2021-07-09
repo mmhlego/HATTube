@@ -36,6 +36,7 @@ public class ChannelPage {
 
     public void ShowChannel(Channel channel) {
         AvatarIMG.setImage(User.RandomUserImage());
+        FollowBTN.setVisible(!channel.getOwnerID().equals(UserController.getCurrentUser().getID()));
         ChannelCreatorNameLBL
                 .setText(DataSelector.Select(Table.Users, new String[] { "ID='" + channel.getOwnerID() + "'" })
                         .GetColumn("Username").get(0));

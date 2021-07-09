@@ -22,8 +22,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import common.controller.MainStructure;
-
 public class MediaPlayerPage {
 
     @FXML
@@ -83,7 +81,12 @@ public class MediaPlayerPage {
                 ((AnchorPane) PcpIMG.getParent().getParent().getParent().getParent().getParent().getParent().getParent()
                         .getParent()).getScene().getWindow().hide();
 
-                MainStructure.OpenFirstPage();
+                c.getReturnBTN().setOnMousePressed(e1 -> {
+                    stage.hide();
+                    ((Stage) ((AnchorPane) PcpIMG.getParent().getParent().getParent().getParent().getParent()
+                            .getParent().getParent().getParent()).getScene().getWindow()).show();
+                });
+                // MainStructure.OpenFirstPage();
 
             } catch (IOException malformedURLException) {
                 malformedURLException.printStackTrace();
