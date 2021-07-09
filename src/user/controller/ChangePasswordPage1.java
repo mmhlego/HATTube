@@ -49,13 +49,17 @@ public class ChangePasswordPage1 implements Initializable {
         NextBTN.setCursor(Cursor.HAND);
         CancelBTN.setCursor(Cursor.HAND);
 
-        // TODO Send OTP
-
         CancelBTN.setOnMouseClicked((e) -> {
             MainStructure.ClosePopup();
         });
 
         NextBTN.setOnMouseClicked((e) -> {
+            while (OTPSender.getCurrentState() == OTPSender.State.SENDING) {
+                try {
+                    Thread.sleep(500);
+                } catch (Exception e2) {
+                }
+            }
             if (OTPSender.CheckOTP(CodeTXF.getText())) {
                 try {
                     Parent root = FXMLLoader.load(new File("src/user/visual/ChangePasswordPage2.fxml").toURI().toURL());

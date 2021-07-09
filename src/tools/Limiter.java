@@ -6,6 +6,13 @@ import javafx.beans.value.*;
 import javafx.scene.control.TextField;
 
 public class Limiter {
+
+    // public static void Limit(TextField[] textFields , int maxLength, boolean prevent) {
+    //     for (TextField textField : textFields) {
+    //         Limit(textField, maxLength, prevent);
+    //     }
+    // }
+
     public static void Limit(TextField textField, int maxLength, boolean prevent) {
         textField.textProperty().addListener(new ChangeListener<String>() {
             @Override

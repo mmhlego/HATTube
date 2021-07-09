@@ -73,7 +73,7 @@ public class Captcha extends AnchorPane {
     }
 
     private void textTranslate(Label t) {
-        int boundX = r.nextInt((int) ((y) - (t.getFont().getSize())) - 10);
+        int boundX = r.nextInt((int) ((y) - (t.getFont().getSize())));
         int boundY = (int) (r.nextInt((int) ((x / count) - (2 * t.getWidth())) - 5) + t.getWidth()) + 5;
         AnchorPane.setTopAnchor(t, (double) boundX);
         AnchorPane.setLeftAnchor(t, (double) boundY);
