@@ -28,8 +28,8 @@ public class OTPSender {
         try {
             String Token = LoadApiToken();
 
-            // URL url = new URL("http://89.165.64.251:1500/api/MMHSmsSender?phone=" + Phone + "&Token=" + Token);
-            URL Url = new URL("http://127.0.0.1:1000/api/MMHSmsSender?phone=" + Phone + "&token=" + Token);
+            URL Url = new URL("http://89.165.64.251:1000/api/MMHSmsSender?phone=" + Phone + "&Token=" + Token);
+            // URL Url = new URL("http://127.0.0.1:1000/api/MMHSmsSender?phone=" + Phone + "&token=" + Token);
 
             HttpURLConnection conn = (HttpURLConnection) Url.openConnection();
             conn.setRequestMethod("GET");
@@ -39,8 +39,7 @@ public class OTPSender {
             CurrentOTP = scanner.next();
             CurrentState = State.RECIEVED;
             Dialog.Alert(AlertType.INFORMATION, "Code",
-                    "A Verification Code Has Been Sent To " + UserController.getCurrentUser().getPhone().substring(0, 2)
-                            + "*****" + UserController.getCurrentUser().getPhone().substring(8, 12));
+                    "A Verification Code Has Been Sent To " + Phone.substring(0, 2) + "*****" + Phone.substring(8, 12));
         } catch (IOException e) {
             Dialog.Alert(AlertType.ERROR, "Error", "Check Your Internet Connection !");
             CurrentState = State.ERROR;
