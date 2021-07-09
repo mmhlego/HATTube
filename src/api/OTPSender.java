@@ -19,7 +19,7 @@ public class OTPSender {
     }
 
     private static String LoadApiToken() throws IOException {
-        Scanner reader = new Scanner(new File("src/api/Token.api.txt"));
+        Scanner reader = new Scanner(new File("src/api/Sample.Token.api.txt"));
         return reader.next();
     }
 
