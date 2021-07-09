@@ -32,7 +32,7 @@ public class ContentPage {
         PageName.setText("Search Results");
 
         ArrayList<?> Contents = DataSelector
-                .Select(Table.Contents, new String[] { "Genres LIKE '%" + genre.toString() + "%'" },
+                .Select(Table.Contents, new String[] { "Genres LIKE '%" + genre.toString() + "%'", "Visibility=1" },
                         new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC })
                 .ToArrayList();
 
@@ -50,8 +50,8 @@ public class ContentPage {
         PageName.setText("Your Subscriptions");
 
         for (String string : UserController.getCurrentUser().getSubcriptions()) {
-            Content content = (Content) DataSelector.Select(Table.Contents, new String[] { "ID='" + string + "'" })
-                    .GetFirstResult();
+            Content content = (Content) DataSelector
+                    .Select(Table.Contents, new String[] { "ID='" + string + "'", "Visibility=1" }).GetFirstResult();
             AddContent(content);
         }
 
@@ -71,8 +71,10 @@ public class ContentPage {
             AddChannel(channel);
         }
 
-        ArrayList<?> Contents = DataSelector.Select(Table.Contents, new String[] {
-                "ID LIKE '%" + search + "%' OR Name Like '%" + search + "%' OR Genres LIKE '%" + search + "%'" })
+        ArrayList<?> Contents = DataSelector.Select(Table.Contents,
+                new String[] {
+                        "ID LIKE '%" + search + "%' OR Name Like '%" + search + "%' OR Genres LIKE '%" + search + "%'",
+                        "Visibility=1" })
                 .ToArrayList();
 
         for (Content content : (ArrayList<Content>) Contents) {

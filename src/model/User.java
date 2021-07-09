@@ -220,6 +220,16 @@ public class User extends Unique {
         }
     }
 
+    public void GrantAccess(Access access) {
+        int current = 1 << access.Location;
+        AccessID = AccessID % current + current + (AccessID / (2 * current)) * 2 * current;
+    }
+
+    public void DenyAccess(Access access) {
+        int current = 1 << access.Location;
+        AccessID = AccessID % current + (AccessID / (2 * current)) * 2 * current;
+    }
+
     public static Image RandomUserImage() {
         try {
             return new Image(new FileInputStream(new File("resource/images/Avatars/RandomAvatar"
