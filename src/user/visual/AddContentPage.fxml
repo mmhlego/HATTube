@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <VBox alignment="TOP_CENTER" prefHeight="1275.0" prefWidth="1065.0" spacing="25.0" stylesheets="@AddContentPage.css"
-      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="user.controller.AddContentPage">
    <children>
       <Label text="Add Content" textFill="WHITE">

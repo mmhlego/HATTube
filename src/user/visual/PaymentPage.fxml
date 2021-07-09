@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
-            prefWidth="1065.0" stylesheets="@PaymentPage.css" xmlns="http://javafx.com/javafx/8.0.171"
+            prefWidth="1065.0" stylesheets="@PaymentPage.css" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.controller.PaymentPage">
    <children>
       <JFXTextField alignment="CENTER" editable="false" layoutX="202.0" layoutY="88.0" prefHeight="76.0"
