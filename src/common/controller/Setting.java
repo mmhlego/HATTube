@@ -32,7 +32,7 @@ public class Setting implements Initializable {
         AccountIdLBL.setText(UserController.getCurrentUser().getID());
         AccountModeLBL.setText(UserController.getCurrentUser().HasAccess(Access.Level) ? "Premium" : "Regular");
         AboutUsArea.setText(
-                "*** HAT TUBE ***\n\nOur mission is to give everyone a voice and show them the world.\n\n We believe that everyone deserves to have a voice, and that the world is a better place when we listen, share and build community through our stories.\n\n Our values are based on four essential freedoms that define who we are.");
+                "\n*** HAT TUBE ***\n\nOur mission is to give everyone a voice and show them the world.\n\n We believe that everyone deserves to have a voice, and that the world is a better place when we listen, share and build community through our stories.\n\n Our values are based on four essential freedoms that define who we are.");
 
         CancelBTN.setOnMouseClicked((e) -> {
             MainStructure.ClosePopup();

@@ -18,6 +18,7 @@ import tools.Animation;
 import tools.Dialog;
 import tools.Animation.Direction;
 import tools.Animation.Speed;
+import user.UserController;
 
 public class ChangePasswordPage1 implements Initializable {
 
@@ -35,7 +36,16 @@ public class ChangePasswordPage1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Dialog.Alert(AlertType.INFORMATION, "Code", String.valueOf(OTPSender.CreateOTP()));
+        // Dialog.Alert(AlertType.INFORMATION, "Code",
+        // String.valueOf(OTPSender.CreateOTP()));
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OTPSender.SendOTP(UserController.getCurrentUser().getPhone());
+            }
+        }).start();
+
         NextBTN.setCursor(Cursor.HAND);
         CancelBTN.setCursor(Cursor.HAND);
 
