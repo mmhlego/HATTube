@@ -79,7 +79,25 @@ public class MainStructure implements Initializable {
     private AnchorPane Header;
 
     private static ScrollPane scrollPane;
+    
+    public static ScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public static void setScrollPane(ScrollPane scrollPane) {
+        MainStructure.scrollPane = scrollPane;
+    }
+
     private static VBox Scroll;
+    
+    public static VBox getScroll() {
+        return Scroll;
+    }
+
+    public static void setScroll(VBox scroll) {
+        Scroll = scroll;
+    }
+
     private static AnchorPane root, UserAccount, header;
     boolean isWatchlistOpen = false;
     boolean isSearchOpen = false;

@@ -1,21 +1,21 @@
 .root {
-    -fx-background-color: #2d2d35;
+  -fx-background-color: #2d2d35;
 }
 
 .tab {
-    -fx-pref-width: 170;
+  -fx-pref-width: 170;
 }
 
 .tab-header-background {
-    -fx-background-color: rgba(0, 217, 255, 0.51);
+  -fx-background-color: rgba(0, 217, 255, 0.51);
 }
 
 .tab-selected-line {
-    -fx-background-color: white;
+  -fx-background-color: white;
 }
 
 .jfx-rippler {
-    -jfx-rippler-fill: white;
+  -jfx-rippler-fill: white;
 }
 
 /*.toggle{
@@ -36,27 +36,31 @@
     -fx-border-width: 0 0 2 1;
 }*/
 .area {
-    -fx-background-color: #2d2d35;
-    -fx-text-fill: white;
+  -fx-background-color: #2d2d35;
+  -fx-text-alignment: center;
+  -fx-text-fill: white;
 }
 
 .area .scroll-pane {
-    -fx-background-color: transparent;
-    -fx-background: transparent;
+  -fx-background-color: transparent;
+  -fx-text-alignment: center;
+  -fx-background: transparent;
 }
 
 .area .scroll-pane .viewport {
-    -fx-background-color: #2d2d35;
-    -fx-text-fill: white;
+  -fx-background-color: #2d2d35;
+  -fx-text-alignment: center;
+  -fx-text-fill: white;
 }
 
 .area .scroll-pane .viewport .content {
-    -fx-background-color: #2d2d35;
-    -fx-text-fill: white;
+  -fx-background-color: #2d2d35;
+  -fx-text-alignment: center;
+  -fx-text-fill: white;
 }
 
 .scroll-pane {
-    -fx-background-color: transparent;
-    -fx-background: transparent;
+  -fx-background-color: transparent;
+  -fx-text-alignment: center;
+  -fx-background: transparent;
 }
-
