@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXTextArea;
 
 import common.controller.component.CommentsComponent;
 import common.controller.component.DownloadLinkComponent;
+import database.DataAdder;
 import database.DataSelector;
 import database.DataUpdator;
 import database.DataSelector.Arrangement;
@@ -19,6 +20,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -71,6 +74,10 @@ public class BigMovieComponent {
 
     @FXML
     private VBox CommentsPlace;
+    @FXML
+    private TextArea NewCommentText;
+    @FXML
+    private VBox SendComment;
 
     public void ShowContent(Content content) {
         DataUpdator.View(content.GetID());
@@ -131,6 +138,19 @@ public class BigMovieComponent {
         for (Comment comment : (ArrayList<Comment>) Comments) {
             CommentsPlace.getChildren().add(LoadComment(comment));
         }
+
+        SendComment.setDisable(!UserController.LoggedIn());
+        SendComment.setOnMouseClicked(e -> {
+            if (NewCommentText.getText().equals("")) {
+                tools.Dialog.Alert(AlertType.ERROR, "Empty Comment", "Please provide a text for your comment.");
+            } else {
+                Comment comment = new Comment(UserController.getCurrentUser().getID(), content.getID(),
+                        NewCommentText.getText());
+                DataAdder.AddData(comment);
+                NewCommentText.setText("");
+                ShowContent(content);
+            }
+        });
     }
 
     private Node LoadComment(Comment comment) {
