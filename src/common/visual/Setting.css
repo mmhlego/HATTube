@@ -41,6 +41,10 @@
   -fx-text-fill: white;
 }
 
+.area .scroll-pane .content .text {
+  -fx-text-alignment: center;
+}
+
 .area .scroll-pane {
   -fx-background-color: transparent;
   -fx-text-alignment: center;
