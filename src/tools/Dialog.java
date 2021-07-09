@@ -20,6 +20,38 @@ public class Dialog {
     @FXML
     private Button YesBTN;
 
+    public ImageView getCancelBTN() {
+        return CancelBTN;
+    }
+
+    public void setCancelBTN(ImageView cancelBTN) {
+        CancelBTN = cancelBTN;
+    }
+
+    public Label getTextLBL() {
+        return TextLBL;
+    }
+
+    public void setTextLBL(Label textLBL) {
+        TextLBL = textLBL;
+    }
+
+    public Button getNoBTN() {
+        return NoBTN;
+    }
+
+    public void setNoBTN(Button noBTN) {
+        NoBTN = noBTN;
+    }
+
+    public Button getYesBTN() {
+        return YesBTN;
+    }
+
+    public void setYesBTN(Button yesBTN) {
+        YesBTN = yesBTN;
+    }
+
     public static void Alert(AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
         alert.setHeaderText(null);
