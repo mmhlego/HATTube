@@ -4,12 +4,18 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
+import model.Access;
+import tools.Dialog;
 import user.UserController;
-
+import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -46,10 +52,25 @@ public class UserAccount implements Initializable {
 
         MyChannelBTN.setOnMouseEntered(e -> borderTransitionToFront(Sep2));
         MyChannelBTN.setOnMouseExited(e -> borderTransitionToBack(Sep2));
-        MyChannelBTN.setOnMouseClicked(e -> MainStructure.OpenPage("src/user/visual/ChannelPage.fxml"));
+        MyChannelBTN.setOnMouseClicked(e -> {
+            if (!UserController.getCurrentUser().HasAccess(Access.CreateChannel)) {
+                Dialog.Alert(AlertType.ERROR, "Error", "You Don't Have Access To Create Channel !");
+            } else {
+                try {
+                    FXMLLoader loader = new FXMLLoader(new File("src/user/visual/ChannelPage.fxml").toURI().toURL());
+                    MainStructure.OpenPage((Parent) loader.load());
+                    ((ChannelPage) loader.getController()).ShowChannel(UserController.getCurrentUser().getChannelID());
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
 
-        SettingBTN.setOnMouseEntered(e -> borderTransitionToFront(Sep3)); //TODO must remove settings
+        SettingBTN.setOnMouseEntered(e -> borderTransitionToFront(Sep3)); // TODO must remove settings
         SettingBTN.setOnMouseExited(e -> borderTransitionToBack(Sep3));
+        SettingBTN.setOnMouseClicked(e -> {
+            MainStructure.OpenPopup("src/common/visual/Setting.fxml");
+        });
 
         LogoutBTN.setOnMouseClicked(e -> UserController.LogOut());
     }

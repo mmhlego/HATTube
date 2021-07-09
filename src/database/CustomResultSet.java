@@ -86,7 +86,7 @@ public class CustomResultSet<Type> {
 
         } else if (DataMode.equals(Table.Channels)) {
             return (new Channel(temp.getString(1), temp.getString(2), temp.getString(3),
-                    new Gson().fromJson(temp.getString(1), ArrayList.class)));
+                    new Gson().fromJson(temp.getString(4), ArrayList.class)));
 
         } else if (DataMode.equals(Table.Contents)) {
             return (new Content(temp.getString(1), temp.getString(2), temp.getString(3),
