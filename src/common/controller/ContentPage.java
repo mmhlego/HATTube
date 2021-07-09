@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 import database.DataSelector;
+import database.DataSelector.Arrangement;
+import database.DataSelector.OrderBy;
 import database.DataSelector.Table;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import model.Channel;
 import model.Content;
+import model.Genre;
 import user.UserController;
 import user.controller.MediumChannelComponent;
 
@@ -23,18 +26,36 @@ public class ContentPage {
 
     int Height = 110;
 
+    public void LoadGenre(Genre genre) {
+        Height = 110;
+
+        PageName.setText("Search Results");
+
+        ArrayList<?> Contents = DataSelector
+                .Select(Table.Contents, new String[] { "Genres LIKE '%" + genre.toString() + "%'" },
+                        new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC })
+                .ToArrayList();
+
+        for (Content content : (ArrayList<Content>) Contents) {
+            AddContent(content);
+        }
+
+        CheckEmpty(Contents);
+        FixHeight();
+    }
+
     public void LoadSubscriptions() {
         Height = 110;
 
         PageName.setText("Your Subscriptions");
-
-        CheckEmpty(UserController.getCurrentUser().getSubcriptions());
 
         for (String string : UserController.getCurrentUser().getSubcriptions()) {
             Content content = (Content) DataSelector.Select(Table.Contents, new String[] { "ID='" + string + "'" })
                     .GetFirstResult();
             AddContent(content);
         }
+
+        CheckEmpty(UserController.getCurrentUser().getSubcriptions());
         FixHeight();
     }
 

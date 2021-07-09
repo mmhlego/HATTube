@@ -293,7 +293,7 @@ public class MainStructure implements Initializable {
         for (Genre genre : Genre.values()) {
             Label label = new Label(genre.toString());
             label.getStyleClass().add("sideItem");
-            label.setPrefHeight(50);
+            label.setPrefHeight(53);
             label.setPrefWidth(300);
             label.setTextFill(Color.WHITE);
             label.setAlignment(Pos.CENTER);
@@ -301,7 +301,13 @@ public class MainStructure implements Initializable {
             SideBar.getChildren().add(label);
 
             label.setOnMouseClicked(e -> {
-                System.out.println(genre);
+                FXMLLoader loader = GetLoader("src/common/visual/ContentPage.fxml");
+                try {
+                    OpenPage((Parent) loader.load());
+                } catch (IOException e1) {
+                }
+                ((ContentPage) loader.getController()).LoadGenre(genre);
+                sidebarAnimation();
             });
         }
     }
