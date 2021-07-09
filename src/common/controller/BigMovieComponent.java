@@ -1,6 +1,7 @@
 package common.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,6 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.Comment;
 import model.Content;
@@ -70,7 +72,7 @@ public class BigMovieComponent {
     private VBox LinksPlace;
 
     @FXML
-    private VBox SimilarsPlaces;
+    private HBox SimilarsPlaces;
 
     @FXML
     private VBox CommentsPlace;
@@ -133,6 +135,21 @@ public class BigMovieComponent {
         for (Link link : (ArrayList<Link>) Links) {
             LinksPlace.getChildren().add(LoadLink(link));
         }
+        if (UserController.LoggedIn()) {
+            if (content.BelongsTo(UserController.getCurrentUser().getChannelID())) {
+                Parent parent = MainStructure.GetParent("src/common/visual/component/AddComponent.fxml");
+                LinksPlace.getChildren().add(parent);
+                ((AnchorPane) parent).setOnMouseClicked(e -> {
+                    FXMLLoader loader = MainStructure.GetLoader("src/common/visual/AddLinkPage.fxml");
+                    try {
+                        MainStructure.OpenPage((Parent) loader.load());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    ((AddLinkPage) loader.getController()).ShowContent(content);
+                });
+            }
+        }
 
         CommentsPlace.getChildren().clear();
         ArrayList<?> Comments = DataSelector
@@ -155,6 +172,18 @@ public class BigMovieComponent {
                 ShowContent(content);
             }
         });
+
+        int i = 0;
+        for (Content c : ((ArrayList<Content>) DataSelector.Select(Table.Contents, new String[] { "1" },
+                new OrderBy[] { OrderBy.Rand }, new Arrangement[] { Arrangement.NONE }).ToArrayList()).subList(0, 3)) {
+            FXMLLoader loader = MainStructure.GetLoader("src/common/visual/SmallMovieComponent.fxml");
+            try {
+                SimilarsPlaces.getChildren().add(loader.load());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            ((SmallMovieComponent) loader.getController()).ShowContent(c);
+        }
     }
 
     private Node LoadComment(Comment comment) {

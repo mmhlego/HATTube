@@ -118,7 +118,7 @@ public class SignUp5 implements Initializable {
             stage.setScene(scene);
             stage.setOnHidden((e) -> {
                 TermBOX.setSelected(Terms.Check);
-                System.out.println(2);
+                System.out.println(2); //TODO
             });
             stage.showAndWait();
         } catch (Exception e) {

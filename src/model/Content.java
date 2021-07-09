@@ -12,6 +12,7 @@ import database.DataSelector.Table;
 import javafx.scene.image.Image;
 import tools.IDGenerator;
 import tools.ImageDownloader;
+import user.UserController;
 
 public class Content extends ContentInheritance {
     String Name, Description;
@@ -218,6 +219,11 @@ public class Content extends ContentInheritance {
                 }
             }).start();
         }
+    }
+
+    public boolean BelongsTo(String channelID) {
+        return (((Channel) DataSelector.Select(Table.Channels, new String[] { "ID='" + channelID + "'" })
+                .GetFirstResult()).getContents().contains(this.getID()));
     }
 }
 

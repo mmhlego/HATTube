@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import common.controller.BigMovieComponent;
-import common.controller.MainStructure;
 import common.controller.SmallMovieComponent;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -76,7 +74,7 @@ public class MainStructureInsideComponent implements Initializable {
                 Parent movie = loader.load();
                 ((SmallMovieComponent) loader.getController()).ShowContent(content);
                 MoviesPlace.getChildren().add(movie);
-                movie.setOnMouseClicked(e -> OpenContent(content));
+                // movie.setOnMouseClicked(e -> OpenContent(content));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -86,15 +84,15 @@ public class MainStructureInsideComponent implements Initializable {
         }
     }
 
-    private void OpenContent(Content content) {
-        try {
-            FXMLLoader loader = new FXMLLoader(new File("src/common/visual/BigMovieComponent.fxml").toURI().toURL());
-            Parent parent = loader.load();
-            BigMovieComponent controller = loader.getController();
-            controller.ShowContent(content);
-            MainStructure.OpenPage(parent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    // private void OpenContent(Content content) {
+    //     try {
+    //         FXMLLoader loader = new FXMLLoader(new File("src/common/visual/BigMovieComponent.fxml").toURI().toURL());
+    //         Parent parent = loader.load();
+    //         BigMovieComponent controller = loader.getController();
+    //         controller.ShowContent(content);
+    //         MainStructure.OpenPage(parent);
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 }

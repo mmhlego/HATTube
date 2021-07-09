@@ -33,6 +33,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Access;
 import model.Genre;
 import user.UserController;
 
@@ -290,25 +291,30 @@ public class MainStructure implements Initializable {
             SideBar.getChildren().remove(1);
         }
 
-        for (Genre genre : Genre.values()) {
-            Label label = new Label(genre.toString());
-            label.getStyleClass().add("sideItem");
-            label.setPrefHeight(53);
-            label.setPrefWidth(300);
-            label.setTextFill(Color.WHITE);
-            label.setAlignment(Pos.CENTER);
-            label.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, 15));
-            SideBar.getChildren().add(label);
+        if (!UserController.LoggedIn()
+                || (UserController.LoggedIn() && !UserController.getCurrentUser().HasAccess(Access.Mode))) {
+            for (Genre genre : Genre.values()) {
+                Label label = new Label(genre.toString());
+                label.getStyleClass().add("sideItem");
+                label.setPrefHeight(53);
+                label.setPrefWidth(300);
+                label.setTextFill(Color.WHITE);
+                label.setAlignment(Pos.CENTER);
+                label.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, 15));
+                SideBar.getChildren().add(label);
 
-            label.setOnMouseClicked(e -> {
-                FXMLLoader loader = GetLoader("src/common/visual/ContentPage.fxml");
-                try {
-                    OpenPage((Parent) loader.load());
-                } catch (IOException e1) {
-                }
-                ((ContentPage) loader.getController()).LoadGenre(genre);
-                sidebarAnimation();
-            });
+                label.setOnMouseClicked(e -> {
+                    FXMLLoader loader = GetLoader("src/common/visual/ContentPage.fxml");
+                    try {
+                        OpenPage((Parent) loader.load());
+                    } catch (IOException e1) {
+                    }
+                    ((ContentPage) loader.getController()).LoadGenre(genre);
+                    sidebarAnimation();
+                });
+            }
+        } else {
+            //TODO
         }
     }
 
@@ -373,10 +379,6 @@ public class MainStructure implements Initializable {
         MainStructureInsideComponent TopRated = CreateCategory("Top Rated");
         TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
                 new OrderBy[] { OrderBy.Score }, new Arrangement[] { Arrangement.DESC }).ToArrayList());
-
-        /* MainStructureInsideComponent MostCommented = CreateCategory("Most Commented");
-         TopRated.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },
-                 new OrderBy[] { OrderBy.C }, new Arrangement[] { Arrangement.DESC }).ToArrayList());*/
 
         MainStructureInsideComponent MostLiked = CreateCategory("Most Liked");
         MostLiked.ShowContents(DataSelector.Select(Table.Contents, new String[] { "Visibility=1" },

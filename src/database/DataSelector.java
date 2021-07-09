@@ -21,9 +21,9 @@ public class DataSelector {
         for (int i = 1; i < conditions.length; i++)
             Sql += " AND " + conditions[i];
 
-        Sql += " ORDER BY " + orderBy[0].toString() + " " + arrangement[0].toString();
+        Sql += " ORDER BY " + orderBy[0].getValue() + " " + arrangement[0].getValue();
         for (int i = 1; i < orderBy.length; i++)
-            Sql += " , " + orderBy[i].toString() + " " + arrangement[i].toString();
+            Sql += " , " + orderBy[i].getValue() + " " + arrangement[i].getValue();
 
         return Convert(table, DataBase.RunCommand(Sql));
     }
@@ -61,10 +61,30 @@ public class DataSelector {
     }
 
     public enum OrderBy {
-        ID, Score, Views, Likes, Date;
+        ID("ID"), Score("Score"), Views("Views"), Likes("Likes"), Date("Date"), Rand("Rand()");
+
+        String Value;
+
+        OrderBy(String v) {
+            Value = v;
+        }
+
+        public String getValue() {
+            return Value;
+        }
     }
 
     public enum Arrangement {
-        ASC, DESC;
+        ASC("ASC"), DESC("DESC"), NONE("");
+
+        String Value;
+
+        Arrangement(String v) {
+            Value = v;
+        }
+
+        public String getValue() {
+            return Value;
+        }
     }
 }

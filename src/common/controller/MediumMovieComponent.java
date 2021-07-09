@@ -85,8 +85,6 @@ public class MediumMovieComponent {
                 AddToWatchBTN.setText("Remove From Watchlist");
             }
 
-            System.out.println(Arrays.toString(UserController.getCurrentUser().getSubcriptions().toArray()));
-
             new Thread(() -> DataUpdator.UpadateData(UserController.getCurrentUser())).start();
         });
     }
