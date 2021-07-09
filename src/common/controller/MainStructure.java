@@ -26,9 +26,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Genre;
 import user.UserController;
 
 import java.io.File;
@@ -79,7 +84,7 @@ public class MainStructure implements Initializable {
     private AnchorPane Header;
 
     private static ScrollPane scrollPane;
-    
+
     public static ScrollPane getScrollPane() {
         return scrollPane;
     }
@@ -89,7 +94,7 @@ public class MainStructure implements Initializable {
     }
 
     private static VBox Scroll;
-    
+
     public static VBox getScroll() {
         return Scroll;
     }
@@ -219,7 +224,6 @@ public class MainStructure implements Initializable {
                 try {
                     OpenPage((Parent) loader.load());
                 } catch (IOException e1) {
-                    e1.printStackTrace();
                 }
                 ((ContentPage) loader.getController()).LoadSubscriptions();
             } else {
@@ -254,11 +258,52 @@ public class MainStructure implements Initializable {
             //HCNT-4
         });
 
+        SideBarListeners();
+
         new LoadingStage();
 
         tools.OtherTools.MakeStageMovable(Root, EndArea);
 
         OpenFirstPage();
+    }
+
+    private void SideBarListeners() {
+        SideBar.getChildren().get(0).setOnMouseClicked(e -> {
+            if (UserController.LoggedIn()) {
+                FXMLLoader loader = GetLoader("src/common/visual/ContentPage.fxml");
+                try {
+                    OpenPage((Parent) loader.load());
+                } catch (IOException e1) {
+                }
+                ((ContentPage) loader.getController()).LoadSubscriptions();
+            } else {
+                OpenPopup("src/common/visual/Login.fxml");
+            }
+            sidebarAnimation();
+        });
+
+        if (UserController.LoggedIn())
+            SideBar.getChildren().get(1).setOnMouseClicked(e -> {
+                OpenPopup("src/common/visual/Setting.fxml");
+                sidebarAnimation();
+            });
+        else
+            SideBar.getChildren().remove(1);
+
+        for (Genre genre : Genre.values()) {
+            Label label = new Label(genre.toString());
+            label.getStyleClass().add("sideItem");
+            label.setPrefHeight(50);
+            label.setPrefWidth(300);
+            label.setTextFill(Color.WHITE);
+            label.setAlignment(Pos.CENTER);
+            label.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, 15));
+            SideBar.getChildren().add(label);
+
+            label.setOnMouseClicked(e -> {
+                System.out.println(genre);
+            });
+        }
     }
 
     public static void ClosePopup() {
@@ -272,10 +317,8 @@ public class MainStructure implements Initializable {
 
     public static void OpenPopup(Parent root) {
         rootBlur();
-
         PopupPane.getChildren().clear();
         PopupPane.getChildren().add(root);
-
     }
 
     private static MainStructureInsideComponent CreateCategory(String name) {

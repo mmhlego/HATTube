@@ -66,7 +66,7 @@ public class UserAccount implements Initializable {
             }
         });
 
-        SettingBTN.setOnMouseEntered(e -> borderTransitionToFront(Sep3)); // TODO must remove settings
+        SettingBTN.setOnMouseEntered(e -> borderTransitionToFront(Sep3));
         SettingBTN.setOnMouseExited(e -> borderTransitionToBack(Sep3));
         SettingBTN.setOnMouseClicked(e -> {
             MainStructure.OpenPopup("src/common/visual/Setting.fxml");
