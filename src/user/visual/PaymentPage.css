@@ -1,0 +1,31 @@
+.root {
+    -fx-background-color: black;
+}
+
+.title {
+    -fx-text-fill: white;
+}
+
+.fields {
+    -fx-prompt-text-fill: #a7a7a7;
+    -fx-text-fill: white;
+}
+
+.box {
+    -fx-border-width: 1;
+    -fx-border-color: #00eeff;
+    -fx-border-radius: 10;
+}
+
+.btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #00eeff;
+    -fx-border-width: 2;
+    -fx-border-radius: 50;
+}
+
+.btn:hover {
+    -fx-background-color: rgba(0, 238, 255, 0.45);
+    -fx-border-color: #d1fbff;
+    -fx-background-radius: 50px;
+}
