@@ -14,7 +14,7 @@ public class AccessPage {
     private JFXToggleButton RegularUserTGL;
 
     @FXML
-    private JFXToggleButton PermiumUserTGL;
+    private JFXToggleButton PremiumUserTGL;
 
     @FXML
     private JFXToggleButton CreateChannelTGL;

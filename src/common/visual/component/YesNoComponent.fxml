@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0"
+            prefWidth="400.0" styleClass="root" stylesheets="@YesNoComponent.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tools.Dialog">
+   <children>
+      <AnchorPane layoutX="65.0" layoutY="-20.0" prefHeight="40.0" prefWidth="400.0" styleClass="top"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="CancelBTN" fitWidth="35.0" layoutX="351.0" layoutY="4.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resource/images/icons/icons8_delete_480px.png"/>
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="TextLBL" alignment="CENTER" layoutX="87.0" layoutY="41.0" prefHeight="65.0" prefWidth="400.0"
+             text="Are You Sure You Want To Restrict This Content?" textFill="WHITE" AnchorPane.leftAnchor="0.0"
+             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0"/>
+         </font>
+      </Label>
+      <Button id="no" fx:id="NoBTN" layoutX="25.0" layoutY="118.0" mnemonicParsing="false" prefHeight="40.0"
+              prefWidth="170.0" styleClass="btn" text="No" textFill="WHITE" AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+      <Button id="yes" fx:id="YesBTN" layoutX="200.0" layoutY="118.0" mnemonicParsing="false" prefHeight="40.0"
+              prefWidth="170.0" styleClass="btn" text="Yes" textFill="WHITE" AnchorPane.rightAnchor="25.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

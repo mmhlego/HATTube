@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -47,8 +46,8 @@
                         <Font name="System Italic" size="15.0"/>
                      </font>
                   </JFXToggleButton>
-                  <JFXToggleButton fx:id="PermiumUserTGL" contentDisplay="RIGHT" graphicTextGap="174.0" layoutX="10.0"
-                                   layoutY="10.0" prefHeight="58.0" prefWidth="418.0" text="Permium User"
+                  <JFXToggleButton fx:id="PremiumUserTGL" contentDisplay="RIGHT" graphicTextGap="174.0" layoutX="10.0"
+                                   layoutY="10.0" prefHeight="58.0" prefWidth="418.0" text="Premium User"
                                    textFill="WHITE" toggleColor="#00b4ff" toggleLineColor="AQUA">
                      <font>
                         <Font name="System Italic" size="15.0"/>
