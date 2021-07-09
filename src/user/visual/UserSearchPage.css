@@ -1,0 +1,53 @@
+.root {
+    -fx-background-color: #2d2d35;
+}
+
+.field {
+
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 50px;
+    -fx-text-fill: white;
+
+}
+
+.field:focused {
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 2 2 2 2;
+    -fx-border-radius: 50px;
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+
+.sep {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+}
+
+.cmp {
+    -fx-background-color: #4f4f4f;
+    -fx-background-radius: 15;
+}
+
+.btn {
+    -fx-background-color: rgb(150, 150, 150);
+}
+
+.btn:hover {
+    -fx-background-color: #00e1ff;
+}
+
+#ac {
+    -fx-background-radius: 0 0 0 15;
+}
+
+#us {
+    -fx-background-radius: 0 0 15 0;
+}
+
+.per {
+    -fx-background-color: rgba(202, 10, 255, 0.38);
+    -fx-background-radius: 50;
+}
+
+.adm {
+    -fx-background-color: rgba(43, 206, 255, 0.55);
+    -fx-background-radius: 50;
+}

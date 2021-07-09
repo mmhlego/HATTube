@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@UserSearchPage.css"
+      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="user.controller.UserSearchPage">
+   <children>
+      <AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                  minWidth="-Infinity" prefHeight="63.0" prefWidth="380.0">
+         <children>
+            <AnchorPane layoutX="59.0" layoutY="49.0" prefHeight="2.0" prefWidth="200.0" styleClass="sep"
+                        AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="49.0"/>
+            <ImageView fx:id="CloseBTN" fitHeight="30.0" fitWidth="30.0" layoutX="332.0" layoutY="12.0"
+                       pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resource/images/icons/icons8_delete_480px.png"/>
+               </image>
+            </ImageView>
+            <TextField fx:id="SearchbarTXF" focusTraversable="false" layoutX="25.0" layoutY="12.0" prefHeight="30.0"
+                       prefWidth="294.0" promptText="Serch here ..." styleClass="field" AnchorPane.leftAnchor="25.0">
+               <padding>
+                  <Insets left="15.0" right="30.0"/>
+               </padding>
+            </TextField>
+            <ImageView fx:id="SearchIMG" fitHeight="25.0" fitWidth="25.0" layoutX="286.0" layoutY="15.0"
+                       pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resource/images/icons/icons8_search_144px.png"/>
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="ComponentPlace" maxHeight="337.0" maxWidth="380.0" minHeight="337.0" spacing="15.0">
+         <padding>
+            <Insets bottom="15.0" left="25.0" right="25.0" top="15.0"/>
+         </padding>
+      </VBox>
+   </children>
+</VBox>
