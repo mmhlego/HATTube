@@ -18,7 +18,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
+        // FXMLLoader loader = new FXMLLoader(new File("src/common/visual/StartPage.fxml").toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(new File("src/common/visual/ContentPage.fxml").toURI().toURL());
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         scene.setFill(Color.TRANSPARENT);
