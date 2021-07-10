@@ -1,10 +1,13 @@
 package user.controller;
 
+import api.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -16,8 +19,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Rate;
 
-public class AddContentPage implements Initializable{
+public class AddContentPage implements Initializable {
 
     @FXML
     private ImageView PosterSelectIMG;
@@ -32,7 +36,7 @@ public class AddContentPage implements Initializable{
     private ImageView GenersOpenIMG;
 
     @FXML
-    private ComboBox<?> RateCMB;
+    private ComboBox<String> RateCMB;
 
     @FXML
     private TextField ScoreTXF;
@@ -54,9 +58,14 @@ public class AddContentPage implements Initializable{
 
     final static FileChooser fileChooser = new FileChooser();
     private static Stage stage = new Stage();
+    ObservableList<String> Rates = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        for (Rate rate : Rate.values()) {
+            Rates.add(rate.toString());
+        }
+        RateCMB.setItems(Rates);
         PosterSelectIMG.setCursor(Cursor.HAND);
 
         PosterSelectIMG.setOnMouseClicked((e) -> {
@@ -65,6 +74,8 @@ public class AddContentPage implements Initializable{
             if (file != null) {
                 try {
                     PosterSelectIMG.setImage(new Image(new FileInputStream(file)));
+                    URL PosterIMG = Uploader.UploadImage(file);
+                    System.out.println(PosterIMG.toString());
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
@@ -77,7 +88,8 @@ public class AddContentPage implements Initializable{
         fileChooser.setTitle("Choose Profile Picture");
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"), new FileChooser.ExtensionFilter("JPEG", "*.jpeg") , new FileChooser.ExtensionFilter("PNG", "*.png"));
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"), new FileChooser.ExtensionFilter("JPEG", "*.jpeg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png"));
     }
 
 }
