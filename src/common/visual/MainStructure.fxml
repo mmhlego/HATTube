@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="Root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.MainStructure">
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="Root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="720.0" prefWidth="1080.0" stylesheets="@MainStructure.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="common.controller.MainStructure">
    <children>
-      <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0" spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fx:id="EndArea" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="233.0" prefHeight="40.0" prefWidth="200.0"
+            spacing="15.0" styleClass="exitMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+            AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="MiniIMG">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png" />
+                        <Image url="@../../../resource/images/icons/icons8_minus_96px.png"/>
                      </image>
                   </ImageView>
                </graphic>
@@ -67,16 +63,8 @@
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="1.0" blue="0.23529411852359772" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" blue="0.7803921699523926" />
-                                 </color>
-                              </Stop>
+                              <Stop color="#00c5ff"/>
+                              <Stop color="#00fff6" offset="1.0"/>
                            </stops>
                         </LinearGradient>
                      </textFill>
