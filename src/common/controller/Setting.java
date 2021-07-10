@@ -32,6 +32,14 @@ public class Setting implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         CancelBTN.setCursor(Cursor.HAND);
+        UpgradeToPremiumBTN.setCursor(Cursor.HAND);
+
+        System.out.println(UserController.getCurrentUser().getAccessID());
+        System.out.println(UserController.getCurrentUser().HasAccess(Access.Level));
+
+        if (UserController.getCurrentUser().HasAccess(Access.Level)) {
+            UpgradeToPremiumBTN.setVisible(false);
+        }
 
         AccountIdLBL.setText(UserController.getCurrentUser().getID());
         AccountModeLBL.setText(UserController.getCurrentUser().HasAccess(Access.Level) ? "Premium" : "Regular");
@@ -42,6 +50,7 @@ public class Setting implements Initializable {
             MainStructure.ClosePopup();
         });
 
+        
         UpgradeToPremiumBTN.setOnMouseClicked((e) -> {
             MainStructure.ClosePopup();
             MainStructure.OpenPage("src/user/visual/PaymentPage.fxml");
