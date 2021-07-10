@@ -4,12 +4,31 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 
+import database.DataAdder;
 import model.Channel;
 import model.User;
 import tools.Encoder;
 
 class UserCreator {
     private static Random random = new Random(System.currentTimeMillis());
+
+    protected static void CreateAdmins() {
+        AddAdmin(new User(User.GenerateID(), "Mohammad Mahdi", "Hejazi", "09146501380", "mmhlego@gmail.com", "mmhlego",
+                Encoder.EncodePassword("mmhlego"), LocalDate.of(2001, 12, 21), 4095, Channel.GenerateID(),
+                new ArrayList<>()));
+        AddAdmin(new User(User.GenerateID(), "Kamyab", "Tabani", "09146559128", "k.tabani82@gmail.com", "CyberGhost",
+                Encoder.EncodePassword("HAT_Cyber"), LocalDate.of(2002, 9, 11), 4095, Channel.GenerateID(),
+                new ArrayList<>()));
+        AddAdmin(new User(User.GenerateID(), "Pouya", "Afraz", "09222855759", "pouyaafraz123@gmail.com", "pouyaafraz",
+                Encoder.EncodePassword("pouyaafraz"), LocalDate.of(2002, 8, 9), 4095, Channel.GenerateID(),
+                new ArrayList<>()));
+    }
+
+    private static void AddAdmin(User user) {
+        DataAdder.AddData(user);
+        Channel channel = ChannelCreator.CreateChannel(user.getChannelID(), user.getID());
+        DataAdder.AddData(channel);
+    }
 
     protected static User CreateUser(int count) {
         String ID = User.GenerateID();

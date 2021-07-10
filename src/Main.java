@@ -12,7 +12,7 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
         launch(args);
         // api.OTPSender.SendOTP("09146501380");
-        // samples.FullDataCreator.CreateData(10);
+        // samples.FullDataCreator.CreateData(20);
         System.exit(0);
     }
 
