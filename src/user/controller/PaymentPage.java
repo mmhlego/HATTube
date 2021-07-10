@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import model.Access;
-import model.User;
 import tools.Dialog;
 import tools.Limiter;
 import tools.Validator;
@@ -116,7 +115,8 @@ public class PaymentPage implements Initializable {
                 System.out.println(UserController.getCurrentUser().getAccessID());
                 MainStructure.OpenFirstPage();
                 UserController.LogOut();
-                Dialog.Alert(AlertType.INFORMATION, "Error", "Your Payment Was Successful Log in To your Account To apply Changes");
+                Dialog.Alert(AlertType.INFORMATION, "Error",
+                        "Your Payment Was Successful Log in To your Account To apply Changes");
             }
         });
 

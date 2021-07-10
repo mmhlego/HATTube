@@ -50,6 +50,10 @@ public class MediaPlayerPage {
     int i = 0;
     String Url;
 
+    public void SetMovieName(String name) {
+        NameLBL.setText(name);
+    }
+
     public void OpenMediaPlayer(String url) {
         Url = url;
 

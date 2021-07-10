@@ -63,7 +63,8 @@ public class DownloadLinkComponent {
                         new File("src/common/visual/component/MediaPlayerPage.fxml").toURI().toURL());
                 Parent player = loader.load();
                 MediaPlayerPage controller = loader.getController();
-                controller.OpenMediaPlayer(link.getUrl().toString()); //TODO
+                controller.OpenMediaPlayer(link.getUrl().toString());
+                controller.SetMovieName(link.getName());
                 // controller.OpenMediaPlayer("https://download.toplearn.com/downloads/demo/01_Html.mp4");
                 // controller.OpenMediaPlayer("https://vjs.zencdn.net/v/oceans.mp4");
                 MainStructure.OpenPage(player);

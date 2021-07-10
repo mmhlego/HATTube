@@ -1,7 +1,6 @@
 package common.controller;
 
 import java.io.File;
-import java.util.Arrays;
 
 import com.jfoenix.controls.JFXButton;
 

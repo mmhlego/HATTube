@@ -1,6 +1,5 @@
 package common.controller;
 
-import api.OTPSender;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -96,7 +95,6 @@ public class SignUp2 implements Initializable {
             } else {
                 UserEmail = EmailTXF.getText();
                 UserPhone = PhoneNumberTXF.getText();
-                // Dialog.Alert(AlertType.INFORMATION, "Code", String.valueOf(OTPSender.CreateOTP()));
                 try {
                     root = FXMLLoader.load(new File("src/common/visual/SignUp3.fxml").toURI().toURL());
                     Animation.NextPageAnimation(RegisterAnchor, root, Direction.RIGHT, Speed.FAST);
