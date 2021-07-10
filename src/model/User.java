@@ -154,7 +154,7 @@ public class User extends Unique {
         int temp = AccessID;
         for (int i = 0; i < access.Location; i++)
             temp /= 2;
-        return temp == 1;
+        return temp % 2 == 1;
     }
 
     public static boolean Approve(User user) {

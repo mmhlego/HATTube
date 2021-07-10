@@ -13,6 +13,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Access;
 import user.UserController;
 
 import java.awt.Toolkit;
@@ -123,23 +124,30 @@ public class MediaPlayerPage {
         });
 
         DownloadIMG.setOnMouseClicked(e -> {
-            if (UserController.LoggedIn())
-                try {
-                    tools.OtherTools.openURL(new URL(Url));
-                } catch (MalformedURLException e1) {
-                    e1.printStackTrace();
+            if (UserController.LoggedIn()) {
+                if (UserController.getCurrentUser().HasAccess(Access.Level)) {
+                    try {
+                        tools.OtherTools.openURL(new URL(Url));
+                    } catch (MalformedURLException e1) {
+                        e1.printStackTrace();
+                    }
+                } else {
+                    tools.Dialog.Alert(AlertType.ERROR, "Access Denied",
+                            "Download is available for premium accounnts only.");
                 }
-            else
+            } else {
                 tools.Dialog.Alert(AlertType.ERROR, "Access Denied",
                         "Please Login to your account to download this content.");
+            }
         });
 
         CopyIMG.setOnMouseClicked(e -> {
-            if (UserController.LoggedIn())
+            if (UserController.LoggedIn()) {
                 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(Url), null);
-            else
+            } else {
                 tools.Dialog.Alert(AlertType.ERROR, "Access Denied",
                         "Please Login to your account to copy URL to clipboard.");
+            }
         });
     }
 }

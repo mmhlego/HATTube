@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import java.awt.*;
 import com.jfoenix.controls.JFXTextField;
 import api.OTPSender;
+import common.controller.MainStructure;
+import database.DataUpdator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +19,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import model.Access;
+import model.User;
 import tools.Dialog;
 import tools.Limiter;
 import tools.Validator;
@@ -63,9 +67,11 @@ public class PaymentPage implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         Limiter.Limit(CardNumberTXF, 19, false);
-        Limiter.Limit(CvvTXF, 3, true);
+        Limiter.Limit(CvvTXF, 8, true);
         Limiter.Limit(ExpTXF, 5, false);
         Limiter.Limit(CaptchaTXF, 6, false);
+
+        AccountIdLBL.setText(UserController.getCurrentUser().getID());
 
         captcha = new Captcha(303, 30, 6);
         CaptchaPlace.getChildren().add(captcha);
@@ -85,6 +91,7 @@ public class PaymentPage implements Initializable {
                     OTPSender.SendOTP(UserController.getCurrentUser().getPhone());
                 }
             }).start();
+            // System.out.println(OTPSender.CreateOTP());
         });
 
         PayBTN.setOnAction((e) -> {
@@ -103,7 +110,13 @@ public class PaymentPage implements Initializable {
             } else if (!captcha.getCaptchaResult().equals(CaptchaTXF.getText())) {
                 Dialog.Alert(AlertType.ERROR, "Error", "Captcha Is W !");
             } else {
-                //TODO
+                System.out.println(UserController.getCurrentUser().getAccessID());
+                UserController.getCurrentUser().GrantAccess(Access.Level);
+                DataUpdator.UpadateData(UserController.getCurrentUser());
+                System.out.println(UserController.getCurrentUser().getAccessID());
+                MainStructure.OpenFirstPage();
+                UserController.LogOut();
+                Dialog.Alert(AlertType.INFORMATION, "Error", "Your Payment Was Successful Log in To your Account To apply Changes");
             }
         });
 

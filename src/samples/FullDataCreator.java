@@ -11,6 +11,8 @@ public class FullDataCreator {
 
         DataRemover.ClearAllTables();
 
+        UserCreator.CreateAdmins();
+
         for (int i = 0; i < amount; i++) {
             User user = UserCreator.CreateUser(i + 1);
             DataAdder.AddData(user);
