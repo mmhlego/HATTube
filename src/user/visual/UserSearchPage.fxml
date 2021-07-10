@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="380.0" styleClass="root" stylesheets="@UserSearchPage.css"
-      xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="user.controller.UserSearchPage">
    <children>
       <AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"

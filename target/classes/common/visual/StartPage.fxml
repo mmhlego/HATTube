@@ -5,23 +5,26 @@
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@StartPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.StartPage">
-   <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="15.0" layoutY="6.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../../../resource/images/FirstImage.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane fx:id="anchor" layoutX="147.0" layoutY="116.0" prefHeight="74.0" prefWidth="307.0" styleClass="box">
-         <children>
-            <Label fx:id="LBL" alignment="CENTER" layoutX="140.0" layoutY="29.0" text="HAT Tube" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <font>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" styleClass="root" stylesheets="@StartPage.css" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="common.controller.StartPage">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="15.0" layoutY="6.0" pickOnBounds="true"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../../../resource/images/FirstImage.jpg"/>
+            </image>
+        </ImageView>
+        <AnchorPane fx:id="anchor" layoutX="147.0" layoutY="116.0" prefHeight="74.0" prefWidth="307.0" styleClass="box">
+            <children>
+                <Label fx:id="LBL" alignment="CENTER" layoutX="140.0" layoutY="29.0" text="HAT Tube"
+                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                       AnchorPane.topAnchor="0.0">
+                    <font>
                   <Font name="System Bold Italic" size="40.0" />
                </font>
                <padding>
@@ -29,18 +32,11 @@
                </padding>
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" blue="0.23529411852359772" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" blue="0.7803921699523926" />
-                           </color>
-                        </Stop>
-                     </stops>
+                      <stops>
+                          <Stop color="#00c5ff"/>
+                          <Stop color="#00fff6" offset="0.9961685823754789"/>
+                          <Stop color="#00fff6" offset="1.0"/>
+                      </stops>
                   </LinearGradient>
                </textFill>
             </Label>
